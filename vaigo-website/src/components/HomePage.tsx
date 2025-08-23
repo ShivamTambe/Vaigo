@@ -3,6 +3,7 @@ import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { ImageWithFallback } from './ImageWithFallback';
 import { ProductShowcase } from './ProductShowcase';
+import { TrustIndicators } from './TrustIndicators';
 import { 
   Plane, 
   Brain, 
@@ -200,123 +201,11 @@ export function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Product Showcase */}
-      {/* <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Vaigo in Action
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Witness the power of Vaigo transforming agricultural operations with unparalleled precision, 
-              efficiency, and seamless integration with our AI ecosystem.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Plane className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Autonomous Flight Control</h3>
-                    <p className="text-gray-600">RTK/PPK positioning enables centimeter-level accuracy for precise route execution and autonomous operations.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <BarChart3 className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Real-time Analytics</h3>
-                    <p className="text-gray-600">Integrated sensing capabilities provide valuable data on crop health, pest infestations, and field conditions.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Target className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Precision Application</h3>
-                    <p className="text-gray-600">Variable rate application ensures optimal resource allocation based on real-time field conditions and AI recommendations.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
-                  onClick={() => onNavigate('products')}
-                >
-                  Learn More About Vaigo
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-green-200 text-green-700 hover:bg-green-50"
-                  onClick={() => onNavigate('contact')}
-                >
-                  Request a Demo
-                </Button>
-              </div>
-            </div>
-
-            <div className="relative">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1744230673231-865d54a0aba4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhZ3JpY3VsdHVyZSUyMHRlY2hub2xvZ3klMjBkYXNoYm9hcmQlMjBBSSUyMGludGVyZmFjZXxlbnwxfHx8fDE3NTU4NDg4MzN8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Agro AI Ecosystem dashboard interface"
-                className="w-full h-auto rounded-2xl shadow-xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section> */}
+      {/* Enhanced Product Showcase */}
       <ProductShowcase onNavigate={onNavigate} />
 
-      {/* Testimonials */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Our Customers Say
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hear directly from farmers and agricultural professionals who have experienced 
-              the transformative impact of Vaigo and the Agro AI Ecosystem.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border border-gray-100 hover:border-green-200 transition-all duration-300 hover:shadow-lg">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-6 leading-relaxed">"{testimonial.content}"</p>
-                  <div className="border-t border-gray-100 pt-4">
-                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
-                    {testimonial.company && (
-                      <p className="text-sm text-gray-500">{testimonial.company}</p>
-                    )}
-                    {testimonial.location && (
-                      <p className="text-sm text-gray-500">{testimonial.location}</p>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Trust Indicators and Testimonials */}
+      <TrustIndicators />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">

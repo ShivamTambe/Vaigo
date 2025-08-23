@@ -55,20 +55,20 @@ export function ProductShowcase({ onNavigate }: ProductShowcaseProps) {
       ],
       stats: { dropletSize: '150-300μm', sprayWidth: '6-10m', efficiency: '98% coverage' }
     },
-    // {
-    //   id: 'obstacle-avoidance',
-    //   title: 'Intelligent Detection & Avoidance',
-    //   description: 'Multi-directional sensors detect and navigate around trees, power lines, and field obstructions',
-    //   image: 'https://images.unsplash.com/photo-1632064535948-d387f1c8789c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3JuJTIwZmllbGQlMjBkcm9uZSUyMGFncmljdWx0dXJlJTIwYWVyaWFsJTIwdmlld3xlbnwxfHx8fDE3NTU4Njg3MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    //   icon: Shield,
-    //   features: [
-    //     'Millimeter-wave radar detection',
-    //     'LiDAR precision mapping',
-    //     'Binocular vision system',
-    //     '360-degree situational awareness'
-    //   ],
-    //   stats: { detection: '30m range', response: '<0.2s', obstacles: 'All types', safety: '99.9%' }
-    // },
+    {
+      id: 'obstacle-avoidance',
+      title: 'Smart Obstacle Avoidance',
+      description: 'Multi-directional sensors detect and navigate around trees, power lines, and field obstructions',
+      image: 'https://images.unsplash.com/photo-1632064535948-d387f1c8789c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3JuJTIwZmllbGQlMjBkcm9uZSUyMGFncmljdWx0dXJlJTIwYWVyaWFsJTIwdmlld3xlbnwxfHx8fDE3NTU4Njg3MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      icon: Shield,
+      features: [
+        'Millimeter-wave radar detection',
+        'LiDAR precision mapping',
+        'Binocular vision system',
+        '360-degree situational awareness'
+      ],
+      stats: { detection: '30m range', response: '<0.2s', obstacles: 'All types', safety: '99.9%' }
+    },
     {
       id: 'control-system',
       title: 'Ground Control System Interface',
@@ -83,34 +83,34 @@ export function ProductShowcase({ onNavigate }: ProductShowcaseProps) {
       ],
       stats: { range: '5km', latency: '<50ms', features: '20+ tools', uptime: '99.8%' }
     },
-    // {
-    //   id: 'farmer-interaction',
-    //   title: 'Seamless Farmer Integration',
-    //   description: 'Agricultural professionals easily interact with Vaigo system, emphasizing user-friendly operation and training',
-    //   image: 'https://images.unsplash.com/photo-1744230673231-865d54a0aba4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXJtZXIlMjB1c2luZyUyMHRhYmxldCUyMHRlY2hub2xvZ3klMjBzbWFydCUyMGZhcm1pbmd8ZW58MXx8fHwxNzU1ODY4NzA3fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    //   icon: Users,
-    //   features: [
-    //     'Intuitive touchscreen interface',
-    //     'Minimal training requirements',
-    //     'One-touch automated operations',
-    //     'Multi-language support'
-    //   ],
-    //   stats: { training: '2 hours', adoption: '95%', satisfaction: '4.8/5', support: '24/7' }
-    // },
-    // {
-    //   id: 'crop-coverage',
-    //   title: 'Multi-Crop Field Operations',
-    //   description: 'Comprehensive coverage across sugarcane, corn, wheat, and specialty crops with crop-specific optimization',
-    //   image: 'https://images.unsplash.com/photo-1681999735650-3b56d16ffd17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdWdhcmNhbmUlMjBmaWVsZCUyMGFlcmlhbCUyMHZpZXclMjBhZ3JpY3VsdHVyZXxlbnwxfHx8fDE3NTU4Njg3MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    //   icon: BarChart3,
-    //   features: [
-    //     'Crop-specific spray patterns',
-    //     'Adaptive application rates',
-    //     'Multi-season compatibility',
-    //     'Yield optimization tracking'
-    //   ],
-    //   stats: { crops: '15+ types', seasons: 'Year-round', optimization: '+25% yield', coverage: '1000+ hectares' }
-    // }
+    {
+      id: 'farmer-interaction',
+      title: 'Seamless Farmer Integration',
+      description: 'Agricultural professionals easily interact with Vaigo system, emphasizing user-friendly operation and training',
+      image: 'https://images.unsplash.com/photo-1744230673231-865d54a0aba4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXJtZXIlMjB1c2luZyUyMHRhYmxldCUyMHRlY2hub2xvZ3klMjBzbWFydCUyMGZhcm1pbmd8ZW58MXx8fHwxNzU1ODY4NzA3fDA&ixlib=rb-4.1.0&q=80&w=1080',
+      icon: Users,
+      features: [
+        'Intuitive touchscreen interface',
+        'Minimal training requirements',
+        'One-touch automated operations',
+        'Multi-language support'
+      ],
+      stats: { training: '2 hours', adoption: '95%', satisfaction: '4.8/5', support: '24/7' }
+    },
+    {
+      id: 'crop-coverage',
+      title: 'Multi-Crop Field Operations',
+      description: 'Comprehensive coverage across sugarcane, corn, wheat, and specialty crops with crop-specific optimization',
+      image: 'https://images.unsplash.com/photo-1681999735650-3b56d16ffd17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdWdhcmNhbmUlMjBmaWVsZCUyMGFlcmlhbCUyMHZpZXclMjBhZ3JpY3VsdHVyZXxlbnwxfHx8fDE3NTU4Njg3MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      icon: BarChart3,
+      features: [
+        'Crop-specific spray patterns',
+        'Adaptive application rates',
+        'Multi-season compatibility',
+        'Yield optimization tracking'
+      ],
+      stats: { crops: '15+ types', seasons: 'Year-round', optimization: '+25% yield', coverage: '1000+ hectares' }
+    }
   ];
 
   const nextSlide = () => {
@@ -192,7 +192,7 @@ export function ProductShowcase({ onNavigate }: ProductShowcaseProps) {
             </div>
 
             {/* Thumbnail Navigation */}
-            <div className="flex space-x-2 mt-4 overflow-x-auto pb-2">
+            <div className="hidden md:flex space-x-2 mt-4 overflow-x-auto pb-2">
               {showcaseItems.map((item, index) => (
                 <button
                   key={item.id}
