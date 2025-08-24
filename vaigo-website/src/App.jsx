@@ -4,6 +4,11 @@ import { HomePage } from "./components/HomePage";
 import { AboutPage } from "./components/AboutPage";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { ProductsPage } from './components/ProductsPage';
+import { SolutionsPage } from './components/SolutionsPage';
+import { TechnologyPage } from './components/TechnologyPage';
+import { MarketsPage } from './components/MarketsPage';
+import { ContactPage } from './components/ContactPage';
 
 export default function App() {
   return (
@@ -16,6 +21,13 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/solutions" element={<SolutionsPage />} />
+            <Route path="/technology" element={<TechnologyPage />} />
+            <Route path="/markets" element={<MarketsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+
+
             {/* Future pages */}
           </Routes>
         </main>

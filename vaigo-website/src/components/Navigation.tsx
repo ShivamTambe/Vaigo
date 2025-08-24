@@ -1,19 +1,20 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Button } from "./ui/button";
-import { Menu, X, Zap } from "lucide-react";
+import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Button } from './ui/button';
+import { Menu, X, Zap } from 'lucide-react';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
+  const location = useLocation(); // to highlight current page
 
   const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About Us" },
-    { path: "/products", label: "Products" },
-    { path: "/solutions", label: "Solutions" },
-    { path: "/markets", label: "Markets" },
-    { path: "/contact", label: "Contact" },
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About Us' },
+    { path: '/products', label: 'Products' },
+    { path: '/solutions', label: 'Solutions' },
+    { path: '/technology', label: 'Technology' },
+    { path: '/markets', label: 'Markets' },
+    { path: '/contact', label: 'Contact' },
   ];
 
   return (
@@ -21,15 +22,13 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2 cursor-pointer">
             <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-blue-600 rounded-lg flex items-center justify-center">
               <Zap className="w-5 h-5 text-white" />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-gray-900">Vaigo</span>
-              <span className="text-xs text-green-600 -mt-1">
-                by Dotflick Ventures
-              </span>
+              <span className="text-xs text-green-600 -mt-1">Precision from Above</span>
             </div>
           </Link>
 
@@ -41,8 +40,8 @@ export function Navigation() {
                 to={item.path}
                 className={`transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? "text-green-600 font-medium"
-                    : "text-gray-700 hover:text-green-600"
+                    ? 'text-green-600 font-medium'
+                    : 'text-gray-700 hover:text-green-600'
                 }`}
               >
                 {item.label}
@@ -76,8 +75,8 @@ export function Navigation() {
                   onClick={() => setIsMenuOpen(false)}
                   className={`block w-full text-left px-3 py-2 rounded-md transition-colors duration-200 ${
                     location.pathname === item.path
-                      ? "text-green-600 bg-green-50 font-medium"
-                      : "text-gray-700 hover:text-green-600 hover:bg-green-50"
+                      ? 'text-green-600 bg-green-50 font-medium'
+                      : 'text-gray-700 hover:text-green-600 hover:bg-green-50'
                   }`}
                 >
                   {item.label}
