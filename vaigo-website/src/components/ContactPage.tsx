@@ -44,20 +44,37 @@ export function ContactPage() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      inquiry: '',
-      message: ''
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("http://localhost:5000/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
     });
-  };
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("✅ Message sent successfully!");
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        inquiry: '',
+        message: ''
+      });
+    } else {
+      alert(`❌ Failed: ${data.message}`);
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    alert("⚠️ Something went wrong. Try again later.");
+  }
+};
+
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
