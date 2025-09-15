@@ -7,7 +7,7 @@ import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 // import { ImageWithFallback } from './figmaImageWithFallback/';
-import { 
+import {
   Calendar,
   Clock,
   Video,
@@ -48,32 +48,51 @@ export function ScheduleCallPage() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     console.log('Schedule call form submitted:', formData);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds and navigate back
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        jobTitle: '',
-        farmSize: '',
-        meetingType: '',
-        callPurpose: '',
-        preferredDate: '',
-        preferredTime: '',
-        duration: '',
-        timeZone: 'UTC+5:30 (IST - India Standard Time)',
-        currentChallenges: '',
-        additionalNotes: ''
+    try {
+      const response = await fetch("http://localhost:5000/api/schedule", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+
+      const data = await response.json();
+
+      // Reset form after 3 seconds and navigate back
+      if (response.ok) {
+        setIsSubmitted(true);  // ✅ Show success screen
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          jobTitle: '',
+          farmSize: '',
+          meetingType: '',
+          callPurpose: '',
+          preferredDate: '',
+          preferredTime: '',
+          duration: '',
+          timeZone: 'UTC+5:30 (IST - India Standard Time)',
+          currentChallenges: '',
+          additionalNotes: ''
+        });
+
+        // Auto redirect back after few seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          navigate("/");
+        }, 3000);
+      } else {
+        alert(`❌ Failed: ${data.error || "Something went wrong"}`);
+      }
+    } catch (error) {
+      console.error("Error submitting schedule form:", error);
+      alert("⚠️ Something went wrong. Try again later.");
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -167,15 +186,15 @@ export function ScheduleCallPage() {
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Contact
             </Button>
-            
+
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Schedule a Consultation with 
+              Schedule a Consultation with
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
                 {" "}Our Experts
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Ready to transform your farming operations with Vaigo? Let's discuss how our advanced 
+              Ready to transform your farming operations with Vaigo? Let's discuss how our advanced
               agricultural drones and AI-powered ecosystem can benefit your specific needs.
             </p>
           </div>
@@ -459,18 +478,18 @@ export function ScheduleCallPage() {
 
                 {/* Submit Button */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                  <Button 
-                    type="submit" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    size="lg"
                     className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 flex-1"
                   >
                     Schedule My Call
                     <Calendar className="ml-2 w-5 h-5" />
                   </Button>
-                  <Button 
-                    type="button" 
-                    variant="outline" 
-                    size="lg" 
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="lg"
                     onClick={() => navigate('/contact')}
                     className="border-gray-200 text-gray-700 hover:bg-gray-50"
                   >
