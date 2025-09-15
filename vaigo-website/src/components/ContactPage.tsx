@@ -34,7 +34,12 @@ import {
   Droplets
 } from 'lucide-react';
 
+import { useNavigate } from "react-router-dom";
+
 export function ContactPage() {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -267,6 +272,7 @@ export function ContactPage() {
                     type="button" 
                     variant="outline" 
                     size="lg" 
+                    onClick={() => navigate("/schedule-call")}
                     className="border-green-200 text-green-700 hover:bg-green-50"
                   >
                     <MessageSquare className="mr-2 w-5 h-5" />

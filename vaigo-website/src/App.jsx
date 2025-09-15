@@ -9,6 +9,7 @@ import { SolutionsPage } from './components/SolutionsPage';
 import { TechnologyPage } from './components/TechnologyPage';
 import { MarketsPage } from './components/MarketsPage';
 import { ContactPage } from './components/ContactPage';
+import { ScheduleCallPage } from "./components/ScheduleCallPage";
 
 export default function App() {
   return (
@@ -26,7 +27,7 @@ export default function App() {
             <Route path="/technology" element={<TechnologyPage />} />
             <Route path="/markets" element={<MarketsPage />} />
             <Route path="/contact" element={<ContactPage />} />
-
+            <Route path="/schedule-call" element={<ScheduleCallPage />} />
 
             {/* Future pages */}
           </Routes>
