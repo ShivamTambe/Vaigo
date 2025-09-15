@@ -1,11 +1,7 @@
 // server/routes/schedule.js
 import express from "express";
-import Schedule from "../models/Schedule.js";  // your Schedule model
-
 import nodemailer from "nodemailer";
-
-
-
+import Schedule from "../models/Schedule.js";
 
 const router = express.Router();
 
@@ -29,11 +25,6 @@ router.post("/", async (req, res) => {
   } = req.body;
 
   try {
-    // ✅ Validate required fields
-    // if (!name || !email || !phone || !meetingType || !callPurpose || !preferredDate || !preferredTime || !duration) {
-    //   return res.status(400).json({ error: "Missing required fields" });
-    // }
-
     // ✅ Save to MongoDB
     const newSchedule = new Schedule({
       name,
@@ -51,9 +42,11 @@ router.post("/", async (req, res) => {
       currentChallenges,
       additionalNotes
     });
-
     await newSchedule.save();
+
     console.log("EMAIL_USER:", process.env.EMAIL_USER);
+
+    // ✅ Create transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -62,39 +55,46 @@ router.post("/", async (req, res) => {
       }
     });
 
-    // ✅ Notify your company
+    // ✅ Email to company with HTML formatting
+    const companyHtml = `
+      <h2>📅 New Schedule Request</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      <p><strong>Company:</strong> ${company || "N/A"}</p>
+      <p><strong>Job Title:</strong> ${jobTitle || "N/A"}</p>
+      <p><strong>Farm Size:</strong> ${farmSize || "N/A"}</p>
+      <hr>
+      <p><strong>Meeting Type:</strong> ${meetingType}</p>
+      <p><strong>Call Purpose:</strong> ${callPurpose}</p>
+      <p><strong>Date:</strong> ${preferredDate}</p>
+      <p><strong>Time:</strong> ${preferredTime}</p>
+      <p><strong>Duration:</strong> ${duration}</p>
+      <p><strong>Time Zone:</strong> ${timeZone}</p>
+      <hr>
+      <p><strong>Current Challenges:</strong> ${currentChallenges || "N/A"}</p>
+      <p><strong>Additional Notes:</strong> ${additionalNotes || "N/A"}</p>
+    `;
+
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // company email
+      to: process.env.EMAIL_USER, // Company email
       subject: "📅 New Schedule Request",
-      text: `
-New schedule request:
-
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Company: ${company || "N/A"}
-Job Title: ${jobTitle || "N/A"}
-Farm Size: ${farmSize || "N/A"}
-
-Meeting Type: ${meetingType}
-Call Purpose: ${callPurpose}
-Date: ${preferredDate}
-Time: ${preferredTime}
-Duration: ${duration}
-Time Zone: ${timeZone}
-
-Challenges: ${currentChallenges || "N/A"}
-Notes: ${additionalNotes || "N/A"}
-      `
+      html: companyHtml
     });
 
-    // ✅ Confirmation to user
+    // ✅ Confirmation to user (plain text)
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
       subject: "✅ Your meeting request was received",
-      text: `Hi ${name},\n\nWe received your request for a ${meetingType} on ${preferredDate} at ${preferredTime} (${timeZone}).\n\nOur team will review and confirm shortly.\n\n- Vaigo Team`
+      text: `Hi ${name},
+
+We received your request for a ${meetingType} on ${preferredDate} at ${preferredTime} (${timeZone}).
+
+Our team will review and confirm shortly.
+
+- Vaigo Team`
     });
 
     res.status(200).json({ message: "Schedule submitted successfully" });
