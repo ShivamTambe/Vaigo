@@ -7,10 +7,10 @@ import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { ImageWithFallback } from './ImageWithFallback';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
+import {
+  Mail,
+  Phone,
+  MapPin,
   Clock,
   Send,
   MessageSquare,
@@ -50,35 +50,35 @@ export function ContactPage() {
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const response = await fetch("http://localhost:5000/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      alert("✅ Message sent successfully!");
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        inquiry: '',
-        message: ''
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-    } else {
-      alert(`❌ Failed: ${data.message}`);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("✅ Message sent successfully!");
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          inquiry: '',
+          message: ''
+        });
+      } else {
+        alert(`❌ Failed: ${data.message}`);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("⚠️ Something went wrong. Try again later.");
     }
-  } catch (error) {
-    console.error("Error submitting form:", error);
-    alert("⚠️ Something went wrong. Try again later.");
-  }
-};
+  };
 
 
   const handleInputChange = (field: string, value: string) => {
@@ -119,13 +119,13 @@ export function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Get in Touch with 
+              Get in Touch with
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
                 {" "}Dotflick Ventures
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Ready to revolutionize your farming operations? We're here to help you discover how 
+              Ready to revolutionize your farming operations? We're here to help you discover how
               Vaigo and the Agro AI Ecosystem can transform your agricultural practices.
             </p>
           </div>
@@ -140,7 +140,7 @@ export function ContactPage() {
               Multiple Ways to Connect
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose the best way to reach us. Our team is ready to assist you with any questions 
+              Choose the best way to reach us. Our team is ready to assist you with any questions
               about our products, services, or partnership opportunities.
             </p>
           </div>
@@ -260,18 +260,18 @@ export function ContactPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    type="submit" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    size="lg"
                     className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 flex-1"
                   >
                     Send Message
                     <Send className="ml-2 w-5 h-5" />
                   </Button>
-                  <Button 
-                    type="button" 
-                    variant="outline" 
-                    size="lg" 
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="lg"
                     onClick={() => navigate("/schedule-call")}
                     className="border-green-200 text-green-700 hover:bg-green-50"
                   >
@@ -296,8 +296,8 @@ export function ContactPage() {
               Your Partner in Success
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              At Dotflick Ventures, we understand that investing in advanced agricultural technology is a significant decision. 
-              That's why our commitment to your success extends far beyond the sale of our products. We offer a comprehensive 
+              At Dotflick Ventures, we understand that investing in advanced agricultural technology is a significant decision.
+              That's why our commitment to your success extends far beyond the sale of our products. We offer a comprehensive
               suite of support and services designed to ensure you maximize the value of your Vaigo drone and the Agro AI Ecosystem.
             </p>
           </div>
@@ -357,7 +357,7 @@ export function ContactPage() {
                     <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Training and Certification</h3>
                   </div>
                   <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                    Empowering Your Team with comprehensive training programs designed for operators, farm managers, 
+                    Empowering Your Team with comprehensive training programs designed for operators, farm managers,
                     and technical staff, catering to various levels of experience.
                   </p>
                 </div>
@@ -447,7 +447,7 @@ export function ContactPage() {
                     <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Technical Support</h3>
                   </div>
                   <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                    Expert Assistance When You Need It. Our dedicated technical support team provides prompt 
+                    Expert Assistance When You Need It. Our dedicated technical support team provides prompt
                     and effective assistance, minimizing downtime and ensuring continuous operation.
                   </p>
                 </div>
@@ -501,7 +501,7 @@ export function ContactPage() {
                     <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Maintenance Services</h3>
                   </div>
                   <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                    Ensuring Peak Performance and Longevity. Regular maintenance is crucial for optimal performance. 
+                    Ensuring Peak Performance and Longevity. Regular maintenance is crucial for optimal performance.
                     We offer flexible maintenance plans to keep your equipment in top condition.
                   </p>
                 </div>
@@ -562,7 +562,7 @@ export function ContactPage() {
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Documentation and Resources</h3>
               </div>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Comprehensive Information at Your Fingertips. We provide extensive documentation and resources 
+                Comprehensive Information at Your Fingertips. We provide extensive documentation and resources
                 to help you understand, operate, and maintain your Vaigo drone and Agro AI Ecosystem effectively.
               </p>
             </div>
@@ -649,10 +649,10 @@ export function ContactPage() {
                 Experience Comprehensive Support
               </h3>
               <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
-                Our commitment to support and service ensures that you have the resources and expertise 
+                Our commitment to support and service ensures that you have the resources and expertise
                 you need to succeed with Vaigo and the Agro AI Ecosystem. Partner with us for a seamless and productive farming experience.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
                   <GraduationCap className="mr-2 w-5 h-5" />
                   Enroll in Training
@@ -661,7 +661,7 @@ export function ContactPage() {
                   <Headphones className="mr-2 w-5 h-5" />
                   Contact Support
                 </Button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -746,11 +746,11 @@ export function ContactPage() {
             Ready to Transform Your Farm?
           </h2>
           <p className="text-xl text-green-100 mb-8 leading-relaxed">
-            Don't wait to experience the future of farming. Contact us today to schedule 
+            Don't wait to experience the future of farming. Contact us today to schedule
             a personalized demonstration of Vaigo and the Agro AI Ecosystem.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
+            {/* <Button 
               size="lg" 
               variant="secondary" 
               className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
@@ -763,6 +763,16 @@ export function ContactPage() {
               className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
             >
               Download Brochure
+            </Button> */}
+            <Button
+              type="button"
+              variant="outline"
+              size="lg"
+              onClick={() => navigate("/schedule-call")}
+              className="border-green-200 text-green-100 hover:bg-green-50"
+            >
+              <MessageSquare className="mr-2 w-5 h-5" />
+              Schedule Demo Call
             </Button>
           </div>
         </div>

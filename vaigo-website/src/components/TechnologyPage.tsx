@@ -21,7 +21,12 @@ import {
   Layers
 } from 'lucide-react';
 
+import { useNavigate } from "react-router-dom";
+
 export function TechnologyPage() {
+
+  const navigate = useNavigate();
+
   const technologies = [
     {
       icon: Brain,
@@ -443,12 +448,18 @@ export function TechnologyPage() {
             is more intelligent, efficient, sustainable, and profitable.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-medium transition-colors">
-              Explore Our Solutions
-            </button>
-            <button className="border border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-medium transition-colors">
-              View Products
-            </button>
+            <button 
+            onClick={() => navigate("/solutions")}
+            className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-medium transition-colors"
+          >
+            Explore Our Solutions
+          </button>
+          <button 
+            onClick={() => navigate("/products")}
+            className="border border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-medium transition-colors"
+          >
+            View Products
+          </button>
           </div>
         </div>
       </section>

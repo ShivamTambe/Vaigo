@@ -19,11 +19,12 @@ import {
   CheckCircle
 } from 'lucide-react';
 
-interface ProductsPageProps {
-  onNavigate: (page: string) => void;
-}
+import { useNavigate } from "react-router-dom";
 
-export function ProductsPage({ onNavigate }: ProductsPageProps) {
+export function ProductsPage() {
+
+  const navigate = useNavigate();
+
   const vaigoFeatures = [
     {
       icon: Target,
@@ -167,7 +168,7 @@ export function ProductsPage({ onNavigate }: ProductsPageProps) {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
-                onClick={() => onNavigate('contact')}
+                onClick={() => navigate('/contact')}
               >
                 Request Vaigo Demo
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -270,7 +271,7 @@ export function ProductsPage({ onNavigate }: ProductsPageProps) {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-blue-500 to-green-600 hover:from-blue-600 hover:to-green-700"
-                onClick={() => onNavigate('solutions')}
+                onClick={() => navigate('/solutions')}
               >
                 Explore AI Ecosystem
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -372,7 +373,7 @@ export function ProductsPage({ onNavigate }: ProductsPageProps) {
               size="lg" 
               variant="secondary" 
               className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
-              onClick={() => onNavigate('contact')}
+              onClick={() => navigate('/contact')}
             >
               Request a Demo
             </Button>
@@ -380,7 +381,7 @@ export function ProductsPage({ onNavigate }: ProductsPageProps) {
               size="lg" 
               variant="outline" 
               className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
-              onClick={() => onNavigate('solutions')}
+              onClick={() => navigate('/solutions')}
             >
               Learn More
             </Button>

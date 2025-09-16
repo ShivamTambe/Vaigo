@@ -39,7 +39,7 @@ export function ProductShowcase({ onNavigate }: ProductShowcaseProps) {
         'Real-time crop type recognition',
         'Optimized flight paths for maximum coverage'
       ],
-      stats: { coverage: '15 hectares/hour', accuracy: '±1cm', altitude: '2-5 meters' }
+      stats: { coverage: '15 hectares/hour', accuracy: '±1cm', altitude: '2-5 meters', safety: '99.9%' }
     },
     {
       id: 'precision-spraying',
@@ -53,7 +53,7 @@ export function ProductShowcase({ onNavigate }: ProductShowcaseProps) {
         'Anti-drift system for precise targeting',
         'Real-time flow rate monitoring'
       ],
-      stats: { dropletSize: '150-300μm', sprayWidth: '6-10m', efficiency: '98% coverage' }
+      stats: { dropletSize: '150-300μm', sprayWidth: '6-10m', efficiency: '98% coverage', safety: '99.9%' }
     },
     {
       id: 'obstacle-avoidance',

@@ -16,11 +16,12 @@ import {
   CheckCircle
 } from 'lucide-react';
 
-interface MarketsPageProps {
-  onNavigate: (page: string) => void;
-}
+import { useNavigate } from "react-router-dom";
 
-export function MarketsPage({ onNavigate }: MarketsPageProps) {
+export function MarketsPage() {
+
+  const navigate = useNavigate();
+
   const targetMarkets = [
     {
       icon: Truck,
@@ -540,7 +541,7 @@ export function MarketsPage({ onNavigate }: MarketsPageProps) {
               size="lg" 
               variant="secondary" 
               className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
-              onClick={() => onNavigate('contact')}
+              onClick={() => navigate('/contact')}
             >
               Explore Partnership
             </Button>
@@ -548,7 +549,7 @@ export function MarketsPage({ onNavigate }: MarketsPageProps) {
               size="lg" 
               variant="outline" 
               className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
-              onClick={() => onNavigate('products')}
+              onClick={() => navigate('/products')}
             >
               Request Demo
               <ArrowRight className="ml-2 w-5 h-5" />

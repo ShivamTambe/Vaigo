@@ -19,11 +19,12 @@ import {
   Play
 } from 'lucide-react';
 
-interface HomePageProps {
-  onNavigate: (page: string) => void;
-}
+import { useNavigate } from 'react-router-dom';
 
-export function HomePage({ onNavigate }: HomePageProps) {
+export function HomePage() {
+
+  const navigate = useNavigate();
+
   const features = [
     {
       icon: Target,
@@ -111,7 +112,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 <Button 
                   size="lg" 
                   className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-8 py-3"
-                  onClick={() => onNavigate('products')}
+                  onClick={() => navigate('/products')}
                 >
                   Discover Vaigo
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -120,7 +121,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   size="lg" 
                   variant="outline" 
                   className="border-green-200 text-green-700 hover:bg-green-50 px-8 py-3"
-                  onClick={() => onNavigate('solutions')}
+                  onClick={() => navigate('/solutions')}
                 >
                   Explore Agro AI Ecosystem
                 </Button>
@@ -128,7 +129,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   size="lg" 
                   variant="outline" 
                   className="border-green-200 text-green-700 hover:bg-green-50 px-8 py-3"
-                  onClick={() => onNavigate('solutions')}
+                  onClick={() => navigate('/solutions')}
                 >
                   Request a Demo
                 </Button>
@@ -202,7 +203,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Enhanced Product Showcase */}
-      <ProductShowcase onNavigate={onNavigate} />
+      <ProductShowcase onNavigate={navigate} />
 
       {/* Trust Indicators and Testimonials */}
       <TrustIndicators />
@@ -222,7 +223,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               size="lg" 
               variant="secondary" 
               className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
-              onClick={() => onNavigate('contact')}
+              onClick={() => navigate('/contact')}
             >
               Request a Demo
             </Button>
@@ -230,7 +231,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               size="lg" 
               variant="outline" 
               className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
-              onClick={() => onNavigate('products')}
+              onClick={() => navigate('/products')}
             >
               Explore Products
             </Button>

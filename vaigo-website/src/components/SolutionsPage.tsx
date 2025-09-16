@@ -24,11 +24,12 @@ import {
   PieChart
 } from 'lucide-react';
 
-interface SolutionsPageProps {
-  onNavigate: (page: string) => void;
-}
+import { useNavigate } from "react-router-dom";
 
-export function SolutionsPage({ onNavigate }: SolutionsPageProps) {
+export function SolutionsPage() {
+
+  const navigate = useNavigate();
+
   const solutions = [
     {
       icon: Target,
@@ -230,7 +231,7 @@ export function SolutionsPage({ onNavigate }: SolutionsPageProps) {
                   </div>
                   
                   <button 
-                    onClick={() => onNavigate('products')}
+                    onClick={() => navigate('/products')}
                     className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300"
                   >
                     <span>Learn More</span>
@@ -386,13 +387,13 @@ export function SolutionsPage({ onNavigate }: SolutionsPageProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => onNavigate('contact')}
+              onClick={() => navigate('/contact')}
               className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-medium transition-colors"
             >
               Schedule Consultation
             </button>
             <button 
-              onClick={() => onNavigate('products')}
+              onClick={() => navigate('/products')}
               className="border border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-lg font-medium transition-colors"
             >
               Explore Products
