@@ -53,11 +53,14 @@ export function ContactPage() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
@@ -723,16 +726,18 @@ export function ContactPage() {
             </div>
 
             {/* Map Placeholder */}
-            <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Interactive Map</h3>
-                  <p className="text-gray-600">
-                    [Google Maps Embed Placeholder]<br />
-                    Showing Dotflick Ventures Location
-                  </p>
-                </div>
+            <div className="mt-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Location</h2>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345!2d73.8567!3d18.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0651f9f7b6d%3A0xabcdef123456!2sPune!5e0!3m2!1sen!2sin!4v1693579900000"
+                  width="100%"
+                  height="400"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>

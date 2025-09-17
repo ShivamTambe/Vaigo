@@ -38,18 +38,20 @@ export function Navigation() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`transition-colors duration-200 ${
-                  location.pathname === item.path
+                className={`transition-colors duration-200 ${location.pathname === item.path
                     ? 'text-green-600 font-medium'
                     : 'text-gray-700 hover:text-green-600'
-                }`}
+                  }`}
               >
                 {item.label}
               </Link>
             ))}
-            <Button className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
-              Request Demo
-            </Button>
+            <Link to="/contact">
+              <Button className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
+                Request Demo
+              </Button>
+            </Link>
+
           </div>
 
           {/* Mobile menu button */}
@@ -73,19 +75,21 @@ export function Navigation() {
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block w-full text-left px-3 py-2 rounded-md transition-colors duration-200 ${
-                    location.pathname === item.path
+                  className={`block w-full text-left px-3 py-2 rounded-md transition-colors duration-200 ${location.pathname === item.path
                       ? 'text-green-600 bg-green-50 font-medium'
                       : 'text-gray-700 hover:text-green-600 hover:bg-green-50'
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </Link>
               ))}
               <div className="pt-2">
-                <Button className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
-                  Request Demo
-                </Button>
+                <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                  <Button className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
+                    Request Demo
+                  </Button>
+                </Link>
+
               </div>
             </div>
           </div>

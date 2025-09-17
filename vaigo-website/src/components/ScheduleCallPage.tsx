@@ -53,11 +53,12 @@ export function ScheduleCallPage() {
     // Handle form submission
     console.log('Schedule call form submitted:', formData);
     try {
-      const response = await fetch("http://localhost:5000/api/schedule", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/schedule`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+
 
       const data = await response.json();
 

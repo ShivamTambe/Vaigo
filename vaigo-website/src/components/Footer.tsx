@@ -1,53 +1,49 @@
-import { Button } from './ui/button';
-import { Separator } from './ui/separator';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
+import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
+import {
+  Mail,
+  Phone,
+  MapPin,
   Zap,
   Linkedin,
   Twitter,
   Facebook,
   Youtube,
   ArrowRight
-} from 'lucide-react';
+} from "lucide-react";
 
-interface FooterProps {
-  onNavigate: (page: string) => void;
-}
-
-export function Footer({ onNavigate }: FooterProps) {
+export function Footer() {
   const companyLinks = [
-    { label: 'About Us', id: 'about' },
-    { label: 'Our Team', id: 'about' },
-    { label: 'Careers', id: 'contact' },
-    { label: 'News & Blog', id: 'contact' }
+    { label: "About Us", path: "/about" },
+    { label: "Our Team", path: "/team" },
+    { label: "Careers", path: "/careers" },
+    { label: "News & Blog", path: "/blog" }
   ];
 
   const productLinks = [
-    { label: 'Vaigo Drone', id: 'products' },
-    { label: 'Agro AI Ecosystem', id: 'products' },
-    { label: 'Technology', id: 'solutions' },
-    { label: 'Specifications', id: 'products' }
+    { label: "Vaigo Drone", path: "/products/drone" },
+    { label: "Agro AI Ecosystem", path: "/products/agro-ai" },
+    { label: "Technology", path: "/solutions/technology" },
+    { label: "Specifications", path: "/products/specs" }
   ];
 
   const solutionLinks = [
-    { label: 'Precision Agriculture', id: 'solutions' },
-    { label: 'Crop Monitoring', id: 'solutions' },
-    { label: 'Digital Twin', id: 'solutions' },
-    { label: 'AI Analytics', id: 'solutions' }
+    { label: "Precision Agriculture", path: "/solutions/precision" },
+    { label: "Crop Monitoring", path: "/solutions/monitoring" },
+    { label: "Digital Twin", path: "/solutions/digital-twin" },
+    { label: "AI Analytics", path: "/solutions/ai" }
   ];
 
   const supportLinks = [
-    { label: 'Contact Support', id: 'contact' },
-    { label: 'Documentation', id: 'contact' },
-    { label: 'Training', id: 'contact' },
-    { label: 'Partnership', id: 'contact' }
+    { label: "Contact Support", path: "/contact/support" },
+    { label: "Documentation", path: "/docs" },
+    { label: "Training", path: "/training" },
+    { label: "Partnership", path: "/partnership" }
   ];
 
   return (
     <footer className="bg-gray-900 text-white">
-      {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
@@ -61,12 +57,12 @@ export function Footer({ onNavigate }: FooterProps) {
                 <p className="text-sm text-green-400">by Dotflick Ventures</p>
               </div>
             </div>
-            
+
             <p className="text-gray-300 leading-relaxed">
-              Revolutionizing agriculture through advanced drone technology and AI-powered ecosystems. 
+              Revolutionizing agriculture through advanced drone technology and AI-powered ecosystems.
               Empowering farmers worldwide with precision, efficiency, and sustainability.
             </p>
-            
+
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-green-400" />
@@ -104,13 +100,13 @@ export function Footer({ onNavigate }: FooterProps) {
             <h4 className="font-semibold text-white">Company</h4>
             <div className="space-y-2">
               {companyLinks.map((link, index) => (
-                <button
+                <Link
                   key={index}
-                  onClick={() => onNavigate(link.id)}
+                  to={link.path}
                   className="block text-gray-300 hover:text-green-400 transition-colors duration-200"
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -120,13 +116,13 @@ export function Footer({ onNavigate }: FooterProps) {
             <h4 className="font-semibold text-white">Products</h4>
             <div className="space-y-2">
               {productLinks.map((link, index) => (
-                <button
+                <Link
                   key={index}
-                  onClick={() => onNavigate(link.id)}
+                  to={link.path}
                   className="block text-gray-300 hover:text-green-400 transition-colors duration-200"
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -136,13 +132,13 @@ export function Footer({ onNavigate }: FooterProps) {
             <h4 className="font-semibold text-white">Solutions</h4>
             <div className="space-y-2">
               {solutionLinks.map((link, index) => (
-                <button
+                <Link
                   key={index}
-                  onClick={() => onNavigate(link.id)}
+                  to={link.path}
                   className="block text-gray-300 hover:text-green-400 transition-colors duration-200"
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -173,19 +169,19 @@ export function Footer({ onNavigate }: FooterProps) {
 
         <Separator className="my-12 bg-gray-700" />
 
-        {/* Support Links & Additional Info */}
+        {/* Support Links */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <h4 className="font-semibold text-white">Support</h4>
             <div className="space-y-2">
               {supportLinks.map((link, index) => (
-                <button
+                <Link
                   key={index}
-                  onClick={() => onNavigate(link.id)}
+                  to={link.path}
                   className="block text-gray-300 hover:text-green-400 transition-colors duration-200"
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -193,68 +189,57 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="space-y-4">
             <h4 className="font-semibold text-white">Markets</h4>
             <div className="space-y-2">
-              <button
-                onClick={() => onNavigate('markets')}
-                className="block text-gray-300 hover:text-green-400 transition-colors duration-200"
-              >
+              <Link to="/markets/target" className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
                 Target Markets
-              </button>
-              <button
-                onClick={() => onNavigate('markets')}
-                className="block text-gray-300 hover:text-green-400 transition-colors duration-200"
-              >
+              </Link>
+              <Link to="/markets/crops" className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
                 Crop Applications
-              </button>
-              <button
-                onClick={() => onNavigate('markets')}
-                className="block text-gray-300 hover:text-green-400 transition-colors duration-200"
-              >
+              </Link>
+              <Link to="/markets/global" className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
                 Global Reach
-              </button>
-              <button
-                onClick={() => onNavigate('markets')}
-                className="block text-gray-300 hover:text-green-400 transition-colors duration-200"
-              >
+              </Link>
+              <Link to="/markets/success" className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
                 Success Stories
-              </button>
+              </Link>
             </div>
           </div>
 
           <div className="space-y-4">
             <h4 className="font-semibold text-white">Legal</h4>
             <div className="space-y-2">
-              <button className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
+              <Link to="/privacy" className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
                 Privacy Policy
-              </button>
-              <button className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
+              </Link>
+              <Link to="/terms" className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
                 Terms of Service
-              </button>
-              <button className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
+              </Link>
+              <Link to="/compliance" className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
                 Compliance
-              </button>
-              <button className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
+              </Link>
+              <Link to="/certifications" className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
                 Certifications
-              </button>
+              </Link>
             </div>
           </div>
 
           <div className="space-y-4">
             <h4 className="font-semibold text-white">Quick Actions</h4>
             <div className="space-y-3">
-              <Button 
-                size="sm" 
+              <Button
+                asChild
+                size="sm"
                 className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
-                onClick={() => onNavigate('contact')}
               >
-                Request Demo
+                <Link to="/contact">Request Demo</Link>
               </Button>
-              <Button 
-                size="sm" 
-                variant="outline" 
+
+              <Button
+                asChild
+                size="sm"
+                variant="outline"
                 className="w-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
-                onClick={() => onNavigate('contact')}
               >
-                Contact Sales
+                <Link to="/contact">Contact Sales</Link>
               </Button>
             </div>
           </div>
