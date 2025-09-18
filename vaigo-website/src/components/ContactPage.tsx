@@ -53,14 +53,11 @@ export function ContactPage() {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/contact`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("http://167.71.235.137:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
       const data = await response.json();
 
