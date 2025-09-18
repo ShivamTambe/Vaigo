@@ -53,7 +53,7 @@ export function ContactPage() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://167.71.235.137:5000/api/contact", {
+      const response = await fetch("https://vaigo.in/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

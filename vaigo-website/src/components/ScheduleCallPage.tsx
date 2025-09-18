@@ -53,7 +53,7 @@ export function ScheduleCallPage() {
     // Handle form submission
     console.log('Schedule call form submitted:', formData);
     try {
-      const response = await fetch("http://167.71.235.137:5000/api/schedule", {
+      const response = await fetch("https://vaigo.in/api/schedule", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
