@@ -46,12 +46,30 @@ router.post("/", async (req, res) => {
 
     console.log("EMAIL_USER:", process.env.EMAIL_USER);
 
-    // ✅ Create transporter
+    // // ✅ Create transporter
+    // const transporter = nodemailer.createTransport({
+    //   service: "gmail",
+    //   auth: {
+    //     user: process.env.EMAIL_USER,
+    //     pass: process.env.EMAIL_PASS
+    //   }
+    // });
+
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      secure: false, // true if using 465
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    transporter.verify((error) => {
+      if (error) {
+        console.error("❌ SMTP connection failed:", error);
+      } else {
+        console.log("✅ SMTP ready to send emails");
       }
     });
 
