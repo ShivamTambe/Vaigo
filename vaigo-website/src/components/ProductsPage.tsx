@@ -207,11 +207,11 @@ export function ProductsPage() {
           {/* Technical Specifications */}
           <div className="bg-gradient-to-br from-gray-50 to-green-50 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Technical Specifications</h3>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-8">
               {specifications.map((spec, index) => (
-                <div key={index} className="flex justify-between items-center py-3 border-b border-green-100 last:border-b-0">
-                  <span className="font-medium text-gray-900">{spec.label}</span>
-                  <span className="text-gray-600">{spec.value}</span>
+                <div key={index} className="flex py-3 border-b border-green-100 last:border-b-0">
+                  <span className="font-medium text-gray-900 w-40 flex-shrink-0 text-left">{spec.label}</span>
+                  <span className="text-gray-600 flex-1 text-right pl-4">{spec.value}</span>
                 </div>
               ))}
             </div>

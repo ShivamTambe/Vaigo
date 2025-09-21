@@ -288,9 +288,11 @@ export function SolutionsPage() {
                   </div>
                 </div>
                 
-                <CardContent className="p-8">
-                  <h4 className="text-xl font-bold text-gray-900 mb-4">Specialized Agricultural Solutions</h4>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{solution.description}</p>
+                <CardContent className="p-3 sm:p-4 md:p-6 lg:p-8">
+                  <h4 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-4 break-words leading-tight">
+                    Specialized Agricultural Solutions
+                  </h4>
+                  <p className="text-sm sm:text-base text-gray-600 mb-6 leading-relaxed">{solution.description}</p>
                   
                   <div className="space-y-3 mb-6">
                     <h5 className="font-semibold text-gray-900">Key Benefits:</h5>
@@ -304,11 +306,11 @@ export function SolutionsPage() {
                     ))}
                   </div>
                   
-                  <div className="flex items-center space-x-4">
-                    <Badge className="bg-green-100 text-green-800">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+                    <Badge className="bg-green-100 text-green-800 text-xs">
                       MahaAgri-AI Policy Aligned
                     </Badge>
-                    <Badge className="bg-blue-100 text-blue-800">
+                    <Badge className="bg-blue-100 text-blue-800 text-xs">
                       Climate-Adaptive Design
                     </Badge>
                   </div>

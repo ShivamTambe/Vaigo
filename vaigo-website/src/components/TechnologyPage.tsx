@@ -262,17 +262,19 @@ export function TechnologyPage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {aiCapabilities.map((capability, index) => (
                   <Card key={index} className="border border-purple-100 hover:border-purple-200 transition-all duration-300">
-                    <CardContent className="p-4">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg flex items-center justify-center">
+                    <CardContent className="p-3 sm:p-4">
+                      <div className="flex items-start space-x-3 mb-2">
+                        <div className="w-8 h-8 bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                           <capability.icon className="w-4 h-4 text-purple-600" />
                         </div>
-                        <h3 className="font-semibold text-gray-900 text-sm">{capability.title}</h3>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="font-semibold text-gray-900 text-sm leading-tight mb-1">{capability.title}</h3>
+                          <p className="text-xs text-gray-600 leading-relaxed break-words">{capability.description}</p>
+                        </div>
                       </div>
-                      <p className="text-xs text-gray-600 leading-relaxed">{capability.description}</p>
                     </CardContent>
                   </Card>
                 ))}
