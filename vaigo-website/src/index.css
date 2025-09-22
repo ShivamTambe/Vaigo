@@ -1,37 +1,13 @@
-@font-face {
-  font-family: 'Lastica';
-  src: url('/assets/fonts/fonnts.com-Lastica.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply font-sans text-base font-normal text-gray-800;
-  }
-
-  h1 {
-    @apply font-heading font-semibold text-h1 md:text-h1-lg;
-  }
-
-  h2 {
-    @apply font-heading font-semibold text-h2 md:text-h2-lg;
-  }
-
-  h3 {
-    @apply font-heading font-medium text-h3;
+  body, h1, h2, h3, nav, p {
+    @apply font-sans;
   }
 
   p {
-    @apply mb-4 text-base leading-relaxed;
-  }
-
-  nav, .menu, .menu-item {
-    @apply font-heading text-xs font-medium;
+    @apply mb-4;
   }
 }

@@ -2,13 +2,13 @@ import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { ImageWithFallback } from './ImageWithFallback';
-import { 
-  Plane, 
-  Target, 
-  Shield, 
-  Battery, 
-  Gauge, 
-  Camera, 
+import {
+  Plane,
+  Target,
+  Shield,
+  Battery,
+  Gauge,
+  Camera,
   Wifi,
   Brain,
   Satellite,
@@ -111,13 +111,13 @@ export function ProductsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Advanced Agricultural 
+              Advanced Agricultural
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
                 {" "}Technology Solutions
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Discover Vaigo, our flagship agricultural spraying drone, and the comprehensive 
+              Discover Vaigo, our flagship agricultural spraying drone, and the comprehensive
               Agro AI Ecosystem designed to transform your farming operations with precision and intelligence.
             </p>
           </div>
@@ -140,8 +140,8 @@ export function ProductsPage() {
                   The Future of Agricultural Spraying
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Vaigo is meticulously engineered to set new benchmarks in precision, efficiency, and reliability 
-                  for modern farming operations. Built on five core principles: Performance Excellence, Precision 
+                  Vaigo is meticulously engineered to set new benchmarks in precision, efficiency, and reliability
+                  for modern farming operations. Built on five core principles: Performance Excellence, Precision
                   and Accuracy, Reliability and Durability, User-Centric Design, and Scalability and Integration.
                 </p>
               </div>
@@ -165,8 +165,8 @@ export function ProductsPage() {
                 </div>
               </div>
 
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
                 onClick={() => navigate('/contact')}
               >
@@ -205,8 +205,10 @@ export function ProductsPage() {
           </div>
 
           {/* Technical Specifications */}
-          <div className="bg-gradient-to-br from-gray-50 to-green-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Technical Specifications</h3>
+          <div className="bg-gradient-to-br from-gray-50 to-green-50 rounded-2xl p-0 sm:p-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+              Technical Specifications
+            </h3>
             <div className="grid md:grid-cols-2 gap-8">
               {specifications.map((spec, index) => (
                 <div key={index} className="flex py-3 border-b border-green-100 last:border-b-0">
@@ -216,6 +218,7 @@ export function ProductsPage() {
               ))}
             </div>
           </div>
+
         </div>
       </section>
 
@@ -243,8 +246,8 @@ export function ProductsPage() {
                   Intelligent Farming Unleashed
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  A comprehensive platform integrating cutting-edge AI, Deep Tech, IoT, and satellite monitoring 
-                  to create a truly intelligent and interconnected agricultural environment. Transform traditional 
+                  A comprehensive platform integrating cutting-edge AI, Deep Tech, IoT, and satellite monitoring
+                  to create a truly intelligent and interconnected agricultural environment. Transform traditional
                   farming into a data-driven, highly efficient, and sustainable enterprise.
                 </p>
               </div>
@@ -268,8 +271,8 @@ export function ProductsPage() {
                 </div>
               </div>
 
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-to-r from-blue-500 to-green-600 hover:from-blue-600 hover:to-green-700"
                 onClick={() => navigate('/solutions')}
               >
@@ -309,7 +312,7 @@ export function ProductsPage() {
               Applications & Use Cases
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Vaigo and the Agro AI Ecosystem deliver transformative benefits across diverse 
+              Vaigo and the Agro AI Ecosystem deliver transformative benefits across diverse
               agricultural applications and crop types.
             </p>
           </div>
@@ -365,21 +368,21 @@ export function ProductsPage() {
             Ready to Experience the Future of Farming?
           </h2>
           <p className="text-xl text-green-100 mb-8 leading-relaxed">
-            Discover how Vaigo and the Agro AI Ecosystem can transform your agricultural operations 
+            Discover how Vaigo and the Agro AI Ecosystem can transform your agricultural operations
             with unprecedented precision, efficiency, and intelligence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              variant="secondary" 
+            <Button
+              size="lg"
+              variant="secondary"
               className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
               onClick={() => navigate('/contact')}
             >
               Request a Demo
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
+            <Button
+              size="lg"
+              variant="outline"
               className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
               onClick={() => navigate('/solutions')}
             >

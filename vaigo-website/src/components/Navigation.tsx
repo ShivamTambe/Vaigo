@@ -28,7 +28,7 @@ export function Navigation() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-gray-900">Vaigo</span>
-              <span className="text-xs text-green-600 -mt-1">Precision from Above</span>
+              <span className="text-xs text-green-600 -mt-1">by DotFlick</span>
             </div>
           </Link>
 
