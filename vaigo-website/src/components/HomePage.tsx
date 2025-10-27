@@ -95,16 +95,16 @@ export function HomePage() {
                   Revolutionizing Agriculture from Above
                 </Badge>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Vaigo: Precision from Above, 
+                  VAIGO Center - Your Gateway to 
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-                    {" "}Performance on the Ground
+                    {" "}the Drone Revolution
                   </span>
                 </h1>
                 <p className="text-2xl text-gray-600 leading-relaxed">
-                  Empowering the Future of Farming with Advanced Agricultural Planes and AI-Driven Ecosystems.
+                  Drone Sales, Rentals, Repairs, Training, and Advanced UAV Solutions under One Roof.
                 </p>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  In an era where agricultural demands are escalating and resources are finite, Dotflick Ventures Private Limited introduces Vaigo, a groundbreaking agricultural spraying drone UAV designed to redefine efficiency, precision, and sustainability in farming.
+                  VAIGO Centers empower businesses, enthusiasts, and professionals with state-of-the-art drone technology. From precision agriculture and industrial inspections to photography, logistics, and surveillance, we provide comprehensive drone solutions under one roof. Partner with VAIGO, experience hands-on training, and harness the power of drones for growth and innovation.
                 </p>
               </div>
               
@@ -112,27 +112,27 @@ export function HomePage() {
                 <Button 
                   size="lg" 
                   className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-8 py-3"
-                  onClick={() => navigate('/products')}
+                  onClick={() => navigate('/solutions')}
                 >
-                  Discover Vaigo
+                  Explore Services
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline" 
                   className="border-green-200 text-green-700 hover:bg-green-50 px-8 py-3"
-                  onClick={() => navigate('/solutions')}
+                  onClick={() => navigate('/Franchisee')}
                 >
-                  Explore Agro AI Ecosystem
+                  Become a Franchisee
                 </Button>
-                <Button 
+                {/* <Button 
                   size="lg" 
                   variant="outline" 
                   className="border-green-200 text-green-700 hover:bg-green-50 px-8 py-3"
                   onClick={() => navigate('/solutions')}
                 >
-                  Request a Demo
-                </Button>
+                  Franchise Opportunities
+                </Button> */}
                 {/* <Button 
                   size="lg" 
                   variant="ghost" 
@@ -146,15 +146,19 @@ export function HomePage() {
               <div className="flex items-center space-x-8 text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>50-70L Payload Capacity</span>
+                  <span>Multi-service Drone Center: Sales, Rental, Repair & Training</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>15-25 Min Flight Time</span>
+                  <span>Fully Compliant Infrastructure: DGCA approved flight areas and battery safety</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>±1cm Accuracy</span>
+                  <span>Sustainable Operations: Solar + DG hybrid systems</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <span>Franchise Opportunities Available Nationwide</span>
                 </div>
               </div>
             </div>
@@ -162,7 +166,7 @@ export function HomePage() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 rounded-3xl blur-3xl opacity-20 transform rotate-6" />
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1750963081770-fb6fcab236dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZ3JpY3VsdHVyYWwlMjBkcm9uZSUyMGZseWluZyUyMG92ZXIlMjBncmVlbiUyMGNyb3AlMjBmaWVsZHxlbnwxfHx8fDE3NTU4NDg4MzB8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                src="https://i.ibb.co/Lh1HPR45/hero-Section-Img.png"
                 alt="Vaigo agricultural Plane flying over crops"
                 className="relative z-10 w-full h-auto rounded-2xl shadow-2xl"
               />

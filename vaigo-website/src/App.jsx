@@ -10,6 +10,7 @@ import { TechnologyPage } from './components/TechnologyPage';
 import { MarketsPage } from './components/MarketsPage';
 import { ContactPage } from './components/ContactPage';
 import { ScheduleCallPage } from "./components/ScheduleCallPage";
+import { VaigoCenter} from "./components/VaigoCenter";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/vaigo-center" element={<VaigoCenter />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/solutions" element={<SolutionsPage />} />
