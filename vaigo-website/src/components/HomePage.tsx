@@ -159,7 +159,7 @@ export function HomePage() {
       <div className="relative mt-10 lg:mt-0">
         <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 rounded-3xl blur-3xl opacity-20 transform rotate-6" />
         <ImageWithFallback
-          src="https://i.ibb.co/Lh1HPR45/hero-Section-Img.png"
+          src="https://i.ibb.co/JWVb1vjM/IMG-20251021-WA0046.jpg"
           alt="Vaigo agricultural Plane flying over crops"
           className="relative z-10 w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto h-auto rounded-2xl shadow-2xl"
         />
