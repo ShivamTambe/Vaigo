@@ -31,7 +31,7 @@ export function ProductShowcase({ onNavigate }: ProductShowcaseProps) {
       id: 'Plane-flight',
       title: 'Vaigo in Flight Over Diverse Crops',
       description: 'Watch Vaigo navigate seamlessly over sugarcane, corn, and wheat fields with precision and efficiency',
-      image: 'https://images.unsplash.com/photo-1677126577258-1a82fdf1a976?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkcm9uZSUyMHNwcmF5aW5nJTIwcHJlY2lzaW9uJTIwYWdyaWN1bHR1cmV8ZW58MXx8fHwxNzU1ODY4NzAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
+      image: 'https://i.ibb.co/My0cKDSm/IMG-20251003-WA0013.jpg',
       icon: Plane,
       features: [
         'Autonomous flight over various terrain types',

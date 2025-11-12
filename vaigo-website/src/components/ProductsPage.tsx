@@ -39,7 +39,7 @@ export function ProductsPage() {
     {
       icon: Battery,
       title: "Extended Flight Performance",
-      description: "15-25 minutes flight time with 50-70L payload, fast 20-minute charging"
+      description: "15-25 minutes flight time with 10-10L payload, fast 20-minute charging"
     },
     {
       icon: Gauge,
@@ -92,7 +92,7 @@ export function ProductsPage() {
   ];
 
   const specifications = [
-    { label: "Payload Capacity", value: "50-70 Liters (liquid), 50-80 kg (granular)" },
+    { label: "Payload Capacity", value: "10-10 Liters (liquid), 50-80 kg (granular)" },
     { label: "Flight Time", value: "15-25 minutes (with full payload)" },
     { label: "Spray Width", value: "6-10 meters (adjustable)" },
     { label: "Operating Speed", value: "3-8 m/s" },
@@ -149,7 +149,7 @@ export function ProductsPage() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">50-70L payload capacity for maximum efficiency</span>
+                  <span className="text-gray-700">10-10L payload capacity for maximum efficiency</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500" />
@@ -177,7 +177,7 @@ export function ProductsPage() {
 
             <div className="relative">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1677126577258-1a82fdf1a976?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZ3JpY3VsdHVyYWwlMjBkcm9uZSUyMHNwcmF5aW5nJTIwY3JvcHMlMjBwcmVjaXNpb24lMjBmYXJtaW5nfGVufDF8fHx8MTc1NTg0ODk1OHww&ixlib=rb-4.1.0&q=80&w=1080"
+                src="https://i.ibb.co/My0cKDSm/IMG-20251003-WA0013.jpg0"
                 alt="Vaigo agricultural drone in action"
                 className="w-full h-auto rounded-2xl shadow-xl"
               />

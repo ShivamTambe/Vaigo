@@ -107,7 +107,7 @@ export function ContactPage() {
     {
       icon: Phone,
       title: "Phone Support",
-      value: "+91-XXXXXXXXXX",
+      value: "+91 88050 43855",
       description: "Monday - Friday, 9:00 AM - 5:00 PM (IST)"
     }
   ];
@@ -684,8 +684,8 @@ export function ContactPage() {
                       <h3 className="font-semibold text-gray-900 mb-1">Headquarters</h3>
                       <p className="text-gray-600">
                         Dotflick Ventures Private Limited<br />
-                        [Address Line 1]<br />
-                        [City, State, Zip Code]<br />
+                        D705, The Cliff Garden, Hinjewadi IT park phase 3<br />
+                        Pune, Mahatashtra - 411057<br />
                         India
                       </p>
                     </div>

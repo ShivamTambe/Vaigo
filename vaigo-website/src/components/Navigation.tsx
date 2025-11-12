@@ -10,8 +10,8 @@ export function Navigation() {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/vaigo-center', label: 'Vaigo Center' },
     { path: '/about', label: 'About Us' },
+    { path: '/vaigo-center', label: 'Vaigo Center' },
     { path: '/products', label: 'Products' },
     { path: '/solutions', label: 'Solutions' },
     { path: '/technology', label: 'Technology' },

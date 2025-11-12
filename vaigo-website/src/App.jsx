@@ -11,6 +11,10 @@ import { MarketsPage } from './components/MarketsPage';
 import { ContactPage } from './components/ContactPage';
 import { ScheduleCallPage } from "./components/ScheduleCallPage";
 import { VaigoCenter} from "./components/VaigoCenter";
+import { SolutionDetail } from "./components/SolutionDetail";
+import { IndustryDetail } from "./components/IndustryDetail";
+import industrySpecific from "./data/industrySpecificSolutions.json";
+
 
 export default function App() {
   return (
@@ -26,6 +30,8 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/solutions" element={<SolutionsPage />} />
+            <Route path="/solutions/:slug" element={<SolutionDetail />} />
+            <Route path="/industry/:name" element={<IndustryDetail industrySpecific={industrySpecific} />} />
             <Route path="/technology" element={<TechnologyPage />} />
             <Route path="/markets" element={<MarketsPage />} />
             <Route path="/contact" element={<ContactPage />} />
