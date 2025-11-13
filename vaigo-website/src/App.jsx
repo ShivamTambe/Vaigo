@@ -13,6 +13,7 @@ import { ScheduleCallPage } from "./components/ScheduleCallPage";
 import { VaigoCenter} from "./components/VaigoCenter";
 import { SolutionDetail } from "./components/SolutionDetail";
 import { IndustryDetail } from "./components/IndustryDetail";
+import { FranchisePage } from "./components/FranchisePage";
 import industrySpecific from "./data/industrySpecificSolutions.json";
 
 
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/markets" element={<MarketsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/schedule-call" element={<ScheduleCallPage />} />
+            <Route path="/franchisee" element={<FranchisePage />} />
 
             {/* Future pages */}
           </Routes>
