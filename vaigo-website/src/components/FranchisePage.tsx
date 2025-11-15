@@ -1,5 +1,6 @@
 // FranchisePage.jsx
 import React, { useEffect, useState, useRef } from "react";
+import { LayersControl } from "react-leaflet";
 import {
   MapContainer,
   TileLayer,
@@ -266,6 +267,25 @@ export function FranchisePage() {
     alert("Form submitted! Check console for data.");
   };
 
+  const HybridLayer = () => (
+    <>
+      {/* Satellite imagery */}
+      <TileLayer
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+        attribution="Tiles © Esri"
+      />
+
+      {/* Labels overlay that always works with Esri */}
+      <TileLayer
+        url="https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png"
+        attribution="© CartoDB"
+        zIndex={9999}   // <<< MOST IMPORTANT
+      />
+    </>
+  );
+
+
+
   // ---------- UI ----------
   return (
     <div className="max-w-5xl mx-auto p-6">
@@ -438,10 +458,21 @@ export function FranchisePage() {
             scrollWheelZoom={true}
             style={{ height: "100%", width: "100%", borderRadius: "8px" }}
           >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-            />
+            <LayersControl position="topright">
+
+              <LayersControl.BaseLayer checked name="Default View">
+                <TileLayer
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  attribution="© OpenStreetMap"
+                />
+              </LayersControl.BaseLayer>
+
+              {/* <LayersControl.BaseLayer name="Hybrid Mode (Satellite + Names)">
+                <HybridLayer />
+              </LayersControl.BaseLayer> */}
+              
+            </LayersControl>
+
 
             <MapMover center={mapCenter} />
 
