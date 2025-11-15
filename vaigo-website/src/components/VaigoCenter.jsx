@@ -1,17 +1,16 @@
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
+import { ImageWithFallback } from './ImageWithFallback';
 import {
   Building,
   Wrench,
   GraduationCap,
   Plane,
-  Rocket,
   Cpu,
   Users,
-  Globe,
   Leaf,
-  BarChart3,
+  ArrowRight,
   CheckCircle,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -23,22 +22,19 @@ export function VaigoCenter() {
     {
       title: "Drone Sales & Distribution",
       desc: "Authorized point for selling agriculture, industrial, and surveillance drones with accessories and spare parts.",
-      outcome:
-        "Creates rural drone dealerships, enhances accessibility to technology.",
+      outcome: "Creates rural drone dealerships, enhances accessibility to technology.",
       icon: Plane,
     },
     {
       title: "Drone Rental & Leasing",
       desc: "Provides drones on pay-per-use or subscription basis for farmers, surveyors, photographers, and departments.",
-      outcome:
-        "Affordable access; increases drone utilization in seasonal or project-based needs.",
+      outcome: "Affordable access; increases drone utilization in seasonal or project-based needs.",
       icon: Users,
     },
     {
       title: "Training & Certification",
       desc: "Simulation labs, classrooms, DGCA-approved trainers for pilot certification, maintenance, and data analysis.",
-      outcome:
-        "Employment creation through skill certification of youth and women.",
+      outcome: "Employment creation through skill certification of youth and women.",
       icon: GraduationCap,
     },
     {
@@ -50,8 +46,7 @@ export function VaigoCenter() {
     {
       title: "Drone Port & Operations Pad",
       desc: "Fenced and geo-tagged take-off/landing pad with charging, ADS-B beacon, and weather station.",
-      outcome:
-        "Enables daily drone operations for agriculture spraying, surveillance, and logistics.",
+      outcome: "Enables daily drone operations for agriculture spraying, surveillance, and logistics.",
       icon: Building,
     },
   ];
@@ -87,50 +82,81 @@ export function VaigoCenter() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* HERO */}
-      <section className="relative bg-gradient-to-br from-green-50 via-blue-50 to-white py-20">
-        <div className="max-w-6xl mx-auto px-4 text-center space-y-6">
-          {/* Responsive badge: wraps text, smaller font on very small screens, constrained max width */}
-          <div className="flex justify-center">
-            <Badge
-              className="bg-green-100 text-green-800 border-green-200
-                         text-xs sm:text-sm md:text-base
-                         px-3 py-1
-                         whitespace-normal
-                         max-w-[92%] sm:max-w-[70%] md:max-w-full
-                         leading-snug
-                         inline-block"
-              // keep as inline-block so it sizes to content but doesn't overflow
-            >
-              VAIGO Center – India’s First Village-Level Drone Infrastructure Hub
-            </Badge>
-          </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Building India’s{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-              Largest Rural Drone Network
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Each VAIGO Center acts as a 1-acre drone airport for rural India — offering sales, rental, training, repair, maintenance, and drone-port services under one roof. Empowering farmers, youth, and entrepreneurs across every village.
-          </p>
+      <section className="relative bg-gradient-to-br from-green-50 via-blue-50 to-white py-16 sm:py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-green-500/[0.02] bg-[size:20px_20px]" />
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-3"
-              onClick={() => navigate("/contact")}
-            >
-              Get in Touch
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-green-300 text-green-700 hover:bg-green-50 px-8 py-3"
-              onClick={() => navigate("/franchise")}
-            >
-              Explore Franchise Model
-            </Button>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <Badge className="bg-green-100 text-green-800 border-green-200 text-sm sm:text-base">
+                  VAIGO Center – India’s First Village-Level Drone Infrastructure Hub
+                </Badge>
+
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                  Building India’s{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
+                    Largest Rural Drone Network
+                  </span>
+                </h1>
+
+                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+                  Each VAIGO Center acts as a 1-acre drone airport for rural India — offering sales, rental, training, repair, maintenance, and drone-port services under one roof. Empowering farmers, youth, and entrepreneurs across every village.
+                </p>
+              </div>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-6 py-3 text-base sm:text-lg"
+                  onClick={() => navigate('/solutions')}
+                >
+                  Get in Touch
+                </Button>
+
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-green-200 text-green-700 hover:bg-green-50 px-6 py-3 text-base sm:text-lg"
+                  onClick={() => navigate('/Franchisee')}
+                >
+                  Explore Franchise Model
+                </Button>
+              </div>
+
+              {/* Feature Highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 text-gray-700">
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
+                  <span className="text-sm sm:text-base">Multi-service Drone Center: Sales, Rental, Repair & Training</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
+                  <span className="text-sm sm:text-base">Fully Compliant Infrastructure: DGCA approved flight areas and battery safety</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
+                  <span className="text-sm sm:text-base">Sustainable Operations: Solar + DG hybrid systems</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
+                  <span className="text-sm sm:text-base">Franchise Opportunities Available Nationwide</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="relative mt-10 lg:mt-0">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 rounded-3xl blur-3xl opacity-20 transform rotate-6" />
+              <ImageWithFallback
+                src="https://i.ibb.co/7J6S05Gj/IMG-20251114-WA0000.jpg"
+                alt="Vaigo Centre"
+                className="relative z-10 w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto h-auto rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -298,7 +324,9 @@ export function VaigoCenter() {
           </p>
 
           <div className="bg-white/10 rounded-xl p-6">
-            <h3 className="text-xl font-semibold text-white mb-3">Each VAIGO Center becomes:</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">
+              Each VAIGO Center becomes:
+            </h3>
             <ul className="text-green-100 text-left max-w-xl mx-auto space-y-2">
               <li>• A drone airport for villages</li>
               <li>• A training ground for next-generation pilots</li>
