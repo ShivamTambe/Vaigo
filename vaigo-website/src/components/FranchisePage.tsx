@@ -385,46 +385,49 @@ export function FranchisePage() {
 
 
         {/* Map Mode Buttons */}
-        <div className="flex gap-4 items-center">
-          <button
-            type="button"
-            onClick={() => setMode("point")}
-            className={`px-4 py-2 rounded ${mode === "point" ? "bg-blue-600 text-white" : "bg-gray-200"}`}
-          >
-            Pick Location
-          </button>
+        <div className="flex flex-wrap gap-3 items-center">
 
-          <button
-            type="button"
-            onClick={() => {
-              setMode("boundary");
-              // keep existing boundary if present, allow editing by adding more points
-            }}
-            className={`px-4 py-2 rounded ${mode === "boundary" ? "bg-green-600 text-white" : "bg-gray-200"}`}
-          >
-            Select Boundary
-          </button>
+  <button
+    type="button"
+    onClick={() => setMode("point")}
+    className={`px-4 py-2 rounded whitespace-nowrap ${
+      mode === "point" ? "bg-blue-600 text-white" : "bg-gray-200"
+    }`}
+  >
+    Pick Location
+  </button>
 
-          <button
-            type="button"
-            onClick={handleFinishBoundary}
-            className="px-4 py-2 rounded bg-indigo-600 text-white"
-          >
-            Finish Boundary
-          </button>
+  <button
+    type="button"
+    onClick={() => setMode("boundary")}
+    className={`px-4 py-2 rounded whitespace-nowrap ${
+      mode === "boundary" ? "bg-green-600 text-white" : "bg-gray-200"
+    }`}
+  >
+    Select Boundary
+  </button>
 
-          <button
-            type="button"
-            onClick={handleClearBoundary}
-            className="px-4 py-2 rounded bg-red-400 text-white"
-          >
-            Clear Boundary
-          </button>
+  <button
+    type="button"
+    onClick={handleFinishBoundary}
+    className="px-4 py-2 rounded bg-indigo-600 text-white whitespace-nowrap"
+  >
+    Finish Boundary
+  </button>
 
-          <div className="ml-auto text-sm text-gray-600">
-            Mode: <strong>{mode === "point" ? "Pick Location" : "Select Boundary"}</strong>
-          </div>
-        </div>
+  <button
+    type="button"
+    onClick={handleClearBoundary}
+    className="px-4 py-2 rounded bg-red-400 text-white whitespace-nowrap"
+  >
+    Clear Boundary
+  </button>
+
+  <div className="text-sm text-gray-600 ml-auto whitespace-nowrap mt-2 sm:mt-0">
+    Mode: <strong>{mode === "point" ? "Pick Location" : "Select Boundary"}</strong>
+  </div>
+</div>
+
 
         {/* Map Section */}
         <h2 className="text-xl font-semibold mt-6">Location of Land</h2>
