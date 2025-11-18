@@ -116,6 +116,8 @@ export function FranchisePage() {
     interestedIn: [],
     industry: [],
     investment: "",
+    images: [],
+    video: null,
   });
 
   // ---------- location / map state ----------
@@ -257,15 +259,39 @@ export function FranchisePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const payload = {
-      ...formData,
-      latitude,
-      longitude,
-      boundaryCoords,
-    };
-    console.log("Form submit payload:", payload);
-    alert("Form submitted! Check console for data.");
+
+    const fd = new FormData();
+
+    // Append all normal fields
+    Object.keys(formData).forEach((key) => {
+      if (key !== "images" && key !== "video") {
+        fd.append(key, formData[key]);
+      }
+    });
+
+    // Append images
+    if (formData.images) {
+      formData.images.forEach((img) => fd.append("images", img));
+    }
+
+    // Append video
+    if (formData.video) {
+      fd.append("video", formData.video);
+    }
+
+    // Boundary & location
+    fd.append("latitude", latitude);
+    fd.append("longitude", longitude);
+    fd.append("boundaryCoords", JSON.stringify(boundaryCoords));
+
+    fetch("/api/submit-franchise", {
+      method: "POST",
+      body: fd,
+    });
+
+    alert("Form submitted!");
   };
+
 
   const HybridLayer = () => (
     <>
@@ -387,46 +413,44 @@ export function FranchisePage() {
         {/* Map Mode Buttons */}
         <div className="flex flex-wrap gap-3 items-center">
 
-  <button
-    type="button"
-    onClick={() => setMode("point")}
-    className={`px-4 py-2 rounded whitespace-nowrap ${
-      mode === "point" ? "bg-blue-600 text-white" : "bg-gray-200"
-    }`}
-  >
-    Pick Location
-  </button>
+          <button
+            type="button"
+            onClick={() => setMode("point")}
+            className={`px-4 py-2 rounded whitespace-nowrap ${mode === "point" ? "bg-blue-600 text-white" : "bg-gray-200"
+              }`}
+          >
+            Pick Location
+          </button>
 
-  <button
-    type="button"
-    onClick={() => setMode("boundary")}
-    className={`px-4 py-2 rounded whitespace-nowrap ${
-      mode === "boundary" ? "bg-green-600 text-white" : "bg-gray-200"
-    }`}
-  >
-    Select Boundary
-  </button>
+          <button
+            type="button"
+            onClick={() => setMode("boundary")}
+            className={`px-4 py-2 rounded whitespace-nowrap ${mode === "boundary" ? "bg-green-600 text-white" : "bg-gray-200"
+              }`}
+          >
+            Select Boundary
+          </button>
 
-  <button
-    type="button"
-    onClick={handleFinishBoundary}
-    className="px-4 py-2 rounded bg-indigo-600 text-white whitespace-nowrap"
-  >
-    Finish Boundary
-  </button>
+          <button
+            type="button"
+            onClick={handleFinishBoundary}
+            className="px-4 py-2 rounded bg-indigo-600 text-white whitespace-nowrap"
+          >
+            Finish Boundary
+          </button>
 
-  <button
-    type="button"
-    onClick={handleClearBoundary}
-    className="px-4 py-2 rounded bg-red-400 text-white whitespace-nowrap"
-  >
-    Clear Boundary
-  </button>
+          <button
+            type="button"
+            onClick={handleClearBoundary}
+            className="px-4 py-2 rounded bg-red-400 text-white whitespace-nowrap"
+          >
+            Clear Boundary
+          </button>
 
-  <div className="text-sm text-gray-600 ml-auto whitespace-nowrap mt-2 sm:mt-0">
-    Mode: <strong>{mode === "point" ? "Pick Location" : "Select Boundary"}</strong>
-  </div>
-</div>
+          <div className="text-sm text-gray-600 ml-auto whitespace-nowrap mt-2 sm:mt-0">
+            Mode: <strong>{mode === "point" ? "Pick Location" : "Select Boundary"}</strong>
+          </div>
+        </div>
 
 
         {/* Map Section */}
@@ -473,7 +497,7 @@ export function FranchisePage() {
               {/* <LayersControl.BaseLayer name="Hybrid Mode (Satellite + Names)">
                 <HybridLayer />
               </LayersControl.BaseLayer> */}
-              
+
             </LayersControl>
 
 
@@ -567,6 +591,65 @@ export function FranchisePage() {
           <option>50 Lakh - 1 Cr</option>
           <option>More than 1 Cr</option>
         </select>
+
+        {/* ----------- Images & Video Upload ----------- */}
+        <h2 className="text-xl font-semibold mt-6">Upload Site Images & Video</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          {/* Image Upload */}
+          <div>
+            <label className="block font-medium mb-2">Upload Images (Multiple Allowed)</label>
+            <input
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={(e) => setFormData((f) => ({
+                ...f,
+                images: Array.from(e.target.files)
+              }))}
+              className="border p-2 rounded w-full"
+            />
+
+            {/* Preview Images */}
+            {formData.images?.length > 0 && (
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                {formData.images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={URL.createObjectURL(img)}
+                    alt={`preview-${i}`}
+                    className="h-32 w-full object-cover rounded border"
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Video Upload */}
+          <div>
+            <label className="block font-medium mb-2">Upload Video</label>
+            <input
+              type="file"
+              accept="video/*"
+              onChange={(e) => setFormData((f) => ({
+                ...f,
+                video: e.target.files[0]
+              }))}
+              className="border p-2 rounded w-full"
+            />
+
+            {/* Video Preview */}
+            {formData.video && (
+              <video
+                controls
+                className="mt-3 w-full rounded border"
+                src={URL.createObjectURL(formData.video)}
+              />
+            )}
+          </div>
+
+        </div>
 
         {/* Submit */}
         <div className="text-center">
