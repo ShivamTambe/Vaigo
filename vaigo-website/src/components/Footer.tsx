@@ -66,7 +66,7 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-green-400" />
-                <span className="text-gray-300">info@vaigocenter.com</span>
+                <span className="text-gray-300">info@vaigo.in</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-green-400" />
