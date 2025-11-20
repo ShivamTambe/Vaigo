@@ -112,7 +112,7 @@ export function VaigoCenter() {
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-6 py-3 text-base sm:text-lg"
-                  onClick={() => navigate('/solutions')}
+                  onClick={() => navigate('/contact')}
                 >
                   Get in Touch
                 </Button>
@@ -205,7 +205,7 @@ export function VaigoCenter() {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">
-            🚀 Application Sectors
+            Application Sectors
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full border border-green-100 rounded-lg text-left text-sm md:text-base">

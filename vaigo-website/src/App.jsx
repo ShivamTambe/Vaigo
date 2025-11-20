@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { HomePage } from "./components/HomePage";
 import { AboutPage } from "./components/AboutPage";
@@ -10,41 +10,64 @@ import { TechnologyPage } from './components/TechnologyPage';
 import { MarketsPage } from './components/MarketsPage';
 import { ContactPage } from './components/ContactPage';
 import { ScheduleCallPage } from "./components/ScheduleCallPage";
-import { VaigoCenter} from "./components/VaigoCenter";
+import { VaigoCenter } from "./components/VaigoCenter";
 import { SolutionDetail } from "./components/SolutionDetail";
 import { IndustryDetail } from "./components/IndustryDetail";
 import { FranchisePage } from "./components/FranchisePage";
 import industrySpecific from "./data/industrySpecificSolutions.json";
 
+import { ParallaxProvider } from "react-scroll-parallax";
+
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-white">
-        <Navigation />
+    <ParallaxProvider>
+      <Router>
+        <ScrollToTop />
+        <MainLayout />
+      </Router>
+    </ParallaxProvider>
+  );
+}
 
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/vaigo-center" element={<VaigoCenter />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/products" element={<ProductsPage />} />
-            <Route path="/solutions" element={<SolutionsPage />} />
-            <Route path="/solutions/:slug" element={<SolutionDetail />} />
-            <Route path="/industry/:name" element={<IndustryDetail industrySpecific={industrySpecific} />} />
-            <Route path="/technology" element={<TechnologyPage />} />
-            <Route path="/markets" element={<MarketsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/schedule-call" element={<ScheduleCallPage />} />
-            <Route path="/franchisee" element={<FranchisePage />} />
+// Separate layout so we can use useLocation()
+function MainLayout() {
+  const location = useLocation();
 
-            {/* Future pages */}
-          </Routes>
-        </main>
+  return (
+    <div className="min-h-screen bg-white">
+      <Navigation />
 
-        <Footer />
-      </div>
-    </Router>
+      <main className="overflow-hidden">
+        {/* Global page transition wrapper */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+          >
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/vaigo-center" element={<VaigoCenter />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/solutions" element={<SolutionsPage />} />
+              <Route path="/solutions/:slug" element={<SolutionDetail />} />
+              <Route path="/industry/:name" element={<IndustryDetail industrySpecific={industrySpecific} />} />
+              <Route path="/technology" element={<TechnologyPage />} />
+              <Route path="/markets" element={<MarketsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/schedule-call" element={<ScheduleCallPage />} />
+              <Route path="/franchisee" element={<FranchisePage />} />
+            </Routes>
+          </motion.div>
+        </AnimatePresence>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

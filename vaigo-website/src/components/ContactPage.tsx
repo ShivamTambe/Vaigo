@@ -89,19 +89,19 @@ export function ContactPage() {
     {
       icon: Mail,
       title: "General Inquiries",
-      value: "info@dotflickventures.com",
+      value: "info@vaigo.in",
       description: "For questions about Vaigo and our solutions"
     },
     {
       icon: Headphones,
       title: "Technical Support",
-      value: "support@dotflickventures.com",
+      value: "info@vaigo.in",
       description: "For existing customers needing assistance"
     },
     {
       icon: Users,
       title: "Partnership Inquiries",
-      value: "partnerships@dotflickventures.com",
+      value: "info@vaigo.in",
       description: "For collaboration and business development"
     },
     {
@@ -247,14 +247,13 @@ export function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
+                  <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
                     value={formData.message}
                     onChange={(e) => handleInputChange('message', e.target.value)}
                     placeholder="Tell us about your farming operation and how we can help..."
                     rows={6}
-                    required
                     className="border-gray-200 focus:border-green-500"
                   />
                 </div>
@@ -418,7 +417,7 @@ export function ContactPage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur-2xl opacity-20 transform rotate-3" />
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://i.ibb.co/HfCmchh6/IMG-20251113-WA0056.jpg"
                   alt="Agricultural training and certification"
                   className="relative z-10 w-full h-auto rounded-2xl shadow-xl"
                 />
@@ -714,7 +713,8 @@ export function ContactPage() {
                       <p className="text-gray-600">
                         Technical Support Available:<br />
                         Monday - Saturday: 9:00 AM - 6:00 PM (IST)<br />
-                        Emergency Support: 24/7
+                        Emergency Support: 24/7 <br/>
+                        Phone no. : +91 88050 43855
                       </p>
                     </div>
                   </div>

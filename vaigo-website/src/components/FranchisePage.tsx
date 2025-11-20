@@ -320,16 +320,16 @@ export function FranchisePage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Basic fields (kept minimal here; copy more as you need) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input name="name" value={formData.name} onChange={handleChange} placeholder="Full Name" className="border p-2 rounded" />
-          <input name="email" value={formData.email} onChange={handleChange} placeholder="Email ID" className="border p-2 rounded" />
+          <input name="name" required value={formData.name} onChange={handleChange} placeholder="Full Name*" className="border p-2 rounded" />
+          <input name="email" required value={formData.email} onChange={handleChange} placeholder="Email ID*" className="border p-2 rounded" />
           <input type="date" name="dob" value={formData.dob} onChange={handleChange} className="border p-2 rounded" />
           <select name="gender" value={formData.gender} onChange={handleChange} className="border p-2 rounded">
             <option value="" disabled>Gender</option>
             <option>Male</option>
             <option>Female</option>
           </select>
-          <input name="mobile" value={formData.mobile} onChange={handleChange} placeholder="Mobile No." className="border p-2 rounded" />
-          <input name="address" value={formData.address} onChange={handleChange} placeholder="Address" className="border p-2 rounded" />
+          <input name="mobile" required value={formData.mobile} onChange={handleChange} placeholder="Mobile No.*" className="border p-2 rounded" />
+          <input name="address" required value={formData.address} onChange={handleChange} placeholder="Address*" className="border p-2 rounded" />
         </div>
 
         {/* Employment/Income */}
