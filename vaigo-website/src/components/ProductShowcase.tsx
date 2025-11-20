@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
@@ -18,11 +19,7 @@ import {
   CheckCircle
 } from 'lucide-react';
 
-interface ProductShowcaseProps {
-  onNavigate: (page: string) => void;
-}
-
-export function ProductShowcase({ onNavigate }: ProductShowcaseProps) {
+export function ProductShowcase({ onNavigate }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -121,17 +118,20 @@ export function ProductShowcase({ onNavigate }: ProductShowcaseProps) {
     setActiveSlide((prev) => (prev - 1 + showcaseItems.length) % showcaseItems.length);
   };
 
-  const goToSlide = (index: number) => {
-    setActiveSlide(index);
-  };
-
   const currentItem = showcaseItems[activeSlide];
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
+
+        {/* Entrance Reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <Badge className="bg-green-100 text-green-800 border-green-200 mb-4">
             Product Showcase
           </Badge>
@@ -139,44 +139,62 @@ export function ProductShowcase({ onNavigate }: ProductShowcaseProps) {
             Vaigo in Action
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Witness the power of Vaigo transforming agricultural operations. Our Plane is engineered for peak performance, 
-            delivering unparalleled precision and efficiency in the field.
+            Witness the power of Vaigo transforming agricultural operations. Our Plane 
+            delivers unparalleled precision and efficiency in the field.
           </p>
-        </div>
+        </motion.div>
 
         {/* Main Showcase */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Image Section */}
+
+          {/* IMAGE WITH SLIDE ANIMATION */}
           <div className="relative">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-              <ImageWithFallback
-                src={currentItem.image}
-                alt={currentItem.title}
-                className="w-full h-96 object-cover transition-transform duration-700 hover:scale-105"
-              />
-              
-              {/* Video Play Overlay */}
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <Button 
-                  size="lg" 
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl h-96">
+
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentItem.id}
+                  src={currentItem.image}
+                  alt={currentItem.title}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full h-full object-cover"
+                />
+              </AnimatePresence>
+
+              {/* Play Button Overlay */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                className="absolute inset-0 bg-black/30 flex items-center justify-center"
+              >
+                <Button
+                  size="lg"
                   className="bg-white/90 text-gray-900 hover:bg-white"
                   onClick={() => setIsPlaying(!isPlaying)}
                 >
                   {isPlaying ? <Pause className="w-6 h-6 mr-2" /> : <Play className="w-6 h-6 mr-2" />}
                   {isPlaying ? 'Pause' : 'Play'} Demo
                 </Button>
-              </div>
+              </motion.div>
 
               {/* Slide Counter */}
-              <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+                className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm"
+              >
                 {activeSlide + 1} / {showcaseItems.length}
-              </div>
+              </motion.div>
 
               {/* Navigation Arrows */}
               <Button
                 variant="ghost"
                 size="sm"
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 rounded-full w-10 h-10 p-0"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 rounded-full w-10 h-10 p-0 shadow"
                 onClick={prevSlide}
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -184,125 +202,169 @@ export function ProductShowcase({ onNavigate }: ProductShowcaseProps) {
               <Button
                 variant="ghost"
                 size="sm"
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 rounded-full w-10 h-10 p-0"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 rounded-full w-10 h-10 p-0 shadow"
                 onClick={nextSlide}
               >
                 <ChevronRight className="w-5 h-5" />
               </Button>
             </div>
 
-            {/* Thumbnail Navigation */}
+            {/* Thumbnails */}
             <div className="hidden md:flex space-x-2 mt-4 overflow-x-auto pb-2">
               {showcaseItems.map((item, index) => (
-                <button
+                <motion.button
                   key={item.id}
-                  onClick={() => goToSlide(index)}
+                  onClick={() => setActiveSlide(index)}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
                   className={`flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                     index === activeSlide ? 'border-green-500 shadow-lg' : 'border-gray-200 hover:border-green-300'
                   }`}
                 >
-                  <ImageWithFallback
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
+                  <img src={item.image} className="w-full h-full object-cover" />
+                </motion.button>
               ))}
             </div>
           </div>
 
-          {/* Content Section */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center">
-                  <currentItem.icon className="w-6 h-6 text-green-600" />
+          {/* RIGHT CONTENT (SMOOTH FADE BETWEEN SLIDES) */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentItem.id + "-text"}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.45 }}
+              className="space-y-8"
+            >
+              {/* Title */}
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center">
+                    <currentItem.icon className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+                    {currentItem.title}
+                  </h3>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{currentItem.title}</h3>
+                <p className="text-gray-600 text-lg">{currentItem.description}</p>
               </div>
-              <p className="text-gray-600 leading-relaxed text-lg">{currentItem.description}</p>
-            </div>
 
-            {/* Features */}
-            <div className="space-y-3">
-              <h4 className="font-semibold text-gray-900">Key Features:</h4>
-              {currentItem.features.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
+              {/* Features */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-gray-900">Key Features:</h4>
+                {currentItem.features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 15 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start space-x-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5" />
+                    <span className="text-gray-700">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
 
-            {/* Stats */}
-            <Card className="border border-green-100 bg-gradient-to-r from-green-50 to-blue-50">
-              <CardContent className="p-6">
-                <h4 className="font-semibold text-gray-900 mb-4">Performance Metrics:</h4>
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  {Object.entries(currentItem.stats).map(([key, value]) => (
-                    <div key={key}>
-                      <div className="text-lg font-bold text-green-600">{value}</div>
-                      <div className="text-xs text-gray-600 capitalize">{key.replace(/([A-Z])/g, ' $1')}</div>
+              {/* Stats */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+              >
+                <Card className="border bg-gradient-to-r from-green-50 to-blue-50">
+                  <CardContent className="p-6">
+                    <h4 className="font-semibold text-gray-900 mb-4">Performance Metrics:</h4>
+                    <div className="grid grid-cols-3 gap-4 text-center">
+                      {Object.entries(currentItem.stats).map(([key, value]) => (
+                        <div key={key}>
+                          <div className="text-lg font-bold text-green-600">{value}</div>
+                          <div className="text-xs text-gray-600 capitalize">
+                            {key.replace(/([A-Z])/g, " $1")}
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-green-500 to-blue-600 text-white"
+                  onClick={() => onNavigate("products")}
+                >
+                  Learn More About Vaigo
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-green-200 text-green-700 hover:bg-green-50"
+                  onClick={() => onNavigate("contact")}
+                >
+                  Request Live Demo
+                </Button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+        </div>
+
+        {/* Bottom Feature Cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid md:grid-cols-3 gap-6"
+        >
+          {/* Card 1 */}
+          <motion.div whileHover={{ scale: 1.04 }}>
+            <Card className="border hover:border-green-300 transition shadow-sm">
+              <CardContent className="p-6 text-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-7 h-7 text-green-600" />
                 </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Precision Application</h3>
+                <p className="text-sm text-gray-600">Variable rate spraying with real-time adaptation.</p>
               </CardContent>
             </Card>
+          </motion.div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
-                onClick={() => onNavigate('products')}
-              >
-                Learn More About Vaigo
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-green-200 text-green-700 hover:bg-green-50"
-                onClick={() => onNavigate('contact')}
-              >
-                Request Live Demo
-              </Button>
-            </div>
-          </div>
-        </div>
+          {/* Card 2 */}
+          <motion.div whileHover={{ scale: 1.04 }}>
+            <Card className="border hover:border-blue-300 transition shadow-sm">
+              <CardContent className="p-6 text-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-7 h-7 text-blue-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Advanced Safety</h3>
+                <p className="text-sm text-gray-600">Multi-sensor obstacle detection for safe operation.</p>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-        {/* Feature Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          <Card className="border border-green-100 hover:border-green-200 transition-all duration-300 hover:shadow-lg group">
-            <CardContent className="p-6 text-center">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Target className="w-7 h-7 text-green-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Precision Application</h3>
-              <p className="text-sm text-gray-600">Variable rate spraying with real-time field condition adaptation</p>
-            </CardContent>
-          </Card>
+          {/* Card 3 */}
+          <motion.div whileHover={{ scale: 1.04 }}>
+            <Card className="border hover:border-green-300 transition shadow-sm">
+              <CardContent className="p-6 text-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="w-7 h-7 text-green-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Data-Driven Insights</h3>
+                <p className="text-sm text-gray-600">Real-time analytics for better farm productivity.</p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </motion.div>
 
-          <Card className="border border-blue-100 hover:border-blue-200 transition-all duration-300 hover:shadow-lg group">
-            <CardContent className="p-6 text-center">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Shield className="w-7 h-7 text-blue-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Advanced Safety</h3>
-              <p className="text-sm text-gray-600">Multi-sensor obstacle detection ensures safe autonomous operation</p>
-            </CardContent>
-          </Card>
-
-          <Card className="border border-green-100 hover:border-green-200 transition-all duration-300 hover:shadow-lg group">
-            <CardContent className="p-6 text-center">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <BarChart3 className="w-7 h-7 text-green-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Data-Driven Insights</h3>
-              <p className="text-sm text-gray-600">Real-time analytics for continuous optimization and performance tracking</p>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   );
