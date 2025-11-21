@@ -15,6 +15,7 @@ import { SolutionDetail } from "./components/SolutionDetail";
 import { IndustryDetail } from "./components/IndustryDetail";
 import { FranchisePage } from "./components/FranchisePage";
 import industrySpecific from "./data/industrySpecificSolutions.json";
+import { PartnershipPage } from './components/PartnershipPage';
 
 import { ParallaxProvider } from "react-scroll-parallax";
 
@@ -62,6 +63,7 @@ function MainLayout() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/schedule-call" element={<ScheduleCallPage />} />
               <Route path="/franchisee" element={<FranchisePage />} />
+              <Route path="/partnership" element={<PartnershipPage />} />
             </Routes>
           </motion.div>
         </AnimatePresence>
