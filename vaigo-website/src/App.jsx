@@ -16,6 +16,8 @@ import { IndustryDetail } from "./components/IndustryDetail";
 import { FranchisePage } from "./components/FranchisePage";
 import industrySpecific from "./data/industrySpecificSolutions.json";
 import { PartnershipPage } from './components/PartnershipPage';
+import WhatsAppButton from "./components/WhatsAppButton";
+import FirstVisitPopup from "./components/FirstVisitPopup";
 
 import { ParallaxProvider } from "react-scroll-parallax";
 
@@ -39,7 +41,8 @@ function MainLayout() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-
+      <WhatsAppButton />
+      <FirstVisitPopup />
       <main className="overflow-hidden">
         {/* Global page transition wrapper */}
         <AnimatePresence mode="wait">

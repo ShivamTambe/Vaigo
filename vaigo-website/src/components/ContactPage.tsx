@@ -318,7 +318,7 @@ export function ContactPage() {
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Headphones className="w-7 h-7 text-blue-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Technical Support</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Technical Support / Demo</h3>
                 <p className="text-sm text-gray-600">Expert assistance when you need it most</p>
               </CardContent>
             </Card>
