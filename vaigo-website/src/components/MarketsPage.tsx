@@ -2,10 +2,11 @@ import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './ImageWithFallback';
-import { 
-  Globe, 
-  Wheat, 
-  Leaf, 
+
+import {
+  Globe,
+  Wheat,
+  Leaf,
   Truck,
   Users,
   TrendingUp,
@@ -16,10 +17,11 @@ import {
   CheckCircle
 } from 'lucide-react';
 
+import Reveal from "./animations/Reveal";
+import { AnimatedCounter } from "./AnimatedCounter";
 import { useNavigate } from "react-router-dom";
 
 export function MarketsPage() {
-
   const navigate = useNavigate();
 
   const targetMarkets = [
@@ -142,7 +144,7 @@ export function MarketsPage() {
       countries: "USA & Canada",
       characteristics: [
         "Large-scale commercial farms",
-        "High tech adoption rates", 
+        "High tech adoption rates",
         "Established regulatory frameworks",
         "Strong demand for efficiency"
       ],
@@ -162,7 +164,7 @@ export function MarketsPage() {
       status: "Expansion Market"
     },
     {
-      region: "Asia-Pacific", 
+      region: "Asia-Pacific",
       countries: "Australia, New Zealand, Japan",
       characteristics: [
         "Innovation-driven agriculture",
@@ -204,7 +206,7 @@ export function MarketsPage() {
       title: "Sugarcane Optimization in Maharashtra",
       location: "Maharashtra, India",
       challenge: "Inefficient spraying, high input costs, limited data insights",
-      solution: "Vaigo drones with Agro AI Ecosystem digital twin integration",
+      solution: "Vaigo drones with Agro AI Ecosystem integration",
       results: [
         "25% reduction in pesticide use",
         "15% increase in yield",
@@ -240,323 +242,405 @@ export function MarketsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-50 via-blue-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Global Markets & 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-                {" "}Applications
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Vaigo and the Agro AI Ecosystem deliver transformative benefits across diverse agricultural 
-              markets and applications, addressing specific needs of various crop types, farming scales, and geographic regions.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      {/* Target Markets */}
+      {/* HERO */}
+      <section className="bg-gradient-to-br from-green-50 via-blue-50 to-white py-12">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <Reveal type="slide" y={20}>
+      <div className="text-center mb-8">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Global Markets &{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
+            Applications
+          </span>
+        </h1>
+
+        <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          Vaigo and the Agro AI Ecosystem deliver transformative benefits across diverse
+          agricultural markets.
+        </p>
+      </div>
+    </Reveal>
+
+  </div>
+</section>
+
+
+      {/* ===========================================================
+                TARGET MARKETS
+      =========================================================== */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Target Markets
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our primary focus is on segments that stand to gain the most from advanced precision 
-              agriculture technologies, characterized by scale, complexity, and commitment to innovation.
-            </p>
-          </div>
+
+          <Reveal type="slide" y={20}>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Target Markets
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Our primary focus is on segments that gain the most from precision agriculture.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {targetMarkets.map((market, index) => (
-              <Card key={index} className="border border-green-100 hover:border-green-200 transition-all duration-300 hover:shadow-lg group">
-                <CardContent className="p-8">
-                  <div className="flex items-center space-x-4 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <market.icon className="w-6 h-6 text-green-600" />
-                    </div>
-                    <div>
-                      <Badge className="bg-green-100 text-green-800 border-green-200 mb-2">
-                        {market.market}
-                      </Badge>
-                      <h3 className="text-lg font-semibold text-gray-900">{market.title}</h3>
-                    </div>
-                  </div>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">{market.description}</p>
-                  
-                  <div className="space-y-3">
-                    {market.benefits.map((benefit, benefitIndex) => (
-                      <div key={benefitIndex} className="flex items-start space-x-3">
-                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-1" />
-                        <span className="text-sm text-gray-700">{benefit}</span>
+            {targetMarkets.map((market, i) => (
+              <Reveal key={i} type="zoom" delay={i * 0.08}>
+                <Card className="border border-green-100 hover:border-green-200 transition-all duration-300 hover:shadow-lg group">
+                  <CardContent className="p-8">
+                    <div className="flex items-center space-x-4 mb-6">
+                      <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <market.icon className="w-6 h-6 text-green-600" />
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                      <div>
+                        <Badge className="bg-green-100 text-green-800 border-green-200 mb-2">
+                          {market.market}
+                        </Badge>
+                        <h3 className="text-lg font-semibold text-gray-900">{market.title}</h3>
+                      </div>
+                    </div>
+
+                    <p className="text-gray-600 mb-6 leading-relaxed">{market.description}</p>
+
+                    <div className="space-y-3">
+                      {market.benefits.map((benefit, b) => (
+                        <div key={b} className="flex items-start space-x-3">
+                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-1" />
+                          <span className="text-sm text-gray-700">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Crop Applications */}
+      {/* ===========================================================
+                CROP APPLICATIONS
+      =========================================================== */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Crop-Specific Applications
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our solutions are specifically tailored to optimize outcomes for various crop types, 
-              addressing unique challenges and maximizing agricultural potential.
-            </p>
-          </div>
+
+          <Reveal>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Crop-Specific Applications
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Solutions tailored to optimize outcomes for various crop types.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cropApplications.map((crop, index) => (
-              <Card key={index} className="border border-white shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <CardContent className="p-6">
-                  <div className="text-center mb-4">
-                    <div className="text-4xl mb-2">{crop.icon}</div>
-                    <h3 className="text-lg font-semibold text-gray-900">{crop.crop}</h3>
-                  </div>
-                  
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{crop.description}</p>
-                  
-                  <div className="space-y-2 mb-4">
-                    <h4 className="font-medium text-gray-900 text-sm">Key Applications:</h4>
-                    {crop.applications.map((app, appIndex) => (
-                      <div key={appIndex} className="flex items-start space-x-2">
-                        <div className="w-1 h-1 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-xs text-gray-600">{app}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="bg-green-50 rounded-lg p-3">
-                    <h4 className="font-medium text-green-800 text-sm mb-1">Proven Results:</h4>
-                    <p className="text-xs text-green-700">{crop.results}</p>
-                  </div>
-                </CardContent>
-              </Card>
+            {cropApplications.map((crop, i) => (
+              <Reveal key={i} type="zoom" delay={i * 0.06}>
+                <Card className="border border-white shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <CardContent className="p-6">
+                    <div className="text-center mb-4">
+                      <div className="text-4xl mb-2">{crop.icon}</div>
+                      <h3 className="text-lg font-semibold text-gray-900">{crop.crop}</h3>
+                    </div>
+
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">{crop.description}</p>
+
+                    <div className="space-y-2 mb-4">
+                      <h4 className="font-medium text-gray-900 text-sm">Key Applications:</h4>
+                      {crop.applications.map((app, appIndex) => (
+                        <div key={appIndex} className="flex items-start space-x-2">
+                          <div className="w-1 h-1 bg-green-500 rounded-full mt-2" />
+                          <span className="text-sm text-gray-600">{app}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="bg-green-50 rounded-lg p-3">
+                      <h4 className="font-medium text-green-800 text-sm mb-1">Proven Results:</h4>
+                      <p className="text-sm text-green-700">{crop.results}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Geographic Markets */}
+      {/* ===========================================================
+                GEOGRAPHIC MARKETS
+      =========================================================== */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Geographic Focus Areas
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our market entry and expansion strategy prioritizes regions with high agricultural activity, 
-              favorable regulatory environments, and strong demand for advanced farming technologies.
-            </p>
-          </div>
+
+          <Reveal>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Geographic Focus Areas
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Strategy prioritizing regions with high agricultural activity.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="space-y-6">
-            {geographicMarkets.map((market, index) => (
-              <Card key={index} className="border border-green-100 hover:border-green-200 transition-all duration-300 hover:shadow-lg">
-                <CardContent className="p-6">
-                  <div className="grid md:grid-cols-4 gap-6 items-center">
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-2">
-                        <Globe className="w-5 h-5 text-green-600" />
-                        <h3 className="text-lg font-semibold text-gray-900">{market.region}</h3>
-                      </div>
-                      <p className="text-sm text-gray-600">{market.countries}</p>
-                      <div className="flex items-center space-x-2">
-                        <Badge 
-                          className={`text-xs ${
-                            market.opportunity === 'Massive' ? 'bg-purple-100 text-purple-800' :
-                            market.opportunity === 'Very High' ? 'bg-red-100 text-red-800' :
-                            'bg-green-100 text-green-800'
-                          }`}
-                        >
+            {geographicMarkets.map((market, i) => (
+              <Reveal key={i} delay={i * 0.06}>
+                <Card className="border border-green-100 hover:border-green-200 transition-all duration-300 hover:shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="grid md:grid-cols-4 gap-6 items-center">
+
+                      <div className="space-y-2">
+                        <div className="flex items-center space-x-2">
+                          <Globe className="w-5 h-5 text-green-600" />
+                          <h3 className="text-lg font-semibold text-gray-900">{market.region}</h3>
+                        </div>
+
+                        <p className="text-sm text-gray-600">{market.countries}</p>
+
+                        <Badge className={`text-sm ${
+                          market.opportunity === "Massive"
+                            ? "bg-purple-100 text-purple-800"
+                            : market.opportunity === "Very High"
+                            ? "bg-red-100 text-red-800"
+                            : "bg-green-100 text-green-800"
+                        }`}>
                           {market.opportunity} Opportunity
                         </Badge>
                       </div>
-                    </div>
-                    
-                    <div className="md:col-span-2">
-                      <h4 className="font-medium text-gray-900 mb-2 text-sm">Market Characteristics:</h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        {market.characteristics.map((char, charIndex) => (
-                          <div key={charIndex} className="flex items-start space-x-2">
-                            <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
-                            <span className="text-xs text-gray-600">{char}</span>
-                          </div>
-                        ))}
+
+                      <div className="md:col-span-2">
+                        <h4 className="font-medium text-gray-900 mb-2 text-sm">
+                          Market Characteristics:
+                        </h4>
+
+                        <div className="grid grid-cols-2 gap-2">
+                          {market.characteristics.map((char, c) => (
+                            <div key={c} className="flex items-start space-x-2">
+                              <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                              <span className="text-sm text-gray-600">{char}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="text-center">
-                      <Badge 
-                        className={`mb-2 ${
-                          market.status === 'Primary Focus' ? 'bg-blue-100 text-blue-800' :
-                          market.status === 'Key Growth Market' ? 'bg-green-100 text-green-800' :
-                          'bg-gray-100 text-gray-800'
-                        }`}
-                      >
-                        {market.status}
-                      </Badge>
-                      <div className="flex justify-center">
-                        {[...Array(market.opportunity === 'Massive' ? 5 : market.opportunity === 'Very High' ? 4 : 3)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                        ))}
+
+                      <div className="text-center">
+                        <Badge className={`mb-2 ${
+                          market.status === "Primary Focus"
+                            ? "bg-blue-100 text-blue-800"
+                            : market.status === "Key Growth Market"
+                            ? "bg-green-100 text-green-800"
+                            : "bg-gray-100 text-gray-800"
+                        }`}>
+                          {market.status}
+                        </Badge>
+
+                        <div className="flex justify-center">
+                          {[...Array(
+                            market.opportunity === "Massive"
+                              ? 5
+                              : market.opportunity === "Very High"
+                              ? 4
+                              : 3
+                          )].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                          ))}
+                        </div>
                       </div>
+
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* Success Stories */}
+      {/* ===========================================================
+                SUCCESS STORIES
+      =========================================================== */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Success Stories
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real-world impact demonstrates how Vaigo and the Agro AI Ecosystem are transforming 
-              farming operations worldwide with measurable results and tangible benefits.
-            </p>
-          </div>
+
+          <Reveal>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Success Stories
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Real-world impact demonstrating measurable results.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {successStories.map((story, index) => (
-              <Card key={index} className="border border-white shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <MapPin className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-green-600 font-medium">{story.location}</span>
-                  </div>
-                  
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{story.title}</h3>
-                  
-                  <div className="space-y-4 mb-6">
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm mb-1">Challenge:</h4>
-                      <p className="text-xs text-gray-600">{story.challenge}</p>
+            {successStories.map((story, i) => (
+              <Reveal key={i} type="zoom" delay={i * 0.08}>
+                <Card className="border border-white shadow-lg hover:shadow-xl transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-2 mb-4">
+                      <MapPin className="w-4 h-4 text-green-600" />
+                      <span className="text-sm text-green-600 font-medium">{story.location}</span>
                     </div>
-                    
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm mb-1">Solution:</h4>
-                      <p className="text-xs text-gray-600">{story.solution}</p>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm mb-2">Results:</h4>
-                      <div className="space-y-1">
-                        {story.results.map((result, resultIndex) => (
-                          <div key={resultIndex} className="flex items-start space-x-2">
-                            <TrendingUp className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
-                            <span className="text-xs text-gray-600">{result}</span>
-                          </div>
-                        ))}
+
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{story.title}</h3>
+
+                    <div className="space-y-4 mb-6">
+                      <div>
+                        <h4 className="font-medium text-gray-900 text-sm mb-1">Challenge:</h4>
+                        <p className="text-sm text-gray-600">{story.challenge}</p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-medium text-gray-900 text-sm mb-1">Solution:</h4>
+                        <p className="text-sm text-gray-600">{story.solution}</p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-medium text-gray-900 text-sm mb-2">Results:</h4>
+
+                        <div className="space-y-1">
+                          {story.results.map((result, r) => (
+                            <div key={r} className="flex items-start space-x-2">
+                              <TrendingUp className="w-3 h-3 text-green-500 mt-1" />
+                              <span className="text-sm text-gray-600">{result}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="bg-green-50 rounded-lg p-3">
-                    <h4 className="font-medium text-green-800 text-sm mb-1">Impact:</h4>
-                    <p className="text-xs text-green-700">{story.impact}</p>
-                  </div>
-                </CardContent>
-              </Card>
+
+                    <div className="bg-green-50 rounded-lg p-3">
+                      <h4 className="font-medium text-green-800 text-sm mb-1">Impact:</h4>
+                      <p className="text-sm text-green-700">{story.impact}</p>
+                    </div>
+
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* Market Statistics */}
+      {/* ===========================================================
+                MARKET STATISTICS WITH ANIMATED COUNTERS
+      =========================================================== */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Market Impact & Potential
-            </h2>
-          </div>
+
+          <Reveal>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Market Impact & Potential
+              </h2>
+            </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div className="space-y-3">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto">
-                <BarChart3 className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900">60%</h3>
-              <p className="text-gray-600">Reduction in Chemical Usage</p>
-            </div>
 
-            <div className="space-y-3">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-green-600 rounded-full flex items-center justify-center mx-auto">
-                <TrendingUp className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900">40%</h3>
-              <p className="text-gray-600">Increase in Yield Potential</p>
-            </div>
+            <Reveal type="zoom" delay={0.04}>
+              <div className="space-y-3">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto shadow-md animate-pulse">
+                  <BarChart3 className="w-8 h-8 text-white" />
+                </div>
 
-            <div className="space-y-3">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-blue-500 rounded-full flex items-center justify-center mx-auto">
-                <Globe className="w-8 h-8 text-white" />
+                <h3 className="text-2xl font-bold text-gray-900">
+                  <AnimatedCounter to={60} suffix="%" />
+                </h3>
+                <p className="text-gray-600">Reduction in Chemical Usage</p>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">15+</h3>
-              <p className="text-gray-600">Target Countries</p>
-            </div>
+            </Reveal>
 
-            <div className="space-y-3">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-green-500 rounded-full flex items-center justify-center mx-auto">
-                <Users className="w-8 h-8 text-white" />
+            <Reveal type="zoom" delay={0.06}>
+              <div className="space-y-3">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-green-600 rounded-full flex items-center justify-center mx-auto shadow-md animate-pulse">
+                  <TrendingUp className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  <AnimatedCounter to={40} suffix="%" />
+                </h3>
+                <p className="text-gray-600">Increase in Yield Potential</p>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">1000+</h3>
-              <p className="text-gray-600">Potential Farm Partners</p>
-            </div>
+            </Reveal>
+
+            <Reveal type="zoom" delay={0.08}>
+              <div className="space-y-3">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-blue-500 rounded-full flex items-center justify-center mx-auto shadow-md animate-pulse">
+                  <Globe className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  <AnimatedCounter to={15} suffix="+" />
+                </h3>
+                <p className="text-gray-600">Target Countries</p>
+              </div>
+            </Reveal>
+
+            <Reveal type="zoom" delay={0.1}>
+              <div className="space-y-3">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-green-500 rounded-full flex items-center justify-center mx-auto shadow-md animate-pulse">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  <AnimatedCounter to={1000} suffix="+" />
+                </h3>
+                <p className="text-gray-600">Potential Farm Partners</p>
+              </div>
+            </Reveal>
+
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Join the Global Agricultural Revolution
-          </h2>
-          <p className="text-xl text-green-100 mb-8 leading-relaxed">
-            Be part of the transformation that's revolutionizing farming across continents. 
-            Discover how Vaigo can bring precision agriculture to your region.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              variant="secondary" 
-              className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
-              onClick={() => navigate('/contact')}
-            >
-              Explore Partnership
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
-              onClick={() => navigate('/products')}
-            >
-              Request Demo
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </div>
+
+          <Reveal type="slide" y={20}>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Join the Global Agricultural Revolution
+            </h2>
+          </Reveal>
+
+          <Reveal type="fade" delay={0.06}>
+            <p className="text-xl text-green-100 mb-8 leading-relaxed">
+              Be part of the transformation revolutionizing farming across continents.
+            </p>
+          </Reveal>
+
+          <Reveal type="zoom" delay={0.12}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                variant="secondary"
+                className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
+                onClick={() => navigate("/contact")}
+              >
+                Explore Partnership
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
+                onClick={() => navigate("/products")}
+              >
+                Request Demo
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+          </Reveal>
+
         </div>
       </section>
+
     </div>
   );
 }

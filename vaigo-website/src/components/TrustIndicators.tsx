@@ -119,7 +119,7 @@ export function TrustIndicators() {
                     <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300">
                       <item.icon className="w-8 h-8 text-green-600" />
                     </div>
-                    <Badge className="bg-gray-100 text-gray-700 text-xs mb-3">
+                    <Badge className="bg-gray-100 text-gray-700 text-sm mb-3">
                       {item.category}
                     </Badge>
                     <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>

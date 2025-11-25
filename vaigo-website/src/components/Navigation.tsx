@@ -1,113 +1,159 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Button } from './ui/button';
-import { Menu, X } from 'lucide-react';
-import { ImageWithFallback } from './ImageWithFallback';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About Us' },
-    { path: '/vaigo-center', label: 'Vaigo Center' },
-    { path: '/products', label: 'Products' },
-    { path: '/solutions', label: 'Solutions' },
-    { path: '/technology', label: 'Technology' },
-    { path: '/markets', label: 'Markets' },
-    { path: '/contact', label: 'Contact' },
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About Us" },
+    { path: "/vaigo-center", label: "Vaigo Center" },
+    { path: "/products", label: "Products" },
+    { path: "/solutions", label: "Solutions" },
+    { path: "/technology", label: "Technology" },
+    { path: "/markets", label: "Markets" },
+    { path: "/contact", label: "Contact" },
   ];
 
+  // Detect scroll for sticky navbar effects
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="bg-white/95 backdrop-blur-sm border-b border-green-100 sticky top-0 z-50">
+    <motion.nav
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4 }}
+      className={`backdrop-blur-md sticky top-0 z-50 border-b transition-all ${
+        scrolled ? "bg-white/90 shadow-md" : "bg-white/70"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Nav Inner */}
         <div className="flex justify-between items-center h-16">
-          {/* Logo Section */}
-          <Link
-            to="/"
-            className="flex items-center space-x-2 cursor-pointer group"
-          >
-            <div className="flex items-center space-x-2 py-1">
-  <div className="w-24 h-16 sm:w-28 sm:h-16 overflow-hidden bg-white flex items-center justify-center p-1">
-    <img
-      src="https://i.ibb.co/hx14vxwQ/logo-Vaigo.png"
-      alt="Vaigo Logo"
-      className="w-full h-full object-contain"
-    />
-  </div>
-</div>
-
-
-
-
+          
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2 group cursor-pointer">
+            <div className="w-24 h-16 sm:w-28 sm:h-16 p-1 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+              <img
+                src="https://i.ibb.co/hx14vxwQ/logo-Vaigo.png"
+                alt="Vaigo Logo"
+                className="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
+
+            {navItems.map((item, index) => (
+              <motion.div
                 key={item.path}
-                to={item.path}
-                className={`transition-colors duration-200 ${location.pathname === item.path
-                    ? 'text-green-600 font-semibold'
-                    : 'text-gray-700 hover:text-green-600'
-                  }`}
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
               >
-                {item.label}
-              </Link>
+                <Link
+                  to={item.path}
+                  className={`relative py-1 transition-colors duration-200 ${
+                    location.pathname === item.path
+                      ? "text-green-600 font-semibold"
+                      : "text-gray-700 hover:text-green-600"
+                  }`}
+                >
+                  {item.label}
+
+                  {/* Animated underline */}
+                  <span
+                    className={`absolute left-0 bottom-0 h-[2px] bg-green-600 transition-all duration-300 ${
+                      location.pathname === item.path
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    }`}
+                  ></span>
+                </Link>
+              </motion.div>
             ))}
+
             <Link to="/contact">
-              <Button className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 font-medium">
-                Request Demo
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                <Button className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 font-medium">
+                  Request Demo
+                </Button>
+              </motion.div>
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              className="p-2"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
             >
-              {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-800" />
-              ) : (
-                <Menu className="w-6 h-6 text-gray-800" />
-              )}
-            </Button>
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </motion.button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t border-green-100 bg-white/95 backdrop-blur-md shadow-sm">
-            <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block w-full text-left px-3 py-2 rounded-md transition-colors duration-200 ${location.pathname === item.path
-                      ? 'text-green-600 bg-green-50 font-semibold'
-                      : 'text-gray-700 hover:text-green-600 hover:bg-green-50'
-                    }`}
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden bg-white/95 backdrop-blur-md border-t border-green-100 shadow-sm rounded-b-lg"
+            >
+              <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+
+                {navItems.map((item) => (
+                  <motion.div
+                    key={item.path}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <Link
+                      to={item.path}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`block px-3 py-2 rounded-md transition-all ${
+                        location.pathname === item.path
+                          ? "text-green-600 bg-green-50 font-semibold"
+                          : "text-gray-700 hover:text-green-600 hover:bg-green-50"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
                 >
-                  {item.label}
-                </Link>
-              ))}
-              <div className="pt-2">
-                <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 font-medium">
-                    Request Demo
-                  </Button>
-                </Link>
+                  <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                    <Button className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 font-medium mt-2">
+                      Request Demo
+                    </Button>
+                  </Link>
+                </motion.div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
       </div>
-    </nav>
+    </motion.nav>
   );
 }

@@ -127,7 +127,8 @@ export function VaigoCenter() {
   <div className="absolute inset-0 bg-black/28"></div>
 
   {/* HERO CONTENT */}
-  <div className="relative z-10 max-w-4xl mx-auto text-white px-6 text-center">
+  <div className="relative z-10 max-w-4xl mx-auto text-white px-6 text-center pb-20 sm:pb-20">
+
 
     {/* Animated Badge */}
     <motion.div
@@ -199,51 +200,44 @@ export function VaigoCenter() {
     </motion.div>
 
     {/* Highlights */}
+    {/* Highlights — with black text outline */}
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 1, duration: 0.8 }}
+  className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-white text-sm px-6"
+>
+  {[
+    "DGCA Approved Operations",
+    "Drone Sales, Rentals, Training",
+    "Precision Agriculture Solutions",
+    "Rural Tech Empowerment"
+  ].map((item, index) => (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1, duration: 0.8 }}
-      className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-white/85 text-sm"
+      key={index}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1.1 + index * 0.1 }}
+      className="flex items-center gap-2"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.1 }}
-        className="flex items-center gap-2"
-      >
-        <CheckCircle className="text-green-300 w-5 h-5" /> DGCA Approved Operations
-      </motion.div>
+      <CheckCircle className="text-green-300 w-5 h-5" />
+      <span className="text-white font-medium"
+  style={{
+    textShadow: `
+      -1px 0 0 #000,
+      1px 0 0 #000,
+      0 -1px 0 #000,
+      0 1px 0 #000
+    `
+  }}
+>
+  {item}
+</span>
 
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2 }}
-        className="flex items-center gap-2"
-      >
-        <CheckCircle className="text-green-300 w-5 h-5" />
-        Drone Sales, Rentals & Training
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.3 }}
-        className="flex items-center gap-2"
-      >
-        <CheckCircle className="text-green-300 w-5 h-5" />
-        Precision Agriculture Solutions
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.4 }}
-        className="flex items-center gap-2"
-      >
-        <CheckCircle className="text-green-300 w-5 h-5" />
-        Rural Tech Empowerment
-      </motion.div>
     </motion.div>
+  ))}
+</motion.div>
+
   </div>
 
   {/* Fade Divider */}
@@ -264,7 +258,7 @@ export function VaigoCenter() {
   </div>
 </section>
 
-<div className="h-24 bg-white"></div>
+{/* <div className="h-24 bg-white"></div> */}
 
 
       {/* ============================= */}

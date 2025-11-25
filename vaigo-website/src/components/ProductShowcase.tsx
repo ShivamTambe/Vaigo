@@ -282,7 +282,7 @@ export function ProductShowcase({ onNavigate }) {
                       {Object.entries(currentItem.stats).map(([key, value]) => (
                         <div key={key}>
                           <div className="text-lg font-bold text-green-600">{value}</div>
-                          <div className="text-xs text-gray-600 capitalize">
+                          <div className="text-sm text-gray-600 capitalize">
                             {key.replace(/([A-Z])/g, " $1")}
                           </div>
                         </div>

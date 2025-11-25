@@ -5,11 +5,18 @@ import { Badge } from './ui/badge';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-// import { ImageWithFallback } from './figmaImageWithFallback/';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from './ui/select';
+
+import Reveal from "./animations/Reveal";
+
 import {
   Calendar,
-  Clock,
   Video,
   MapPin,
   Phone,
@@ -50,8 +57,7 @@ export function ScheduleCallPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Schedule call form submitted:', formData);
+
     try {
       const response = await fetch("https://vaigo.in/api/schedule", {
         method: "POST",
@@ -61,9 +67,9 @@ export function ScheduleCallPage() {
 
       const data = await response.json();
 
-      // Reset form after 3 seconds and navigate back
       if (response.ok) {
-        setIsSubmitted(true);  // ✅ Show success screen
+        setIsSubmitted(true);
+
         setFormData({
           name: '',
           email: '',
@@ -81,7 +87,6 @@ export function ScheduleCallPage() {
           additionalNotes: ''
         });
 
-        // Auto redirect back after few seconds
         setTimeout(() => {
           setIsSubmitted(false);
           navigate("/");
@@ -134,50 +139,51 @@ export function ScheduleCallPage() {
 
   const timeZones = [
     'UTC+5:30 (IST - India Standard Time)',
-    // 'UTC+5:00 (PKT - Pakistan Standard Time)',
-    // 'UTC+6:00 (BST - Bangladesh Standard Time)',
-    // 'UTC+4:30 (AFT - Afghanistan Time)',
-    // 'UTC+6:30 (MMT - Myanmar Time)',
-    // 'UTC+7:00 (ICT - Indochina Time)',
-    // 'UTC+8:00 (CST - China Standard Time)',
-    // 'UTC+9:00 (JST - Japan Standard Time)',
-    // 'UTC+0:00 (GMT/UTC)',
-    // 'UTC+1:00 (CET - Central European Time)',
-    // 'UTC-5:00 (EST - Eastern Standard Time)',
-    // 'UTC-8:00 (PST - Pacific Standard Time)'
   ];
+
+  // ================= SUCCESS SCREEN ==================
 
   if (isSubmitted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-white flex items-center justify-center">
-        <div className="max-w-md mx-auto px-4">
-          <Card className="border border-green-200 shadow-xl">
+
+        <Reveal type="zoom">
+          <Card className="border border-green-200 shadow-xl max-w-md mx-auto px-4">
             <CardContent className="p-8 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100
+                rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
+
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 Call Scheduled Successfully!
               </h2>
+
               <p className="text-gray-600 mb-6">
-                Thank you for scheduling a call with us. We'll send you a confirmation email with the meeting details shortly.
+                Thank you for scheduling a call with us. We'll send you a confirmation email shortly.
               </p>
+
               <p className="text-sm text-gray-500">
-                Redirecting back to contact page...
+                Redirecting back to home page...
               </p>
             </CardContent>
           </Card>
-        </div>
+        </Reveal>
+
       </div>
     );
   }
 
+  // ================= MAIN PAGE ==================
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+
+      {/* ------------------ HERO SECTION ------------------ */}
       <section className="bg-gradient-to-br from-green-50 via-blue-50 to-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+          <Reveal type="fade">
             <Button
               variant="ghost"
               onClick={() => navigate('/contact')}
@@ -186,83 +192,126 @@ export function ScheduleCallPage() {
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Contact
             </Button>
+          </Reveal>
 
+          <Reveal type="slide" y={25} delay={0.05}>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Schedule a Consultation with
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
                 {" "}Our Experts
               </span>
             </h1>
+          </Reveal>
+
+          <Reveal type="fade" delay={0.1}>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Ready to transform your farming operations with Vaigo? Let's discuss how our advanced
-              agricultural drones and AI-powered ecosystem can benefit your specific needs.
+              Ready to transform your farming operations with Vaigo?
+              Let's discuss how our advanced agricultural drones and AI-powered ecosystem can help.
             </p>
-          </div>
+          </Reveal>
+
         </div>
       </section>
 
-      {/* Benefits of Scheduling */}
+      {/* ------------------ BENEFITS SECTION ------------------ */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <Card className="border border-green-100 hover:border-green-200 transition-all duration-300 text-center">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Target className="w-6 h-6 text-green-600" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Personalized Demo</h3>
-                <p className="text-sm text-gray-600">See Vaigo in action with a customized demonstration tailored to your crops and farming challenges</p>
-              </CardContent>
-            </Card>
 
-            <Card className="border border-blue-100 hover:border-blue-200 transition-all duration-300 text-center">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Expert Consultation</h3>
-                <p className="text-sm text-gray-600">Get professional advice on implementing precision agriculture solutions for your specific operation</p>
-              </CardContent>
-            </Card>
+            {/* Card 1 */}
+            <Reveal type="zoom" delay={0.05}>
+              <Card className="border border-green-100 hover:border-green-200 transition-all duration-300 text-center">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100
+                    rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Target className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Personalized Demo</h3>
+                  <p className="text-sm text-gray-600">
+                    See Vaigo in action with a custom demo.
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
 
-            <Card className="border border-purple-100 hover:border-purple-200 transition-all duration-300 text-center">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Zap className="w-6 h-6 text-purple-600" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">ROI Analysis</h3>
-                <p className="text-sm text-gray-600">Understand the potential return on investment and cost savings for your farming operation</p>
-              </CardContent>
-            </Card>
+            {/* Card 2 */}
+            <Reveal type="zoom" delay={0.1}>
+              <Card className="border border-blue-100 hover:border-blue-200 transition-all duration-300 text-center">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-green-100
+                    rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Expert Consultation</h3>
+                  <p className="text-sm text-gray-600">
+                    Get professional advice from AgTech specialists.
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
+
+            {/* Card 3 */}
+            <Reveal type="zoom" delay={0.15}>
+              <Card className="border border-purple-100 hover:border-purple-200 transition-all duration-300 text-center">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-green-100
+                    rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Zap className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2">ROI Analysis</h3>
+                  <p className="text-sm text-gray-600">
+                    Understand cost savings & long-term benefits.
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
+
           </div>
+
         </div>
       </section>
 
-      {/* Scheduling Form */}
+      {/* ------------------ FORM SECTION ------------------ */}
+
       <section className="py-16 bg-gradient-to-br from-gray-50 to-green-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <Badge className="bg-green-100 text-green-800 border-green-200 mb-4">
+
+          <Reveal type="fade">
+            <Badge className="bg-green-100 text-green-800 border-green-200 mb-4 mx-auto">
               Schedule Your Call
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          </Reveal>
+
+          <Reveal type="slide" y={25}>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
               Book Your Consultation
             </h2>
-            <p className="text-xl text-gray-600">
-              Fill out the details below and we'll connect you with the right expert for your needs.
+          </Reveal>
+
+          <Reveal type="fade" delay={0.1}>
+            <p className="text-xl text-gray-600 text-center mb-12">
+              Fill out the details below and we’ll connect you with the right expert.
             </p>
-          </div>
+          </Reveal>
 
           <Card className="border border-white shadow-xl">
             <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Contact Information */}
-                <div>
+
+              <form onSubmit={handleSubmit} className="space-y-10">
+
+                {/* ---------------- SECTION: CONTACT INFO ---------------- */}
+                <Reveal type="slide" y={20}>
                   <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
                     <Users className="w-5 h-5 mr-2 text-green-600" />
                     Contact Information
                   </h3>
-                  <div className="grid md:grid-cols-2 gap-6">
+                </Reveal>
+
+                <div className="grid md:grid-cols-2 gap-6">
+
+                  {/* FULL NAME */}
+                  <Reveal type="fade" delay={0.05}>
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name *</Label>
                       <Input
@@ -272,9 +321,12 @@ export function ScheduleCallPage() {
                         onChange={(e) => handleInputChange('name', e.target.value)}
                         placeholder="Enter your full name"
                         required
-                        className="border-gray-200 focus:border-green-500"
                       />
                     </div>
+                  </Reveal>
+
+                  {/* EMAIL */}
+                  <Reveal type="fade" delay={0.08}>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
                       <Input
@@ -282,11 +334,14 @@ export function ScheduleCallPage() {
                         type="email"
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
-                        placeholder="Enter your email address"
+                        placeholder="Enter your email"
                         required
-                        className="border-gray-200 focus:border-green-500"
                       />
                     </div>
+                  </Reveal>
+
+                  {/* PHONE */}
+                  <Reveal type="fade" delay={0.11}>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number *</Label>
                       <Input
@@ -296,59 +351,77 @@ export function ScheduleCallPage() {
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         placeholder="Enter your phone number"
                         required
-                        className="border-gray-200 focus:border-green-500"
                       />
                     </div>
+                  </Reveal>
+
+                  {/* COMPANY */}
+                  <Reveal type="fade" delay={0.14}>
                     <div className="space-y-2">
-                      <Label htmlFor="company">Company/Farm Name</Label>
+                      <Label htmlFor="company">Company / Farm Name</Label>
                       <Input
                         id="company"
                         type="text"
                         value={formData.company}
                         onChange={(e) => handleInputChange('company', e.target.value)}
                         placeholder="Enter your company or farm name"
-                        className="border-gray-200 focus:border-green-500"
                       />
                     </div>
+                  </Reveal>
+
+                  {/* JOB TITLE */}
+                  <Reveal type="fade" delay={0.17}>
                     <div className="space-y-2">
-                      <Label htmlFor="jobTitle">Job Title/Role</Label>
+                      <Label htmlFor="jobTitle">Job Title / Role</Label>
                       <Input
                         id="jobTitle"
                         type="text"
                         value={formData.jobTitle}
                         onChange={(e) => handleInputChange('jobTitle', e.target.value)}
-                        placeholder="e.g., Farm Manager, Owner, Agronomist"
-                        className="border-gray-200 focus:border-green-500"
+                        placeholder="e.g., Farm Manager, Owner"
                       />
                     </div>
+                  </Reveal>
+
+                  {/* FARM SIZE */}
+                  <Reveal type="fade" delay={0.20}>
                     <div className="space-y-2">
-                      <Label htmlFor="farmSize">Farm Size (acres/hectares)</Label>
+                      <Label htmlFor="farmSize">Farm Size</Label>
                       <Input
                         id="farmSize"
                         type="text"
                         value={formData.farmSize}
                         onChange={(e) => handleInputChange('farmSize', e.target.value)}
-                        placeholder="e.g., 500 acres, 200 hectares"
-                        className="border-gray-200 focus:border-green-500"
+                        placeholder="e.g., 500 acres"
                       />
                     </div>
-                  </div>
+                  </Reveal>
+
                 </div>
 
-                {/* Meeting Preferences */}
-                <div>
+                {/* ---------------- SECTION: MEETING PREFERENCES ---------------- */}
+
+                <Reveal type="slide" y={20}>
                   <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
                     <Calendar className="w-5 h-5 mr-2 text-blue-600" />
                     Meeting Preferences
                   </h3>
-                  <div className="grid md:grid-cols-2 gap-6">
+                </Reveal>
+
+                <div className="grid md:grid-cols-2 gap-6">
+
+                  {/* MEETING TYPE */}
+                  <Reveal type="fade" delay={0.1}>
                     <div className="space-y-2">
-                      <Label htmlFor="meetingType">Meeting Type *</Label>
-                      <Select value={formData.meetingType} onValueChange={(value) => handleInputChange('meetingType', value)}>
-                        <SelectTrigger className="border-gray-200 focus:border-green-500">
+                      <Label>Meeting Type *</Label>
+                      <Select
+                        value={formData.meetingType}
+                        onValueChange={(value) => handleInputChange('meetingType', value)}
+                      >
+                        <SelectTrigger>
                           <SelectValue placeholder="Select meeting type" />
                         </SelectTrigger>
-                        <SelectContent className="bg-white">
+                        <SelectContent>
                           {meetingTypes.map((type) => (
                             <SelectItem key={type.value} value={type.value}>
                               <div className="flex items-center space-x-2">
@@ -360,46 +433,59 @@ export function ScheduleCallPage() {
                         </SelectContent>
                       </Select>
                     </div>
+                  </Reveal>
 
+                  {/* CALL PURPOSE */}
+                  <Reveal type="fade" delay={0.14}>
                     <div className="space-y-2">
-                      <Label htmlFor="callPurpose">Call Purpose *</Label>
-                      <Select value={formData.callPurpose} onValueChange={(value) => handleInputChange('callPurpose', value)}>
-                        <SelectTrigger className="border-gray-200 focus:border-green-500">
+                      <Label>Call Purpose *</Label>
+                      <Select
+                        value={formData.callPurpose}
+                        onValueChange={(value) => handleInputChange('callPurpose', value)}
+                      >
+                        <SelectTrigger>
                           <SelectValue placeholder="Select call purpose" />
                         </SelectTrigger>
-                        <SelectContent className="bg-white">
-                          {callPurposes.map((purpose) => (
-                            <SelectItem key={purpose.value} value={purpose.value}>
+                        <SelectContent>
+                          {callPurposes.map((p) => (
+                            <SelectItem key={p.value} value={p.value}>
                               <div className="flex items-center space-x-2">
-                                <purpose.icon className="w-4 h-4" />
-                                <span>{purpose.label}</span>
+                                <p.icon className="w-4 h-4" />
+                                <span>{p.label}</span>
                               </div>
                             </SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
                     </div>
+                  </Reveal>
 
+                  {/* DATE */}
+                  <Reveal type="fade" delay={0.17}>
                     <div className="space-y-2">
-                      <Label htmlFor="preferredDate">Preferred Date *</Label>
+                      <Label>Preferred Date *</Label>
                       <Input
-                        id="preferredDate"
                         type="date"
                         value={formData.preferredDate}
                         onChange={(e) => handleInputChange('preferredDate', e.target.value)}
-                        required
-                        className="border-gray-200 focus:border-green-500"
                         min={new Date().toISOString().split('T')[0]}
+                        required
                       />
                     </div>
+                  </Reveal>
 
+                  {/* TIME SLOT */}
+                  <Reveal type="fade" delay={0.20}>
                     <div className="space-y-2">
-                      <Label htmlFor="preferredTime">Preferred Time *</Label>
-                      <Select value={formData.preferredTime} onValueChange={(value) => handleInputChange('preferredTime', value)}>
-                        <SelectTrigger className="border-gray-200 focus:border-green-500">
+                      <Label>Preferred Time *</Label>
+                      <Select
+                        value={formData.preferredTime}
+                        onValueChange={(value) => handleInputChange('preferredTime', value)}
+                      >
+                        <SelectTrigger>
                           <SelectValue placeholder="Select preferred time" />
                         </SelectTrigger>
-                        <SelectContent className="bg-white">
+                        <SelectContent>
                           {timeSlots.map((slot) => (
                             <SelectItem key={slot} value={slot}>
                               {slot}
@@ -408,14 +494,20 @@ export function ScheduleCallPage() {
                         </SelectContent>
                       </Select>
                     </div>
+                  </Reveal>
 
+                  {/* DURATION */}
+                  <Reveal type="fade" delay={0.23}>
                     <div className="space-y-2">
-                      <Label htmlFor="duration">Expected Duration *</Label>
-                      <Select value={formData.duration} onValueChange={(value) => handleInputChange('duration', value)}>
-                        <SelectTrigger className="border-gray-200 focus:border-green-500">
+                      <Label>Expected Duration *</Label>
+                      <Select
+                        value={formData.duration}
+                        onValueChange={(value) => handleInputChange('duration', value)}
+                      >
+                        <SelectTrigger>
                           <SelectValue placeholder="Select duration" />
                         </SelectTrigger>
-                        <SelectContent className="bg-white">
+                        <SelectContent>
                           {durations.map((duration) => (
                             <SelectItem key={duration} value={duration}>
                               {duration}
@@ -424,14 +516,20 @@ export function ScheduleCallPage() {
                         </SelectContent>
                       </Select>
                     </div>
+                  </Reveal>
 
+                  {/* TIME ZONE */}
+                  <Reveal type="fade" delay={0.26}>
                     <div className="space-y-2">
-                      <Label htmlFor="timeZone">Time Zone *</Label>
-                      <Select value={formData.timeZone} onValueChange={(value) => handleInputChange('timeZone', value)}>
-                        <SelectTrigger className="border-gray-200 focus:border-green-500">
-                          <SelectValue placeholder="Select your time zone" />
+                      <Label>Time Zone *</Label>
+                      <Select
+                        value={formData.timeZone}
+                        onValueChange={(value) => handleInputChange('timeZone', value)}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select time zone" />
                         </SelectTrigger>
-                        <SelectContent className="bg-white">
+                        <SelectContent>
                           {timeZones.map((zone) => (
                             <SelectItem key={zone} value={zone}>
                               {zone}
@@ -440,116 +538,154 @@ export function ScheduleCallPage() {
                         </SelectContent>
                       </Select>
                     </div>
-                  </div>
+                  </Reveal>
+
                 </div>
 
-                {/* Additional Information */}
-                <div>
+                {/* ---------------- SECTION: ADDITIONAL INFO ---------------- */}
+
+                <Reveal type="slide" y={20}>
                   <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
                     <Globe className="w-5 h-5 mr-2 text-purple-600" />
                     Additional Information
                   </h3>
-                  <div className="space-y-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="currentChallenges">Current Farming Challenges</Label>
-                      <Textarea
-                        id="currentChallenges"
-                        value={formData.currentChallenges}
-                        onChange={(e) => handleInputChange('currentChallenges', e.target.value)}
-                        placeholder="What are your current farming challenges? (e.g., pest management, yield optimization, labor costs)"
-                        rows={4}
-                        className="border-gray-200 focus:border-green-500"
-                      />
-                    </div>
+                </Reveal>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="additionalNotes">Additional Notes</Label>
-                      <Textarea
-                        id="additionalNotes"
-                        value={formData.additionalNotes}
-                        onChange={(e) => handleInputChange('additionalNotes', e.target.value)}
-                        placeholder="Any specific topics you'd like to discuss or questions you have about our solutions..."
-                        rows={4}
-                        className="border-gray-200 focus:border-green-500"
-                      />
-                    </div>
+                {/* CHALLENGES */}
+                <Reveal type="fade" delay={0.1}>
+                  <div className="space-y-2">
+                    <Label>Current Farming Challenges</Label>
+                    <Textarea
+                      value={formData.currentChallenges}
+                      onChange={(e) => handleInputChange('currentChallenges', e.target.value)}
+                      placeholder="What challenges are you facing?"
+                      rows={4}
+                    />
                   </div>
-                </div>
+                </Reveal>
 
-                {/* Submit Button */}
-                <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 flex-1"
-                  >
-                    Schedule My Call
-                    <Calendar className="ml-2 w-5 h-5" />
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="lg"
-                    onClick={() => navigate('/contact')}
-                    className="border-gray-200 text-gray-700 hover:bg-gray-50"
-                  >
-                    <ArrowLeft className="mr-2 w-5 h-5" />
-                    Back to Contact
-                  </Button>
-                </div>
+                {/* ADDITIONAL NOTES */}
+                <Reveal type="fade" delay={0.15}>
+                  <div className="space-y-2">
+                    <Label>Additional Notes</Label>
+                    <Textarea
+                      value={formData.additionalNotes}
+                      onChange={(e) => handleInputChange('additionalNotes', e.target.value)}
+                      placeholder="Any specific requirements?"
+                      rows={4}
+                    />
+                  </div>
+                </Reveal>
+
+                {/* ---------------- SUBMIT BUTTON ---------------- */}
+                <Reveal type="zoom" delay={0.20}>
+                  <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                    <Button type="submit" size="lg"
+                      className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 flex-1">
+                      Schedule My Call
+                      <Calendar className="ml-2 w-5 h-5" />
+                    </Button>
+
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="lg"
+                      onClick={() => navigate('/contact')}
+                    >
+                      <ArrowLeft className="mr-2 w-5 h-5" />
+                      Back to Contact
+                    </Button>
+                  </div>
+                </Reveal>
+
               </form>
+
             </CardContent>
           </Card>
+
         </div>
       </section>
 
-      {/* What to Expect */}
+      {/* ------------------ WHAT TO EXPECT ------------------ */}
+
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+
+          <Reveal type="slide" y={20}>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
               What to Expect During Your Call
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our agricultural technology experts will provide you with valuable insights and solutions tailored to your farming needs.
+          </Reveal>
+
+          <Reveal type="fade" delay={0.1}>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
+              Our experts will guide you through personalized recommendations.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-green-600">1</span>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Farm Assessment</h3>
-              <p className="text-sm text-gray-600">We'll discuss your current farming practices, challenges, and goals</p>
-            </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">2</span>
+            {/* Step 1 */}
+            <Reveal type="zoom" delay={0.05}>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100
+                  rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-green-600">1</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Farm Assessment</h3>
+                <p className="text-sm text-gray-600">
+                  Discuss your farming practices, challenges, and goals.
+                </p>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Solution Demo</h3>
-              <p className="text-sm text-gray-600">Live demonstration of Vaigo and the Agro AI Ecosystem features</p>
-            </div>
+            </Reveal>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-purple-600">3</span>
+            {/* Step 2 */}
+            <Reveal type="zoom" delay={0.1}>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100
+                  rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600">2</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Solution Demo</h3>
+                <p className="text-sm text-gray-600">
+                  See a live demo of Vaigo & Agro AI.
+                </p>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Custom Proposal</h3>
-              <p className="text-sm text-gray-600">Tailored recommendations based on your specific requirements</p>
-            </div>
+            </Reveal>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-indigo-600">4</span>
+            {/* Step 3 */}
+            <Reveal type="zoom" delay={0.15}>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-green-100
+                  rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-purple-600">3</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Custom Proposal</h3>
+                <p className="text-sm text-gray-600">
+                  Tailored recommendations for your farm.
+                </p>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Next Steps</h3>
-              <p className="text-sm text-gray-600">Clear roadmap for implementation and ongoing support</p>
-            </div>
+            </Reveal>
+
+            {/* Step 4 */}
+            <Reveal type="zoom" delay={0.2}>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-indigo-100
+                  rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-indigo-600">4</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Next Steps</h3>
+                <p className="text-sm text-gray-600">
+                  Clear roadmap for implementation & support.
+                </p>
+              </div>
+            </Reveal>
+
           </div>
+
         </div>
       </section>
+
     </div>
   );
 }
