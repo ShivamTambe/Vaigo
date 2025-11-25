@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, MessageCircle } from "lucide-react";
 
 export default function WhatsAppWidget() {
-  const phone = "91"; // ⚠ Replace with your correct number
+  const phone = "918805043855"; // ⚠ Replace with your correct number
   const message = "Hello! I want to know more about your services.";
 
   const [open, setOpen] = useState(false);
