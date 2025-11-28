@@ -20,22 +20,33 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import FirstVisitPopup from "./components/FirstVisitPopup";
 
 import { ParallaxProvider } from "react-scroll-parallax";
-
 import { AnimatePresence, motion } from "framer-motion";
+
+import ComingSoon from "./components/ComingSoon";
 
 export default function App() {
   return (
     <ParallaxProvider>
       <Router>
         <ScrollToTop />
-        <MainLayout />
+
+        <Routes>
+          {/* ✔ Coming Soon page with NO layout */}
+          <Route path="/coming-soon" element={<ComingSoon />} />
+
+          {/* ✔ All other pages inside Full Layout */}
+          <Route path="/*" element={<FullLayout />} />
+        </Routes>
+
       </Router>
     </ParallaxProvider>
   );
 }
 
-// Separate layout so we can use useLocation()
-function MainLayout() {
+/* ----------------------------------------------------------
+   FULL LAYOUT COMPONENT – Uses Navigation, Footer, Animations
+------------------------------------------------------------*/
+function FullLayout() {
   const location = useLocation();
 
   return (
@@ -43,8 +54,8 @@ function MainLayout() {
       <Navigation />
       <WhatsAppButton />
       <FirstVisitPopup />
+
       <main className="overflow-hidden">
-        {/* Global page transition wrapper */}
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

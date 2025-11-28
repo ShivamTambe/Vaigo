@@ -7,30 +7,24 @@ import {
   ArrowRight
 } from "lucide-react";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 export function Footer() {
-
-  // 🔥 Track route changes
   const location = useLocation();
-
-  // A key that forces animation restart
   const [animKey, setAnimKey] = useState(0);
 
-  // Every time route path changes → reset animations
   useEffect(() => {
     setAnimKey(prev => prev + 1);
   }, [location.pathname]);
 
-  // Fade + slide-up animation
+  // 🔥 This is the correct mobile-safe viewport detector
+  const footerRef = useRef(null);
+  const isInView = useInView(footerRef, { once: false, margin: "0px 0px -20% 0px" });
+
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
   const companyLinks = [
@@ -61,18 +55,61 @@ export function Footer() {
     { label: "Partnership", path: "/partnership" }
   ];
 
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email.trim()) {
+      alert("Please enter your email");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const apiUrl = import.meta.env.DEV 
+        ? "http://localhost:5000/api/subscribe" 
+        : "https://vaigo.in/api/subscribe";
+
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+      
+      if (response.ok) {
+        alert("✅ Successfully subscribed!");
+        setEmail("");
+      } else {
+        alert(`Failed: ${data.error}`);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer 
+      ref={footerRef}
+      className="bg-gray-900 text-white"
+    >
+
+      {/* 🔥 Scroll animation triggers when footer enters viewport */}
       <motion.div
-        key={animKey}           // 🔥 Forces re-animation on route change
-        initial="hidden"
-        whileInView="visible"   // 🔥 Animates when footer enters view
-        viewport={{ once: false, amount: 0.3 }}
+        key={animKey}
         variants={fadeUp}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
 
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             {/* Company Info */}
             <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center space-x-3">
@@ -86,8 +123,7 @@ export function Footer() {
               </div>
 
               <p className="text-gray-300 leading-relaxed">
-                Revolutionizing agriculture through advanced drone technology and AI-powered ecosystems.
-                Empowering farmers worldwide with precision, efficiency, and sustainability.
+                Revolutionizing agriculture with drone technology and AI-powered ecosystems.
               </p>
 
               <div className="space-y-3">
@@ -105,7 +141,6 @@ export function Footer() {
                 </div>
               </div>
 
-              {/* Social */}
               <div className="flex space-x-4">
                 {[Linkedin, Twitter, Facebook, Youtube].map((Icon, i) => (
                   <Button key={i} size="sm" variant="ghost"
@@ -116,13 +151,13 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Company Links */}
+            {/* Company Section */}
             <div className="space-y-4">
               <h4 className="font-semibold text-white">Company</h4>
               <div className="space-y-2">
                 {companyLinks.map((link, index) => (
                   <Link key={index} to={link.path}
-                    className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
+                    className="block text-gray-300 hover:text-green-400 transition">
                     {link.label}
                   </Link>
                 ))}
@@ -135,7 +170,7 @@ export function Footer() {
               <div className="space-y-2">
                 {productLinks.map((link, index) => (
                   <Link key={index} to={link.path}
-                    className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
+                    className="block text-gray-300 hover:text-green-400 transition">
                     {link.label}
                   </Link>
                 ))}
@@ -148,7 +183,7 @@ export function Footer() {
               <div className="space-y-2">
                 {solutionLinks.map((link, index) => (
                   <Link key={index} to={link.path}
-                    className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
+                    className="block text-gray-300 hover:text-green-400 transition">
                     {link.label}
                   </Link>
                 ))}
@@ -160,16 +195,11 @@ export function Footer() {
           <Separator className="my-12 bg-gray-700" />
 
           {/* Newsletter */}
-          <motion.div
-            variants={fadeUp}
-            className="grid md:grid-cols-2 gap-8 items-center"
-          >
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                Stay Updated
-              </h3>
+              <h3 className="text-xl font-semibold text-white mb-2">Stay Updated</h3>
               <p className="text-gray-300">
-                Get the latest updates on agricultural technology and Vaigo innovations.
+                Get the latest updates on agricultural innovation.
               </p>
             </div>
 
@@ -179,28 +209,32 @@ export function Footer() {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg
                 text-white placeholder-gray-400 focus:outline-none focus:border-green-500"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <Button className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
-                Subscribe
+
+              <Button 
+                className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
+                onClick={handleSubscribe}
+                disabled={loading}
+              >
+                {loading ? "Subscribing..." : "Subscribe"}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
-          </motion.div>
+          </div>
 
           <Separator className="my-12 bg-gray-700" />
 
           {/* Support + Legal */}
-          <motion.div
-            variants={fadeUp}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Support */}
             <div className="space-y-4">
               <h4 className="font-semibold text-white">Support</h4>
               <div className="space-y-2">
                 {supportLinks.map((link, index) => (
                   <Link key={index} to={link.path}
-                    className="block text-gray-300 hover:text-green-400 transition-colors duration-200">
+                    className="block text-gray-300 hover:text-green-400 transition">
                     {link.label}
                   </Link>
                 ))}
@@ -245,7 +279,8 @@ export function Footer() {
               </div>
             </div>
 
-          </motion.div>
+          </div>
+
         </div>
       </motion.div>
 
@@ -264,6 +299,7 @@ export function Footer() {
           </div>
         </div>
       </div>
+
     </footer>
   );
 }

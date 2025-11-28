@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navigation() {
@@ -43,9 +43,9 @@ export function Navigation() {
           
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group cursor-pointer">
-            <div className="w-24 h-16 sm:w-28 sm:h-16 p-1 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+            <div className="w-24 h-16 sm:w-28 sm:h-16 p-1 flex items-center justify-center overflow-hidden">
               <img
-                src="https://i.ibb.co/hx14vxwQ/logo-Vaigo.png"
+                src="https://res.cloudinary.com/dverfj5ad/image/upload/v1764227083/vaigo/partnership/vagfmxvhtoh61vd2owm3.png"
                 alt="Vaigo Logo"
                 className="w-full h-full object-contain group-hover:scale-105 transition duration-300"
               />
@@ -84,13 +84,26 @@ export function Navigation() {
               </motion.div>
             ))}
 
-            <Link to="/contact">
+            {/* <Link to="/contact">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
                 <Button className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 font-medium">
                   Request Demo
                 </Button>
               </motion.div>
-            </Link>
+            </Link> */}
+
+            <a 
+  href="/coming-soon" 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+    <Button className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 font-medium flex items-center gap-2">
+      <ShoppingCart size={20} strokeWidth={2.2} />
+      <span>Shop</span>
+    </Button>
+  </motion.div>
+</a>
           </div>
 
           {/* Mobile Menu Toggle */}

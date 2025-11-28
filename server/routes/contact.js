@@ -7,11 +7,11 @@ export default (brevo) => {
 
   // POST /api/contact
   router.post("/", async (req, res) => {
-    const { name, email, inquiry, message } = req.body;
+    const { name, email, company, phone, inquiry, message } = req.body;
 
     try {
       // Save to MongoDB
-      const newContact = new Contact({ name, email, inquiry, message });
+      const newContact = new Contact({ name, email,company, phone, inquiry, message });
       await newContact.save();
 
       // ✅ Email to company
@@ -19,19 +19,21 @@ export default (brevo) => {
         <h2>📩 New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Type:</strong> ${inquiry}</p>
+        <p><strong>Company:</strong> ${company}</p>
+        <p><strong>Mobile No.:</strong> ${phone}</p>
+        <p><strong>Inquiry Type:</strong> ${inquiry}</p>
         <p><strong>Message:</strong> ${message}</p>
       `;
 
-      await brevo.sendTransacEmail({
+      const companyResp = await brevo.sendTransacEmail({
         sender: { email: process.env.EMAIL_USER, name: "Vaigo" },
         to: [{ email: process.env.EMAIL_USER }],
         subject: "📩 New Contact Form Submission",
         htmlContent: companyHtml
       });
-
+      // console.log("Brevo company response:", companyResp);
       // ✅ Confirmation to user
-      await brevo.sendTransacEmail({
+      const userResp = await brevo.sendTransacEmail({
         sender: { email: process.env.EMAIL_USER, name: "Vaigo" },
         to: [{ email }],
         subject: "✅ We received your inquiry",
@@ -39,7 +41,7 @@ export default (brevo) => {
                       <p>Thanks for reaching out! We'll get back to you soon.</p>
                       <p>- Vaigo Team</p>`
       });
-
+      // console.log("Brevo user response:", userResp);
       res.status(200).json({ message: "Form submitted successfully" });
     } catch (error) {
       console.error("❌ Contact form error:", error);

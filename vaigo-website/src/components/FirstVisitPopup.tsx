@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
 
 export default function FirstVisitPopup(){
   const [show, setShow] = useState<boolean>(false);
@@ -58,7 +59,7 @@ export default function FirstVisitPopup(){
                 </p>
 
                 <div className="flex justify-center gap-4 mt-4">
-                  <button
+                  {/* <button
                     onClick={() => {
                       setShow(false);
                       navigate("/VaigoCenter");
@@ -66,7 +67,17 @@ export default function FirstVisitPopup(){
                     className="bg-green-600 text-white px-5 py-2 rounded-lg font-medium shadow hover:bg-green-700 transition"
                   >
                     Explore Vaigo Center
-                  </button>
+                  </button> */}
+
+                  <Link to="/vaigo-center" onClick={() => setShow(false)}>
+                    <Button className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 font-medium mt-2"
+                    onClick={() => {
+                      setShow(false);
+                    }}
+                    >
+                      Explore Vaigo Center
+                    </Button>
+                  </Link>
                 </div>
               </div>
 

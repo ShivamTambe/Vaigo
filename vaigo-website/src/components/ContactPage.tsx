@@ -42,6 +42,7 @@ import {
 } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
+import { log } from "console";
 
 // -----------------------------
 // CONTACT PAGE
@@ -49,6 +50,9 @@ import { useNavigate } from "react-router-dom";
 export function ContactPage() {
   const navigate = useNavigate();
 
+  const [errors, setErrors] = useState({
+  inquiry: false
+});
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -61,15 +65,32 @@ export function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    let hasError = false;
+
+    if (!formData.inquiry) {
+      setErrors(prev => ({ ...prev, inquiry: true }));
+      hasError = true;
+    }
+
+    if (hasError) return;
+    
     try {
-      const response = await fetch("https://vaigo.in/api/contact", {
+      // Use localhost in development, vaigo.in in production
+      const apiUrl = import.meta.env.DEV 
+        ? "http://localhost:5000/api/contact" 
+        : "https://vaigo.in/api/contact";
+
+      // const apiUrl = "http://localhost:5000/api/contact";
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
-
+      console.log(apiUrl);
+      console.log(formData);
+      console.log(response)
       if (response.ok) {
         alert("Message sent successfully!");
         setFormData({
@@ -254,6 +275,7 @@ export function ContactPage() {
                         value={formData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         placeholder="Enter your phone number"
+                        required
                       />
                     </div>
                   </Reveal>
@@ -262,23 +284,40 @@ export function ContactPage() {
                 {/* Inquiry */}
                 <Reveal delay={0.3}>
                   <div className="space-y-2">
-                    <Label>Type of Inquiry *</Label>
-                    <Select
-                      value={formData.inquiry}
-                      onValueChange={(value) => handleInputChange("inquiry", value)}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select inquiry type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="demo">Request a Demo</SelectItem>
-                        <SelectItem value="pricing">Pricing Information</SelectItem>
-                        <SelectItem value="technical">Technical Support</SelectItem>
-                        <SelectItem value="partnership">Partnership</SelectItem>
-                        <SelectItem value="general">General Questions</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <Label>
+  Inquiry Type <span className="text-red-500">*</span>
+</Label>
+
+<Select
+  value={formData.inquiry}
+  onValueChange={(value) => {
+    handleInputChange("inquiry", value);
+    setErrors(prev => ({ ...prev, inquiry: false })); // Clear error
+  }}
+>
+  <SelectTrigger
+    className={`
+      border-gray-200 focus:border-green-500 
+      ${errors.inquiry ? "border-red-500 focus:border-red-500" : ""}
+    `}
+  >
+    <SelectValue placeholder="Select inquiry type" />
+  </SelectTrigger>
+
+  <SelectContent className="bg-white">
+    <SelectItem value="demo">Request a Demo</SelectItem>
+    <SelectItem value="pricing">Pricing Information</SelectItem>
+    <SelectItem value="technical">Technical Support</SelectItem>
+    <SelectItem value="partnership">Partnership</SelectItem>
+    <SelectItem value="general">General Questions</SelectItem>
+    <SelectItem value="other">Other</SelectItem>
+  </SelectContent>
+</Select>
+
+{errors.inquiry && (
+  <p className="text-red-500 text-sm mt-1">This field is required.</p>
+)}
+
                   </div>
                 </Reveal>
 
@@ -301,7 +340,7 @@ export function ContactPage() {
                     <Button
                       type="submit"
                       size="lg"
-                      className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 flex-1"
+                      className="py-3 bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 flex-1"
                     >
                       Send Message
                       <Send className="ml-2 w-5 h-5" />
