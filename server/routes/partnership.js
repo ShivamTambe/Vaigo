@@ -3,11 +3,11 @@ import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
 import Partnership from "../models/Partnership.js";
 
-console.log("Loaded Cloudinary ENV:", {
-  cloud: process.env.CLOUDINARY_CLOUD_NAME,
-  key: process.env.CLOUDINARY_API_KEY,
-  secret: process.env.CLOUDINARY_API_SECRET ? "[loaded]" : "[missing]"
-});
+// console.log("Loaded Cloudinary ENV:", {
+//   cloud: process.env.CLOUDINARY_CLOUD_NAME,
+//   key: process.env.CLOUDINARY_API_KEY,
+//   secret: process.env.CLOUDINARY_API_SECRET ? "[loaded]" : "[missing]"
+// });
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
