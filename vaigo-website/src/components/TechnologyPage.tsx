@@ -176,7 +176,7 @@ export function TechnologyPage() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* HERO SECTION */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-green-50 to-white py-24 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-blue-50 via-green-50 to-white pt-24 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-grid-blue-500/[0.03] bg-[size:20px_20px]" />
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
@@ -246,7 +246,7 @@ export function TechnologyPage() {
       </section>
 
       {/* CORE TECHNOLOGIES */}
-      <section className="py-20 bg-gray-50">
+      <section className="pt-12  bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <motion.h2
             initial="hidden"
@@ -297,7 +297,7 @@ export function TechnologyPage() {
       </section>
 
       {/* AI SECTION */}
-      <section className="py-20 bg-white">
+      <section className="pt-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <Reveal>

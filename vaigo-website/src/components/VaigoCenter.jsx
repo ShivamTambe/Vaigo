@@ -111,7 +111,7 @@ export function VaigoCenter() {
        {/* ============================= */}
 {/* ★ FULLSCREEN VIDEO HERO (UPDATED ANIMATIONS) */}
 {/* ============================= */}
-<section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+<section className="relative w-full h-auto sm:h-screen flex items-center justify-center overflow-hidden">
 
   {/* Background Video */}
   <video
@@ -127,7 +127,7 @@ export function VaigoCenter() {
   <div className="absolute inset-0 bg-black/28"></div>
 
   {/* HERO CONTENT */}
-  <div className="relative z-10 max-w-4xl mx-auto text-white px-6 text-center pb-20 sm:pb-20">
+  <div className="py-20 relative z-10 max-w-4xl mx-auto text-white px-6 text-center pb-20 sm:pb-20">
 
 
     {/* Animated Badge */}

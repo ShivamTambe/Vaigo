@@ -180,7 +180,7 @@ export function HomePage() {
       </section>
 
       {/* FEATURES */}
-      <section className="py-20 bg-white">
+      <section className="pt-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Reveal type="slide" delay={0.02}>
@@ -222,7 +222,7 @@ export function HomePage() {
       </section>
 
       {/* PRODUCT SHOWCASE */}
-      <section className="py-16 bg-white">
+      <section className="pt-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal type="slide" delay={0.02}>
             <ProductShowcase onNavigate={navigate} />
@@ -231,7 +231,7 @@ export function HomePage() {
       </section>
 
       {/* TRUST & TESTIMONIALS */}
-      <section className="py-16 bg-gray-50">
+      <section className="pt-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal type="fade" delay={0.02}>
             <TrustIndicators />

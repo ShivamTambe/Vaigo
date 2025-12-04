@@ -133,7 +133,7 @@ export const ProductsPage: React.FC = () => {
 
 
       {/* ================= VAIGO DRONE SECTION ================= */}
-      <section className="py-20">
+      <section className="pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -233,7 +233,7 @@ export const ProductsPage: React.FC = () => {
           {/* ================= TECHNICAL SPECIFICATIONS ================= */}
 
           <Reveal type="zoom" delay={0.1}>
-            <div className="bg-gradient-to-br from-gray-50 to-green-50 rounded-2xl p-0 sm:p-8 mt-16">
+            <div className="bg-gradient-to-br from-gray-50 to-green-50 rounded-2xl p-0 sm:p-8 mt-16 mb-16">
               <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
                 Technical Specifications
               </h3>
@@ -261,7 +261,7 @@ export const ProductsPage: React.FC = () => {
       </section>
 
       {/* ================= AGRO AI ECOSYSTEM SECTION ================= */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+      <section className="pt-20 bg-gradient-to-br from-blue-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">

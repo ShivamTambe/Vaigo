@@ -207,7 +207,7 @@ export function ContactPage() {
       {/* ----------------------------------- */}
       {/* CONTACT FORM */}
       {/* ----------------------------------- */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+      <section className="pt-0 bg-gradient-to-br from-gray-50 to-green-50">
         <Reveal>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -371,11 +371,11 @@ export function ContactPage() {
                 {/* ----------------------------------- */}
       {/* SUPPORT & SERVICES SECTION */}
       {/* ----------------------------------- */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-20 bg-white">
+        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
           <Reveal>
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 px-4">
               <Badge className="bg-blue-100 text-blue-800 border-blue-200 mb-4">
                 Support & Services
               </Badge>
@@ -424,7 +424,7 @@ export function ContactPage() {
 
               {/* Text */}
               <Reveal>
-                <div className="space-y-8">
+                <div className="space-y-8 px-4">
                   <div>
                     <div className="flex items-center space-x-3 mb-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center">
@@ -489,7 +489,7 @@ export function ContactPage() {
 
               {/* Image */}
               <Reveal delay={0.2} type="zoom">
-                <div className="relative">
+                <div className="relative px-4">
                   <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur-2xl opacity-20 transform rotate-3" />
                   <ImageWithFallback
                     src="https://i.ibb.co/HfCmchh6/IMG-20251113-WA0056.jpg"
@@ -510,7 +510,7 @@ export function ContactPage() {
 
               {/* Image */}
               <Reveal>
-                <div className="relative lg:order-1">
+                <div className="relative lg:order-1 px-4">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-green-500 rounded-2xl blur-2xl opacity-20 transform -rotate-3" />
                   <ImageWithFallback
                     src="https://i.ibb.co/yFS6nxsf/Gemini-Generated-Image-bhdnm9bhdnm9bhdn.png"
@@ -522,7 +522,7 @@ export function ContactPage() {
 
               {/* Text */}
               <Reveal delay={0.1}>
-                <div className="space-y-8 lg:order-2">
+                <div className="space-y-8 lg:order-2 px-4">
 
                   <div>
                     <div className="flex items-center space-x-3 mb-4">
@@ -568,7 +568,7 @@ export function ContactPage() {
           {/* MAINTENANCE SERVICES */}
           {/* ----------------------------------- */}
           <div className="mb-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center px-4">
 
               {/* Text */}
               <Reveal>
@@ -626,9 +626,9 @@ export function ContactPage() {
           {/* ----------------------------------- */}
           {/* DOCUMENTATION & RESOURCES */}
           {/* ----------------------------------- */}
-          <div className="mb-20">
+          <div className="mb-10">
             <Reveal>
-              <div className="text-center mb-12">
+              <div className="text-center mb-12 px-4">
                 <div className="flex items-center justify-center space-x-3 mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-indigo-100 to-green-100 rounded-xl flex items-center justify-center">
                     <FileText className="w-6 h-6 text-indigo-600" />
@@ -671,7 +671,7 @@ export function ContactPage() {
           {/* ----------------------------------- */}
           {/* OFFICE INFORMATION */}
           {/* ----------------------------------- */}
-          <section className="py-20">
+          <section className="py-10 px-4">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
 
               {/* Office Details */}

@@ -245,32 +245,32 @@ export function MarketsPage() {
 
       {/* HERO */}
       <section className="bg-gradient-to-br from-green-50 via-blue-50 to-white py-12">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <Reveal type="slide" y={20}>
-      <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Global Markets &{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-            Applications
-          </span>
-        </h1>
+          <Reveal type="slide" y={20}>
+            <div className="text-center mb-8">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Global Markets &{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
+                  Applications
+                </span>
+              </h1>
 
-        <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          Vaigo and the Agro AI Ecosystem deliver transformative benefits across diverse
-          agricultural markets.
-        </p>
-      </div>
-    </Reveal>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Vaigo and the Agro AI Ecosystem deliver transformative benefits across diverse
+                agricultural markets.
+              </p>
+            </div>
+          </Reveal>
 
-  </div>
-</section>
+        </div>
+      </section>
 
 
       {/* ===========================================================
                 TARGET MARKETS
       =========================================================== */}
-      <section className="py-20">
+      <section className="pt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <Reveal type="slide" y={20}>
@@ -322,7 +322,7 @@ export function MarketsPage() {
       {/* ===========================================================
                 CROP APPLICATIONS
       =========================================================== */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+      <section className="pt-20  bg-gradient-to-br from-gray-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <Reveal>
@@ -373,7 +373,7 @@ export function MarketsPage() {
       {/* ===========================================================
                 GEOGRAPHIC MARKETS
       =========================================================== */}
-      <section className="py-20">
+      <section className="pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <Reveal>
@@ -402,13 +402,12 @@ export function MarketsPage() {
 
                         <p className="text-sm text-gray-600">{market.countries}</p>
 
-                        <Badge className={`text-sm ${
-                          market.opportunity === "Massive"
+                        <Badge className={`text-sm ${market.opportunity === "Massive"
                             ? "bg-purple-100 text-purple-800"
                             : market.opportunity === "Very High"
-                            ? "bg-red-100 text-red-800"
-                            : "bg-green-100 text-green-800"
-                        }`}>
+                              ? "bg-red-100 text-red-800"
+                              : "bg-green-100 text-green-800"
+                          }`}>
                           {market.opportunity} Opportunity
                         </Badge>
                       </div>
@@ -429,13 +428,12 @@ export function MarketsPage() {
                       </div>
 
                       <div className="text-center">
-                        <Badge className={`mb-2 ${
-                          market.status === "Primary Focus"
+                        <Badge className={`mb-2 ${market.status === "Primary Focus"
                             ? "bg-blue-100 text-blue-800"
                             : market.status === "Key Growth Market"
-                            ? "bg-green-100 text-green-800"
-                            : "bg-gray-100 text-gray-800"
-                        }`}>
+                              ? "bg-green-100 text-green-800"
+                              : "bg-gray-100 text-gray-800"
+                          }`}>
                           {market.status}
                         </Badge>
 
@@ -444,8 +442,8 @@ export function MarketsPage() {
                             market.opportunity === "Massive"
                               ? 5
                               : market.opportunity === "Very High"
-                              ? 4
-                              : 3
+                                ? 4
+                                : 3
                           )].map((_, i) => (
                             <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                           ))}
@@ -465,7 +463,7 @@ export function MarketsPage() {
       {/* ===========================================================
                 SUCCESS STORIES
       =========================================================== */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+      <section className="pt-20 pb-10 bg-gradient-to-br from-blue-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <Reveal>

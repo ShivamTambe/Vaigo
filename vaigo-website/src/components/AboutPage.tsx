@@ -57,29 +57,29 @@ export function AboutPage() {
     <div className="min-h-screen bg-white">
       {/* HERO */}
       <section className="bg-gradient-to-br from-green-50 via-blue-50 to-white py-12">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <Reveal>
-      <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Pioneering the Future of{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-            Agriculture
-          </span>
-        </h1>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-8">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Pioneering the Future of{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
+                  Agriculture
+                </span>
+              </h1>
 
-        <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          Dotflick Ventures Private Limited was founded on a singular,
-          powerful vision: to transform global agriculture through the
-          strategic integration of cutting-edge technology.
-        </p>
-      </div>
-    </Reveal>
-  </div>
-</section>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Dotflick Ventures Private Limited was founded on a singular,
+                powerful vision: to transform global agriculture through the
+                strategic integration of cutting-edge technology.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
 
       {/* STORY */}
-      <section className="py-20">
+      <section className="pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <Reveal>
@@ -127,7 +127,7 @@ export function AboutPage() {
       </section>
 
       {/* VISION & MISSION */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+      <section className="pt-20 bg-gradient-to-br from-gray-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Vision */}
@@ -194,10 +194,10 @@ export function AboutPage() {
                           label === "Innovation"
                             ? "Pushing boundaries in agricultural technology"
                             : label === "Quality"
-                            ? "Highest standards of performance and reliability"
-                            : label === "Empowerment"
-                            ? "Making advanced technology accessible to all farmers"
-                            : "Contributing to sustainable farming practices"
+                              ? "Highest standards of performance and reliability"
+                              : label === "Empowerment"
+                                ? "Making advanced technology accessible to all farmers"
+                                : "Contributing to sustainable farming practices"
                         }</p>
                       </div>
                     ))}
@@ -210,7 +210,7 @@ export function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section className="py-20">
+      <section className="pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-16">

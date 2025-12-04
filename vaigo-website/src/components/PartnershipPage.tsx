@@ -386,7 +386,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-50 via-blue-50 to-white py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-green-50 via-blue-50 to-white pt-20 pb-10 overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-grid-green-500/[0.02] bg-[size:20px_20px]"
           style={{ y: heroY }}
@@ -468,7 +468,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
       </section>
 
       {/* Partnership Benefits */}
-      <section className="py-20 bg-white">
+      <section className="pt-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -519,7 +519,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
       {/* Partnership Form */}
       <section
         id="partnership-form"
-        className="py-20 bg-gradient-to-br from-gray-50 to-white"
+        className="pt-20 bg-gradient-to-br from-gray-50 to-white"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

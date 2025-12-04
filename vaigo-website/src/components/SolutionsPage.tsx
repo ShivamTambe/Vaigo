@@ -171,7 +171,7 @@ export function SolutionsPage() {
       </section>
 
       {/* Solutions Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="pt-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal type="slide" y={16} delay={0}>
             <div className="text-center mb-16">
@@ -245,7 +245,7 @@ export function SolutionsPage() {
       </section>
 
       {/* Industry-Specific Solutions */}
-      <section className="py-20 bg-white">
+      <section className="pt-10 pb-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <Reveal type="slide" y={16} delay={0}>
