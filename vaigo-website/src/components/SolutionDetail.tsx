@@ -110,7 +110,7 @@ export function SolutionDetail() {
               <Reveal type="fade" delay={i * 0.05} key={i}>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-600 mt-1" />
-                  <span className="text-gray-700">{feature}</span>
+                  <span className="text-lg text-gray-700">{feature}</span>
                 </div>
               </Reveal>
             ))}
@@ -144,7 +144,7 @@ export function SolutionDetail() {
                         <Reveal type="fade" delay={i * 0.04} key={i}>
                           <li className="flex items-start space-x-2">
                             <span className="text-green-600 mt-1">✔</span>
-                            <span>{item}</span>
+                            <span className="text-lg">{item}</span>
                           </li>
                         </Reveal>
                       ))}
@@ -184,7 +184,7 @@ export function SolutionDetail() {
                     <h3 className="text-4xl font-bold text-green-600 mb-2">
                       {stat.value}
                     </h3>
-                    <p className="text-gray-700">{stat.label}</p>
+                    <p className="text-lg text-gray-700">{stat.label}</p>
                   </div>
                 </Reveal>
               ))}
@@ -237,14 +237,14 @@ export function SolutionDetail() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => navigate("/contact")}
-                className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-medium transition-colors"
+                className="text-lg bg-white text-green-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-medium transition-colors"
               >
                 Schedule Consultation
               </button>
 
               <button
                 onClick={() => navigate("/products")}
-                className="border border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-lg font-medium transition-colors"
+                className="text-lg border border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-lg font-medium transition-colors"
               >
                 Explore Products
               </button>

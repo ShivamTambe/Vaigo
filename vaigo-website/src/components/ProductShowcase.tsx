@@ -185,7 +185,7 @@ export function ProductShowcase({ onNavigate }) {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
-                className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm"
+                className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-base"
               >
                 {activeSlide + 1} / {showcaseItems.length}
               </motion.div>
@@ -264,7 +264,7 @@ export function ProductShowcase({ onNavigate }) {
                     className="flex items-start space-x-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-500 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-lg text-gray-700">{feature}</span>
                   </motion.div>
                 ))}
               </div>
@@ -278,11 +278,11 @@ export function ProductShowcase({ onNavigate }) {
                 <Card className="border bg-gradient-to-r from-green-50 to-blue-50">
                   <CardContent className="p-6">
                     <h4 className="font-semibold text-gray-900 mb-4">Performance Metrics:</h4>
-                    <div className="grid grid-cols-3 gap-4 text-center">
+                    <div className="grid grid-cols-2 gap-4 text-center">
                       {Object.entries(currentItem.stats).map(([key, value]) => (
                         <div key={key}>
                           <div className="text-lg font-bold text-green-600">{value}</div>
-                          <div className="text-sm text-gray-600 capitalize">
+                          <div className="text-lg text-gray-600 capitalize">
                             {key.replace(/([A-Z])/g, " $1")}
                           </div>
                         </div>
@@ -296,7 +296,7 @@ export function ProductShowcase({ onNavigate }) {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-green-500 to-blue-600 text-white"
+                  className="text-lg bg-gradient-to-r from-green-500 to-blue-600 text-white"
                   onClick={() => onNavigate("products")}
                 >
                   Learn More About Vaigo
@@ -306,7 +306,7 @@ export function ProductShowcase({ onNavigate }) {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-green-200 text-green-700 hover:bg-green-50"
+                  className="text-lg border-green-200 text-green-700 hover:bg-green-50"
                   onClick={() => onNavigate("contact")}
                 >
                   Request Live Demo
@@ -332,8 +332,8 @@ export function ProductShowcase({ onNavigate }) {
                 <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Target className="w-7 h-7 text-green-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Precision Application</h3>
-                <p className="text-sm text-gray-600">Variable rate spraying with real-time adaptation.</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Precision Application</h3>
+                <p className="text-lg text-gray-600">Variable rate spraying with real-time adaptation.</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -345,8 +345,8 @@ export function ProductShowcase({ onNavigate }) {
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-7 h-7 text-blue-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Advanced Safety</h3>
-                <p className="text-sm text-gray-600">Multi-sensor obstacle detection for safe operation.</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Advanced Safety</h3>
+                <p className="text-lg text-gray-600">Multi-sensor obstacle detection for safe operation.</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -358,8 +358,8 @@ export function ProductShowcase({ onNavigate }) {
                 <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <BarChart3 className="w-7 h-7 text-green-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Data-Driven Insights</h3>
-                <p className="text-sm text-gray-600">Real-time analytics for better farm productivity.</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Data-Driven Insights</h3>
+                <p className="text-lg text-gray-600">Real-time analytics for better farm productivity.</p>
               </CardContent>
             </Card>
           </motion.div>

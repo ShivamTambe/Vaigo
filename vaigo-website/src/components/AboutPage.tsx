@@ -88,7 +88,7 @@ export function AboutPage() {
                   Our Story
                 </h2>
 
-                <div className="space-y-4 text-gray-600 leading-relaxed">
+                <div className="text-lg space-y-4 text-gray-600 leading-relaxed">
                   <p>
                     In an increasingly complex world, where food security,
                     resource scarcity, and climate change pose unprecedented
@@ -143,7 +143,7 @@ export function AboutPage() {
                     </h3>
                   </div>
 
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-lg text-gray-600 leading-relaxed mb-6">
                     Cultivating a Sustainable and Productive World
                   </p>
 
@@ -154,7 +154,7 @@ export function AboutPage() {
                       "Sustainability is Inherent: Environmentally responsible farming practices",
                       "Farmers Thrive: Equipped with tools for success and profitability",
                     ].map((item, i) => (
-                      <div key={i} className="flex items-start space-x-3">
+                      <div key={i} className="text-lg flex items-start space-x-3">
                         <Target className="w-5 h-5 text-green-500 mt-1" />
                         <p>{item}</p>
                       </div>
@@ -177,7 +177,7 @@ export function AboutPage() {
                     </h3>
                   </div>
 
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-lg text-gray-600 leading-relaxed mb-6">
                     Delivering Advanced Solutions for a Greener Tomorrow
                   </p>
 
@@ -188,7 +188,7 @@ export function AboutPage() {
                       ["Empowerment", Users],
                       ["Stewardship", Leaf],
                     ].map(([label, Icon], i) => (
-                      <div key={i} className="flex items-start space-x-3">
+                      <div key={i} className="text-lg flex items-start space-x-3">
                         <Icon className="w-5 h-5 text-blue-500 mt-1" />
                         <p>{label}: {
                           label === "Innovation"
@@ -236,7 +236,7 @@ export function AboutPage() {
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">
                       {value.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-lg text-gray-600 leading-relaxed">
                       {value.description}
                     </p>
                   </CardContent>
@@ -304,7 +304,7 @@ export function AboutPage() {
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600">{item.desc}</p>
+                  <p className="text-lg text-gray-600">{item.desc}</p>
                 </div>
               </Reveal>
             ))}

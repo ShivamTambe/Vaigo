@@ -301,13 +301,13 @@ export function MarketsPage() {
                       </div>
                     </div>
 
-                    <p className="text-gray-600 mb-6 leading-relaxed">{market.description}</p>
+                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">{market.description}</p>
 
                     <div className="space-y-3">
                       {market.benefits.map((benefit, b) => (
                         <div key={b} className="flex items-start space-x-3">
                           <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-1" />
-                          <span className="text-sm text-gray-700">{benefit}</span>
+                          <span className="text-lg text-gray-700">{benefit}</span>
                         </div>
                       ))}
                     </div>
@@ -346,21 +346,21 @@ export function MarketsPage() {
                       <h3 className="text-lg font-semibold text-gray-900">{crop.crop}</h3>
                     </div>
 
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">{crop.description}</p>
+                    <p className="text-gray-600 text-lg  mb-4 leading-relaxed ">{crop.description}</p>
 
                     <div className="space-y-2 mb-4">
-                      <h4 className="font-medium text-gray-900 text-sm">Key Applications:</h4>
+                      <h4 className="font-medium text-gray-900 text-lg">Key Applications:</h4>
                       {crop.applications.map((app, appIndex) => (
                         <div key={appIndex} className="flex items-start space-x-2">
                           <div className="w-1 h-1 bg-green-500 rounded-full mt-2" />
-                          <span className="text-sm text-gray-600">{app}</span>
+                          <span className="text-lg  text-gray-600">{app}</span>
                         </div>
                       ))}
                     </div>
 
                     <div className="bg-green-50 rounded-lg p-3">
-                      <h4 className="font-medium text-green-800 text-sm mb-1">Proven Results:</h4>
-                      <p className="text-sm text-green-700">{crop.results}</p>
+                      <h4 className="font-medium text-green-800 text-lg mb-1">Proven Results:</h4>
+                      <p className="text-lg text-green-700">{crop.results}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -400,9 +400,9 @@ export function MarketsPage() {
                           <h3 className="text-lg font-semibold text-gray-900">{market.region}</h3>
                         </div>
 
-                        <p className="text-sm text-gray-600">{market.countries}</p>
+                        <p className="text-lg text-gray-600">{market.countries}</p>
 
-                        <Badge className={`text-sm ${market.opportunity === "Massive"
+                        <Badge className={`text-lg ${market.opportunity === "Massive"
                             ? "bg-purple-100 text-purple-800"
                             : market.opportunity === "Very High"
                               ? "bg-red-100 text-red-800"
@@ -413,7 +413,7 @@ export function MarketsPage() {
                       </div>
 
                       <div className="md:col-span-2">
-                        <h4 className="font-medium text-gray-900 mb-2 text-sm">
+                        <h4 className="font-medium text-gray-900 mb-2 text-lg">
                           Market Characteristics:
                         </h4>
 
@@ -421,7 +421,7 @@ export function MarketsPage() {
                           {market.characteristics.map((char, c) => (
                             <div key={c} className="flex items-start space-x-2">
                               <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
-                              <span className="text-sm text-gray-600">{char}</span>
+                              <span className="text-lg text-gray-600">{char}</span>
                             </div>
                           ))}
                         </div>
@@ -484,30 +484,30 @@ export function MarketsPage() {
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-2 mb-4">
                       <MapPin className="w-4 h-4 text-green-600" />
-                      <span className="text-sm text-green-600 font-medium">{story.location}</span>
+                      <span className="text-lg text-green-600 font-medium">{story.location}</span>
                     </div>
 
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">{story.title}</h3>
 
                     <div className="space-y-4 mb-6">
                       <div>
-                        <h4 className="font-medium text-gray-900 text-sm mb-1">Challenge:</h4>
-                        <p className="text-sm text-gray-600">{story.challenge}</p>
+                        <h4 className="font-medium text-gray-900 text-lg mb-1">Challenge:</h4>
+                        <p className="text-lg text-gray-600">{story.challenge}</p>
                       </div>
 
                       <div>
-                        <h4 className="font-medium text-gray-900 text-sm mb-1">Solution:</h4>
-                        <p className="text-sm text-gray-600">{story.solution}</p>
+                        <h4 className="font-medium text-gray-900 text-lg mb-1">Solution:</h4>
+                        <p className="text-lg text-gray-600">{story.solution}</p>
                       </div>
 
                       <div>
-                        <h4 className="font-medium text-gray-900 text-sm mb-2">Results:</h4>
+                        <h4 className="font-medium text-gray-900 text-lg mb-2">Results:</h4>
 
                         <div className="space-y-1">
                           {story.results.map((result, r) => (
                             <div key={r} className="flex items-start space-x-2">
                               <TrendingUp className="w-3 h-3 text-green-500 mt-1" />
-                              <span className="text-sm text-gray-600">{result}</span>
+                              <span className="text-lg text-gray-600">{result}</span>
                             </div>
                           ))}
                         </div>
@@ -515,8 +515,8 @@ export function MarketsPage() {
                     </div>
 
                     <div className="bg-green-50 rounded-lg p-3">
-                      <h4 className="font-medium text-green-800 text-sm mb-1">Impact:</h4>
-                      <p className="text-sm text-green-700">{story.impact}</p>
+                      <h4 className="font-medium text-green-800 text-lg mb-1">Impact:</h4>
+                      <p className="text-lg text-green-700">{story.impact}</p>
                     </div>
 
                   </CardContent>
@@ -553,7 +553,7 @@ export function MarketsPage() {
                 <h3 className="text-2xl font-bold text-gray-900">
                   <AnimatedCounter to={60} suffix="%" />
                 </h3>
-                <p className="text-gray-600">Reduction in Chemical Usage</p>
+                <p className="text-lg text-gray-600">Reduction in Chemical Usage</p>
               </div>
             </Reveal>
 
@@ -565,7 +565,7 @@ export function MarketsPage() {
                 <h3 className="text-2xl font-bold text-gray-900">
                   <AnimatedCounter to={40} suffix="%" />
                 </h3>
-                <p className="text-gray-600">Increase in Yield Potential</p>
+                <p className="text-lg text-gray-600">Increase in Yield Potential</p>
               </div>
             </Reveal>
 
@@ -577,7 +577,7 @@ export function MarketsPage() {
                 <h3 className="text-2xl font-bold text-gray-900">
                   <AnimatedCounter to={15} suffix="+" />
                 </h3>
-                <p className="text-gray-600">Target Countries</p>
+                <p className="text-lg text-gray-600">Target Countries</p>
               </div>
             </Reveal>
 
@@ -589,7 +589,7 @@ export function MarketsPage() {
                 <h3 className="text-2xl font-bold text-gray-900">
                   <AnimatedCounter to={1000} suffix="+" />
                 </h3>
-                <p className="text-gray-600">Potential Farm Partners</p>
+                <p className="text-lg text-gray-600">Potential Farm Partners</p>
               </div>
             </Reveal>
 
@@ -618,7 +618,7 @@ export function MarketsPage() {
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
+                className="text-lg bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
                 onClick={() => navigate("/contact")}
               >
                 Explore Partnership
@@ -627,7 +627,7 @@ export function MarketsPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
+                className="text-lg border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
                 onClick={() => navigate("/products")}
               >
                 Request Demo

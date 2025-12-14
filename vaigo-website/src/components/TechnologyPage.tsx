@@ -216,11 +216,11 @@ export function TechnologyPage() {
                           <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-green-100 rounded-lg flex items-center justify-center">
                             <innovation.icon className="w-5 h-5 text-blue-600" />
                           </div>
-                          <h3 className="font-semibold text-gray-900 text-base">
+                          <h3 className="font-semibold text-gray-900 text-lg">
                             {innovation.title}
                           </h3>
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-gray-600 text-lg">
                           {innovation.description}
                         </p>
                       </CardContent>
@@ -275,7 +275,7 @@ export function TechnologyPage() {
                         <h3 className="text-2xl font-bold">{tech.title}</h3>
                       </div>
 
-                      <p className="text-gray-600 mb-6">{tech.description}</p>
+                      <p className="text-gray-600 mb-6 text-lg">{tech.description}</p>
 
                       <div className="space-y-3">
                         {tech.features.map((feature, fIndex) => (
@@ -283,7 +283,7 @@ export function TechnologyPage() {
                             <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
                               <div className="w-2 h-2 bg-green-500 rounded-full" />
                             </div>
-                            <span className="text-gray-700">{feature}</span>
+                            <span className="text-gray-700 text-lg">{feature}</span>
                           </div>
                         ))}
                       </div>
@@ -317,8 +317,8 @@ export function TechnologyPage() {
                             <cap.icon className="w-5 h-5 text-purple-600" />
                           </div>
                           <div>
-                            <h3 className="font-semibold">{cap.title}</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="font-semibold text-lg">{cap.title}</h3>
+                            <p className="text-lg text-gray-600">
                               {cap.description}
                             </p>
                           </div>
@@ -363,8 +363,8 @@ export function TechnologyPage() {
                           <feature.icon className="w-6 h-6 text-green-600" />
                         </div>
                         <div>
-                          <h3 className="font-semibold">{feature.title}</h3>
-                          <p className="text-sm text-gray-600">
+                          <h3 className="font-semibold text-lg">{feature.title}</h3>
+                          <p className="text-lg text-gray-600">
                             {feature.description}
                           </p>
                         </div>
@@ -398,14 +398,14 @@ export function TechnologyPage() {
             <div className="flex justify-center gap-4 flex-wrap">
               <button
                 onClick={() => navigate("/solutions")}
-                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium"
+                className="text-lg bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium"
               >
                 Explore Solutions
               </button>
 
               <button
                 onClick={() => navigate("/products")}
-                className="border border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-medium"
+                className="text-lg border border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-medium"
               >
                 View Products
               </button>

@@ -180,7 +180,7 @@ export function VaigoCenter() {
       <motion.div whileHover={{ scale: 1.05 }}>
         <Button
           size="lg"
-          className="bg-white text-black px-7 py-3 shadow-lg"
+          className="text-lg bg-white text-black px-7 py-3 shadow-lg"
           onClick={() => navigate("/contact")}
         >
           Get in Touch
@@ -191,7 +191,7 @@ export function VaigoCenter() {
         <Button
           size="lg"
           variant="outline"
-          className="border-white/40 text-white hover:bg-white/15 px-7 py-3"
+          className="text-lg border-white/40 text-white hover:bg-white/15 px-7 py-3"
           onClick={() => navigate("/Franchisee")}
         >
           Explore Franchise
@@ -221,7 +221,7 @@ export function VaigoCenter() {
       className="flex items-center gap-2"
     >
       <CheckCircle className="text-green-300 w-5 h-5" />
-      <span className="text-white font-medium"
+      <span className="text-lg text-white font-medium"
   style={{
     textShadow: `
       -1px 0 0 #000,
@@ -283,8 +283,8 @@ export function VaigoCenter() {
               <div className="space-y-3">
                 <Card className="border border-green-100 shadow-sm">
                   <CardContent className="p-5">
-                    <h4 className="font-semibold mb-2">Why it matters</h4>
-                    <p className="text-sm text-gray-700">
+                    <h4 className="text-lg font-semibold mb-2">Why it matters</h4>
+                    <p className="text-lg text-gray-700">
                       Local access, new livelihoods, faster disaster response, and precision farming at scale.
                     </p>
                   </CardContent>
@@ -292,8 +292,8 @@ export function VaigoCenter() {
 
                 <Card className="border border-green-100 shadow-sm">
                   <CardContent className="p-5">
-                    <h4 className="font-semibold mb-2">Ready models</h4>
-                    <p className="text-sm text-gray-700">
+                    <h4 className="text-lg font-semibold mb-2">Ready models</h4>
+                    <p className="text-lg text-gray-700">
                       Sales hub, rental setup, training lab, and maintenance bay — configurable per region.
                     </p>
                   </CardContent>
@@ -324,8 +324,8 @@ export function VaigoCenter() {
                       </div>
                       <h4 className="font-semibold text-lg">{d.title}</h4>
                     </div>
-                    <p className="text-sm text-gray-700">{d.desc}</p>
-                    <p className="text-sm text-green-700 font-medium">{d.outcome}</p>
+                    <p className="text-lg text-gray-700">{d.desc}</p>
+                    <p className="text-lg text-green-700 font-medium">{d.outcome}</p>
                   </CardContent>
                 </Card>
               </Reveal>
@@ -345,17 +345,17 @@ export function VaigoCenter() {
               <table className="w-full table-auto text-left text-sm md:text-base">
                 <thead className="bg-green-50 text-gray-800">
                   <tr>
-                    <th className="px-4 py-3 font-semibold">Sector</th>
-                    <th className="px-4 py-3 font-semibold">Use Case</th>
-                    <th className="px-4 py-3 font-semibold">Outcome</th>
+                    <th className="text-lg px-4 py-3 font-semibold">Sector</th>
+                    <th className="text-lg px-4 py-3 font-semibold">Use Case</th>
+                    <th className="text-lg px-4 py-3 font-semibold">Outcome</th>
                   </tr>
                 </thead>
                 <tbody>
                   {sectors.map((s, idx) => (
                     <tr key={idx} className="border-t hover:bg-green-50/30">
-                      <td className="px-4 py-3 font-medium text-gray-900">{s.sector}</td>
-                      <td className="px-4 py-3 text-gray-700">{s.useCase}</td>
-                      <td className="px-4 py-3 text-gray-700">{s.outcome}</td>
+                      <td className="text-lg px-4 py-3 font-medium text-gray-900">{s.sector}</td>
+                      <td className="text-lg px-4 py-3 text-gray-700">{s.useCase}</td>
+                      <td className="text-lg px-4 py-3 text-gray-700">{s.outcome}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -388,7 +388,7 @@ export function VaigoCenter() {
                 <Card className="border border-green-100 hover:shadow-lg transition">
                   <CardContent className="p-5 flex space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700">{point}</p>
+                    <p className="text-lg text-gray-700">{point}</p>
                   </CardContent>
                 </Card>
               </Reveal>
@@ -417,7 +417,7 @@ export function VaigoCenter() {
                 <Card className="border border-green-100">
                   <CardContent className="p-5 flex space-x-3">
                     <Cpu className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700">{tech}</p>
+                    <p className="text-lg text-gray-700">{tech}</p>
                   </CardContent>
                 </Card>
               </Reveal>
@@ -447,7 +447,7 @@ export function VaigoCenter() {
                 <Card className="border border-green-100 hover:shadow-lg transition">
                   <CardContent className="p-5 flex space-x-3">
                     <Leaf className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700">{impact}</p>
+                    <p className="text-lg text-gray-700">{impact}</p>
                   </CardContent>
                 </Card>
               </Reveal>
@@ -468,7 +468,7 @@ export function VaigoCenter() {
 
             <div className="bg-white/10 rounded-xl p-6 mb-6">
               <h4 className="text-xl font-semibold text-white mb-3">Each VAIGO Center becomes:</h4>
-              <ul className="text-green-100 text-left max-w-xl mx-auto space-y-2">
+              <ul className="text-lg text-green-100 text-left max-w-xl mx-auto space-y-2">
                 <li>• A drone airport for villages</li>
                 <li>• A training ground for next-generation pilots</li>
                 <li>• A gateway for last-mile aerial logistics</li>
@@ -478,7 +478,7 @@ export function VaigoCenter() {
             <Button
               size="lg"
               variant="secondary"
-              className="bg-white text-green-700 hover:bg-gray-50 px-8 py-3"
+              className="text-lg bg-white text-green-700 hover:bg-gray-50 px-8 py-3"
               onClick={() => navigate("/contact")}
             >
               Join the Movement

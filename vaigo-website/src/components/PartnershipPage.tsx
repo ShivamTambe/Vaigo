@@ -437,7 +437,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
               >
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-8 py-3"
+                  className="text-lg bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-8 py-3"
                   onClick={() => {
                     document
                       .getElementById("partnership-form")
@@ -507,7 +507,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       {benefit.title}
                     </h3>
-                    <p className="text-gray-600">{benefit.description}</p>
+                    <p className="text-lg text-gray-600">{benefit.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -556,7 +556,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="fullName">Full Name *</Label>
+                        <Label htmlFor="fullName" className='text-lg'>Full Name *</Label>
                         <Input
                           id="fullName"
                           type="text"
@@ -571,7 +571,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
+                        <Label htmlFor="email" className='text-lg'>Email Address *</Label>
                         <Input
                           id="email"
                           type="email"
@@ -588,7 +588,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number *</Label>
+                        <Label htmlFor="phone" className='text-lg'>Phone Number *</Label>
                         <Input
                           id="phone"
                           type="tel"
@@ -603,7 +603,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="company">Company / Brand Name</Label>
+                        <Label htmlFor="company" className='text-lg'>Company / Brand Name</Label>
                         <Input
                           id="company"
                           type="text"
@@ -626,7 +626,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                     </h3>
 
                     <div className="space-y-2">
-                      <Label htmlFor="dronePhotos">Upload Drone Photos</Label>
+                      <Label htmlFor="dronePhotos" className='text-lg'>Upload Drone Photos</Label>
                       <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 hover:border-green-500 transition-colors">
                         <div className="flex flex-col items-center space-y-2">
                           <Upload className="w-8 h-8 text-gray-400" />
@@ -634,6 +634,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                             <label
                               htmlFor="dronePhotos"
                               className="cursor-pointer"
+                              className='text-lg'
                             >
                               <span className="text-green-600 hover:text-green-700 font-medium">
                                 Click to upload
@@ -643,7 +644,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                                 or drag and drop
                               </span>
                             </label>
-                            <p className="text-sm text-gray-500 mt-1">
+                            <p className="text-lg text-gray-500 mt-1">
                               PNG, JPG, JPEG up to 10MB (Multiple files
                               allowed)
                             </p>
@@ -659,17 +660,17 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                         </div>
                         {selectedFiles.length > 0 && (
                           <div className="mt-4 space-y-2">
-                            <p className="text-sm font-medium text-gray-700">
+                            <p className="text-lg font-medium text-gray-700">
                               Selected files ({selectedFiles.length}):
                             </p>
-                            <ul className="text-sm text-gray-600 space-y-1">
+                            <ul className="text-lg text-gray-600 space-y-1">
                               {selectedFiles.map((file, index) => (
                                 <li
                                   key={index}
                                   className="flex items-center space-x-2"
                                 >
                                   <CheckCircle className="w-4 h-4 text-green-500" />
-                                  <span>{file.name}</span>
+                                  <span className='text-lg'>{file.name}</span>
                                 </li>
                               ))}
                             </ul>
@@ -679,7 +680,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="droneModel">
+                      <Label htmlFor="droneModel" className='text-lg'>
                         Drone Model / Product Details *
                       </Label>
                       <Textarea
@@ -697,7 +698,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="expectedPrice">
+                        <Label htmlFor="expectedPrice" className='text-lg'>
                           Expected Selling Price *
                         </Label>
                         <Input
@@ -714,7 +715,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="quantity">Quantity Available *</Label>
+                        <Label htmlFor="quantity" className='text-lg'>Quantity Available *</Label>
                         <Input
                           id="quantity"
                           type="number"
@@ -739,7 +740,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                     </h3>
 
                     <div ref={partnershipTypeRef}>
-                      <Label htmlFor="partnershipType" className="mb-2">
+                      <Label htmlFor="partnershipType" className="mb-2 text-lg">
                         Partnership Type <span className="text-red-500">*</span>
                       </Label>
 
@@ -783,14 +784,14 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                       </Select>
 
                       {errors.partnershipType && (
-                        <p className="text-red-500 text-sm mt-1">
+                        <p className="text-red-500 text-lg mt-1">
                           This field is required.
                         </p>
                       )}
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Additional Message</Label>
+                      <Label htmlFor="message" className='text-lg'>Additional Message</Label>
                       <Textarea
                         id="message"
                         placeholder="Tell us more about your partnership goals, experience, and what you hope to achieve..."
@@ -806,7 +807,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
 
                   {/* Location / Map – inside the form */}
                   <div className="space-y-3 pt-6 border-t border-gray-200">
-                    <Label>Location / Address Tools (optional)</Label>
+                    <Label className='text-lg'>Location / Address Tools (optional)</Label>
                     {isLoaded ? (
                       <>
                         <Autocomplete
@@ -829,7 +830,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                           <button
                             type="button"
                             onClick={() => setMapType("roadmap")}
-                            className={`px-3 py-1 rounded text-sm ${mapType === "roadmap"
+                            className={`text-lg px-3 py-1 rounded text-lg ${mapType === "roadmap"
                                 ? "bg-green-500 text-white"
                                 : "bg-gray-100 text-gray-700"
                               }`}
@@ -839,7 +840,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                           <button
                             type="button"
                             onClick={() => setMapType("hybrid")}
-                            className={`px-3 py-1 rounded text-sm ${mapType === "hybrid"
+                            className={`px-3 py-1 rounded text-lg ${mapType === "hybrid"
                                 ? "bg-green-500 text-white"
                                 : "bg-gray-100 text-gray-700"
                               }`}
@@ -849,7 +850,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                           <button
                             type="button"
                             onClick={() => setMapType("terrain")}
-                            className={`px-3 py-1 rounded text-sm ${mapType === "terrain"
+                            className={`px-3 py-1 rounded text-lg ${mapType === "terrain"
                                 ? "bg-green-500 text-white"
                                 : "bg-gray-100 text-gray-700"
                               }`}
@@ -859,7 +860,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                           <button
                             type="button"
                             onClick={setToCurrentLocation}
-                            className="ml-auto px-3 py-1 rounded text-sm bg-blue-50 text-blue-700"
+                            className="ml-auto px-3 py-1 rounded text-lg bg-blue-50 text-blue-700"
                           >
                             Use my location
                           </button>
@@ -938,7 +939,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                           <button
                             type="button"
                             onClick={clearAllShapes}
-                            className="px-4 py-2 rounded bg-red-50 text-red-600 border border-red-200 hover:bg-red-100"
+                            className="text-lg px-4 py-2 rounded bg-red-50 text-red-600 border border-red-200 hover:bg-red-100"
                           >
                             🗑️ Clear All Shapes
                           </button>
@@ -946,8 +947,8 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
 
                         {/* Drawing Tools Controls - Info Only */}
                         <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                          <p className="text-sm font-medium text-blue-900 mb-2">📍 How to draw shapes:</p>
-                          <ul className="text-xs text-blue-800 space-y-1">
+                          <p className="text-lg font-medium text-blue-900 mb-2">📍 How to draw shapes:</p>
+                          <ul className="text-lg text-blue-800 space-y-1">
                             <li>• Look for the <strong>toolbar at the TOP-CENTER of the map</strong></li>
                             <li>• Click the tool you want (Marker, Circle, Polygon, Polyline, or Rectangle)</li>
                             <li>• <strong>Marker:</strong> Click once on the map</li>
@@ -956,7 +957,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                             <li>• <strong>Polyline:</strong> Click multiple times, double-click to finish</li>
                             <li>• <strong>Rectangle:</strong> Click and drag diagonally</li>
                           </ul>
-                          <p className="text-xs text-blue-700 mt-3 font-medium">
+                          <p className="text-lg text-blue-700 mt-3 font-medium">
                             ✓ Shapes drawn: {drawnShapes.length}
                           </p>
                         </div>
@@ -982,7 +983,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                       />
                       <label
                         htmlFor="terms"
-                        className="text-sm text-gray-600 leading-relaxed cursor-pointer"
+                        className="text-lg text-gray-600 leading-relaxed cursor-pointer"
                       >
                         I agree to the{" "}
                         <button
@@ -1012,7 +1013,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
     text-white 
     py-3               /* smaller height on mobile */
     rounded-lg 
-    text-sm            /* small text on mobile */
+    text-lg            /* small text on mobile */
     font-medium 
     flex items-center justify-center gap-2
     md:py-4            /* slightly bigger on tablet/desktop */
@@ -1072,7 +1073,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-gray-600">{step.description}</p>
+                    <p className="text-lg text-gray-600">{step.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -1120,7 +1121,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
+                className="text-lg bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
               >
                 Contact Us
               </Button>
@@ -1129,7 +1130,7 @@ const partnershipTypeRef = useRef<HTMLDivElement | null>(null);
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
+                className="text-lg border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
               >
                 Learn About Vaigo
               </Button>

@@ -194,7 +194,7 @@ export function ScheduleCallPage() {
               <p className="text-gray-600 mb-6">
                 Thank you for scheduling a call with us. We'll send you a confirmation email with the meeting details shortly.
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-lg text-gray-500">
                 Redirecting back to contact page...
               </p>
             </CardContent>
@@ -213,7 +213,7 @@ export function ScheduleCallPage() {
             <Button
               variant="ghost"
               onClick={() => navigate('/contact')}
-              className="mb-6 text-gray-600 hover:text-gray-900"
+              className="text-lg mb-6 text-gray-600 hover:text-gray-900"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Contact
@@ -249,7 +249,7 @@ export function ScheduleCallPage() {
                     <Target className="w-6 h-6 text-green-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">Personalized Demo</h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-lg text-gray-600">
                     See Vaigo in action with a customized demonstration tailored to your crops and farming challenges
                   </p>
                 </CardContent>
@@ -263,7 +263,7 @@ export function ScheduleCallPage() {
                     <Users className="w-6 h-6 text-blue-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">Expert Consultation</h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-lg text-gray-600">
                     Get professional advice on implementing precision agriculture solutions for your specific operation
                   </p>
                 </CardContent>
@@ -277,7 +277,7 @@ export function ScheduleCallPage() {
                     <Zap className="w-6 h-6 text-purple-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">ROI Analysis</h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-lg text-gray-600">
                     Understand the potential return on investment and cost savings for your farming operation
                   </p>
                 </CardContent>
@@ -319,7 +319,7 @@ export function ScheduleCallPage() {
                     <div className="grid md:grid-cols-2 gap-6">
                       {/* Name */}
                       <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
+                        <Label htmlFor="name" className='text-lg'>Full Name *</Label>
                         <Input
                           id="name"
                           type="text"
@@ -330,13 +330,13 @@ export function ScheduleCallPage() {
                           className={`border-gray-200 focus:border-green-500 ${errors.name ? 'border-red-500 focus:border-red-500' : ''}`}
                         />
                         {errors.name && (
-                          <p className="text-sm text-red-500 mt-1">{errors.name}</p>
+                          <p className="text-lg text-red-500 mt-1">{errors.name}</p>
                         )}
                       </div>
 
                       {/* Email */}
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
+                        <Label htmlFor="email" className='text-lg'>Email Address *</Label>
                         <Input
                           id="email"
                           type="email"
@@ -347,13 +347,13 @@ export function ScheduleCallPage() {
                           className={`border-gray-200 focus:border-green-500 ${errors.email ? 'border-red-500 focus:border-red-500' : ''}`}
                         />
                         {errors.email && (
-                          <p className="text-sm text-red-500 mt-1">{errors.email}</p>
+                          <p className="text-lg text-red-500 mt-1">{errors.email}</p>
                         )}
                       </div>
 
                       {/* Phone */}
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number *</Label>
+                        <Label htmlFor="phone" className='text-lg'>Phone Number *</Label>
                         <Input
                           id="phone"
                           type="tel"
@@ -364,13 +364,13 @@ export function ScheduleCallPage() {
                           className={`border-gray-200 focus:border-green-500 ${errors.phone ? 'border-red-500 focus:border-red-500' : ''}`}
                         />
                         {errors.phone && (
-                          <p className="text-sm text-red-500 mt-1">{errors.phone}</p>
+                          <p className="text-lg text-red-500 mt-1">{errors.phone}</p>
                         )}
                       </div>
 
                       {/* Company */}
                       <div className="space-y-2">
-                        <Label htmlFor="company">Company/Farm Name</Label>
+                        <Label htmlFor="company" className='text-lg'>Company/Farm Name</Label>
                         <Input
                           id="company"
                           type="text"
@@ -383,7 +383,7 @@ export function ScheduleCallPage() {
 
                       {/* Job Title */}
                       <div className="space-y-2">
-                        <Label htmlFor="jobTitle">Job Title/Role</Label>
+                        <Label htmlFor="jobTitle" className='text-lg'>Job Title/Role</Label>
                         <Input
                           id="jobTitle"
                           type="text"
@@ -396,7 +396,7 @@ export function ScheduleCallPage() {
 
                       {/* Farm Size */}
                       <div className="space-y-2">
-                        <Label htmlFor="farmSize">Farm Size (acres/hectares)</Label>
+                        <Label htmlFor="farmSize" className='text-lg'>Farm Size (acres/hectares)</Label>
                         <Input
                           id="farmSize"
                           type="text"
@@ -418,7 +418,7 @@ export function ScheduleCallPage() {
                     <div className="grid md:grid-cols-2 gap-6">
                       {/* Meeting Type */}
                       <div className="space-y-2">
-                        <Label htmlFor="meetingType">Meeting Type *</Label>
+                        <Label htmlFor="meetingType" className='text-lg'>Meeting Type *</Label>
                         <Select
                           value={formData.meetingType}
                           onValueChange={(value) => handleInputChange('meetingType', value)}
@@ -430,7 +430,7 @@ export function ScheduleCallPage() {
                           >
                             <SelectValue placeholder="Select meeting type" />
                           </SelectTrigger>
-                          <SelectContent className="bg-white">
+                          <SelectContent className="bg-white" className='text-lg'>
                             {meetingTypes.map((type) => (
                               <SelectItem key={type.value} value={type.value}>
                                 <div className="flex items-center space-x-2">
@@ -442,13 +442,13 @@ export function ScheduleCallPage() {
                           </SelectContent>
                         </Select>
                         {errors.meetingType && (
-                          <p className="text-sm text-red-500 mt-1">{errors.meetingType}</p>
+                          <p className="text-lg text-red-500 mt-1">{errors.meetingType}</p>
                         )}
                       </div>
 
                       {/* Call Purpose */}
                       <div className="space-y-2">
-                        <Label htmlFor="callPurpose">Call Purpose *</Label>
+                        <Label htmlFor="callPurpose" className='text-lg'>Call Purpose *</Label>
                         <Select
                           value={formData.callPurpose}
                           onValueChange={(value) => handleInputChange('callPurpose', value)}
@@ -465,20 +465,20 @@ export function ScheduleCallPage() {
                               <SelectItem key={purpose.value} value={purpose.value}>
                                 <div className="flex items-center space-x-2">
                                   <purpose.icon className="w-4 h-4" />
-                                  <span>{purpose.label}</span>
+                                  <span className='text-lg'>{purpose.label}</span>
                                 </div>
                               </SelectItem>
                             ))}
                           </SelectContent>
                         </Select>
                         {errors.callPurpose && (
-                          <p className="text-sm text-red-500 mt-1">{errors.callPurpose}</p>
+                          <p className="text-lg text-red-500 mt-1">{errors.callPurpose}</p>
                         )}
                       </div>
 
                       {/* Preferred Date */}
                       <div className="space-y-2">
-                        <Label htmlFor="preferredDate">Preferred Date *</Label>
+                        <Label htmlFor="preferredDate" className='text-lg'>Preferred Date *</Label>
                         <Input
                           id="preferredDate"
                           type="date"
@@ -490,13 +490,13 @@ export function ScheduleCallPage() {
                           min={new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
                         />
                         {errors.preferredDate && (
-                          <p className="text-sm text-red-500 mt-1">{errors.preferredDate}</p>
+                          <p className="text-lg text-red-500 mt-1">{errors.preferredDate}</p>
                         )}
                       </div>
 
                       {/* Preferred Time */}
                       <div className="space-y-2">
-                        <Label htmlFor="preferredTime">Preferred Time *</Label>
+                        <Label htmlFor="preferredTime" className='text-lg'>Preferred Time *</Label>
                         <Select
                           value={formData.preferredTime}
                           onValueChange={(value) => handleInputChange('preferredTime', value)}
@@ -517,13 +517,13 @@ export function ScheduleCallPage() {
                           </SelectContent>
                         </Select>
                         {errors.preferredTime && (
-                          <p className="text-sm text-red-500 mt-1">{errors.preferredTime}</p>
+                          <p className="text-lg text-red-500 mt-1">{errors.preferredTime}</p>
                         )}
                       </div>
 
                       {/* Duration */}
                       <div className="space-y-2">
-                        <Label htmlFor="duration">Expected Duration *</Label>
+                        <Label htmlFor="duration" className='text-lg'>Expected Duration *</Label>
                         <Select
                           value={formData.duration}
                           onValueChange={(value) => handleInputChange('duration', value)}
@@ -544,13 +544,13 @@ export function ScheduleCallPage() {
                           </SelectContent>
                         </Select>
                         {errors.duration && (
-                          <p className="text-sm text-red-500 mt-1">{errors.duration}</p>
+                          <p className="text-lg text-red-500 mt-1">{errors.duration}</p>
                         )}
                       </div>
 
                       {/* Time Zone */}
                       <div className="space-y-2">
-                        <Label htmlFor="timeZone">Time Zone *</Label>
+                        <Label htmlFor="timeZone" className='text-lg'>Time Zone *</Label>
                         <Select
                           value={formData.timeZone}
                           onValueChange={(value) => handleInputChange('timeZone', value)}
@@ -562,7 +562,7 @@ export function ScheduleCallPage() {
                           >
                             <SelectValue placeholder="Select your time zone" />
                           </SelectTrigger>
-                          <SelectContent className="bg-white">
+                          <SelectContent className="text-lg bg-white">
                             {timeZones.map((zone) => (
                               <SelectItem key={zone} value={zone}>
                                 {zone}
@@ -571,7 +571,7 @@ export function ScheduleCallPage() {
                           </SelectContent>
                         </Select>
                         {errors.timeZone && (
-                          <p className="text-sm text-red-500 mt-1">{errors.timeZone}</p>
+                          <p className="text-lg text-red-500 mt-1">{errors.timeZone}</p>
                         )}
                       </div>
                     </div>
@@ -585,7 +585,7 @@ export function ScheduleCallPage() {
                     </h3>
                     <div className="space-y-6">
                       <div className="space-y-2">
-                        <Label htmlFor="currentChallenges">Current Farming Challenges</Label>
+                        <Label htmlFor="currentChallenges" className='text-lg'>Current Farming Challenges</Label>
                         <Textarea
                           id="currentChallenges"
                           value={formData.currentChallenges}
@@ -597,7 +597,7 @@ export function ScheduleCallPage() {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="additionalNotes">Additional Notes</Label>
+                        <Label htmlFor="additionalNotes" className='text-lg'>Additional Notes</Label>
                         <Textarea
                           id="additionalNotes"
                           value={formData.additionalNotes}
@@ -615,7 +615,7 @@ export function ScheduleCallPage() {
                     <Button
                       type="submit"
                       size="lg"
-                      className="py-3 bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 flex-1"
+                      className="text-lg py-3 bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 flex-1"
                     >
                       Schedule My Call
                       <Calendar className="ml-2 w-5 h-5" />
@@ -625,7 +625,7 @@ export function ScheduleCallPage() {
                       variant="outline"
                       size="lg"
                       onClick={() => navigate('/contact')}
-                      className="border-gray-200 text-gray-700 hover:bg-gray-50"
+                      className="text-lg border-gray-200 text-gray-700 hover:bg-gray-50"
                     >
                       <ArrowLeft className="mr-2 w-5 h-5" />
                       Back to Contact
@@ -680,8 +680,8 @@ export function ScheduleCallPage() {
                   <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl font-bold text-green-600">{item.step}</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-lg text-gray-600">{item.desc}</p>
                 </div>
               </Reveal>
             ))}

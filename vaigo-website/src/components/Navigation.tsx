@@ -63,7 +63,7 @@ export function Navigation() {
               >
                 <Link
                   to={item.path}
-                  className={`relative py-1 transition-colors duration-200 ${location.pathname === item.path
+                  className={`text-lgrelative py-1 transition-colors duration-200 ${location.pathname === item.path
                       ? "text-green-600 font-semibold"
                       : "text-gray-700 hover:text-green-600"
                     }`}

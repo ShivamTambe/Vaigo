@@ -194,9 +194,9 @@ export function ContactPage() {
                   <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <method.icon className="w-6 h-6 text-green-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{method.title}</h3>
-                  <p className="text-green-600 font-medium mb-2">{method.value}</p>
-                  <p className="text-sm text-gray-600">{method.description}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{method.title}</h3>
+                  <p className="text-lg text-green-600 font-medium mb-2">{method.value}</p>
+                  <p className="text-lg text-gray-600">{method.description}</p>
                 </CardContent>
               </Card>
             </Reveal>
@@ -207,7 +207,7 @@ export function ContactPage() {
       {/* ----------------------------------- */}
       {/* CONTACT FORM */}
       {/* ----------------------------------- */}
-      <section className="pt-0 bg-gradient-to-br from-gray-50 to-green-50">
+      <section className="pt-10 bg-gradient-to-br from-gray-50 to-green-50">
         <Reveal>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -228,26 +228,28 @@ export function ContactPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <Reveal delay={0.1}>
                     <div className="space-y-2">
-                      <Label>Full Name *</Label>
+                      <Label className="text-lg">Full Name *</Label>
                       <Input
                         type="text"
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
                         placeholder="Enter your full name"
                         required
+                        className="text-lg"
                       />
                     </div>
                   </Reveal>
 
                   <Reveal delay={0.15}>
                     <div className="space-y-2">
-                      <Label>Email Address *</Label>
+                      <Label className="text-lg">Email Address *</Label>
                       <Input
                         type="email"
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
                         placeholder="Enter your email"
                         required
+                        className="text-lg"
                       />
                     </div>
                   </Reveal>
@@ -257,25 +259,27 @@ export function ContactPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <Reveal delay={0.2}>
                     <div className="space-y-2">
-                      <Label>Company/Organization</Label>
+                      <Label className="text-lg">Company/Organization</Label>
                       <Input
                         type="text"
                         value={formData.company}
                         onChange={(e) => handleInputChange('company', e.target.value)}
                         placeholder="Enter your company name"
+                        className="text-lg"
                       />
                     </div>
                   </Reveal>
 
                   <Reveal delay={0.25}>
                     <div className="space-y-2">
-                      <Label>Phone Number</Label>
+                      <Label className="text-lg">Phone Number</Label>
                       <Input
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         placeholder="Enter your phone number"
                         required
+                        className="text-lg"
                       />
                     </div>
                   </Reveal>
@@ -284,7 +288,7 @@ export function ContactPage() {
                 {/* Inquiry */}
                 <Reveal delay={0.3}>
                   <div className="space-y-2">
-                    <Label>
+                    <Label className="text-lg">
   Inquiry Type <span className="text-red-500">*</span>
 </Label>
 
@@ -297,20 +301,20 @@ export function ContactPage() {
 >
   <SelectTrigger
     className={`
-      border-gray-200 focus:border-green-500 
-      ${errors.inquiry ? "border-red-500 focus:border-red-500" : ""}
+      text-lg sm:text-base border-gray-200 focus:border-green-500 
+      ${errors.inquiry ? " border-red-500 focus:border-red-500" : ""}
     `}
   >
     <SelectValue placeholder="Select inquiry type" />
   </SelectTrigger>
 
   <SelectContent className="bg-white">
-    <SelectItem value="demo">Request a Demo</SelectItem>
-    <SelectItem value="pricing">Pricing Information</SelectItem>
-    <SelectItem value="technical">Technical Support</SelectItem>
-    <SelectItem value="partnership">Partnership</SelectItem>
-    <SelectItem value="general">General Questions</SelectItem>
-    <SelectItem value="other">Other</SelectItem>
+    <SelectItem value="demo" className="text-lg">Request a Demo</SelectItem>
+    <SelectItem value="pricing" className="text-lg">Pricing Information</SelectItem>
+    <SelectItem value="technical" className="text-lg">Technical Support</SelectItem>
+    <SelectItem value="partnership" className="text-lg">Partnership</SelectItem>
+    <SelectItem value="general" className="text-lg">General Questions</SelectItem>
+    <SelectItem value="other" className="text-lg">Other</SelectItem>
   </SelectContent>
 </Select>
 
@@ -324,12 +328,13 @@ export function ContactPage() {
                 {/* Message */}
                 <Reveal delay={0.35}>
                   <div className="space-y-2">
-                    <Label>Message</Label>
+                    <Label className="text-lg">Message</Label>
                     <Textarea
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
                       placeholder="Tell us about your farming operation..."
                       rows={6}
+                      className="text-lg"
                     />
                   </div>
                 </Reveal>
@@ -340,7 +345,7 @@ export function ContactPage() {
                     <Button
                       type="submit"
                       size="lg"
-                      className="py-3 bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 flex-1"
+                      className="text-lg py-3 bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 flex-1"
                     >
                       Send Message
                       <Send className="ml-2 w-5 h-5" />
@@ -351,7 +356,7 @@ export function ContactPage() {
                       variant="outline"
                       size="lg"
                       onClick={() => navigate("/schedule-call")}
-                      className="border-green-200 text-green-700 hover:bg-green-50"
+                      className="text-lg border-green-200 text-green-700 hover:bg-green-50"
                     >
                       <MessageSquare className="mr-2 w-5 h-5" />
                       Schedule a Call
@@ -408,8 +413,8 @@ export function ContactPage() {
                     <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <item.icon className="w-7 h-7 text-green-600" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-600">{item.desc}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-lg text-gray-600">{item.desc}</p>
                   </CardContent>
                 </Card>
               </Reveal>
@@ -472,12 +477,12 @@ export function ContactPage() {
                   ].map((section, sIndex) => (
                     <Reveal delay={0.1 + sIndex * 0.1} key={sIndex}>
                       <div className={`border-l-4 border-${section.color}-500 pl-6`}>
-                        <h4 className="font-semibold text-gray-900 mb-2">{section.title}</h4>
+                        <h4 className="text-lg font-semibold text-gray-900 mb-2">{section.title}</h4>
                         <ul className="space-y-2 text-gray-600">
                           {section.points.map((pt, pIndex) => (
                             <li className="flex items-start space-x-2" key={pIndex}>
                               <CheckCircle className={`w-4 h-4 text-${section.color}-500 mt-0.5 flex-shrink-0`} />
-                              <span className="text-sm">{pt}</span>
+                              <span className="text-lg">{pt}</span>
                             </li>
                           ))}
                         </ul>
@@ -550,9 +555,9 @@ export function ContactPage() {
                         <Card className="border border-gray-100 p-4">
                           <div className="flex items-center space-x-3 mb-3">
                             <item.icon className={`w-5 h-5 text-${item.color}-600`} />
-                            <h4 className="font-semibold text-gray-900">{item.title}</h4>
+                            <h4 className="text-lg font-semibold text-gray-900">{item.title}</h4>
                           </div>
-                          <p className="text-sm text-gray-600">{item.desc}</p>
+                          <p className="text-lg text-gray-600">{item.desc}</p>
                         </Card>
                       </Reveal>
                     ))}
@@ -598,8 +603,8 @@ export function ContactPage() {
                       <div className={`flex items-start space-x-4 p-4 bg-gradient-to-r from-${box.color}-50 to-blue-50 rounded-lg`}>
                         <box.icon className={`w-6 h-6 text-${box.color}-600 flex-shrink-0 mt-1`} />
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-1">{box.title}</h4>
-                          <p className="text-sm text-gray-600">{box.desc}</p>
+                          <h4 className="text-lg font-semibold text-gray-900 mb-1">{box.title}</h4>
+                          <p className="text-lg text-gray-600">{box.desc}</p>
                         </div>
                       </div>
                     </Reveal>
@@ -659,8 +664,8 @@ export function ContactPage() {
                       <div className={`w-14 h-14 bg-gradient-to-br from-${item.color}-100 to-blue-100 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform`}>
                         <item.icon className={`w-7 h-7 text-${item.color}-600`} />
                       </div>
-                      <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
-                      <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h4>
+                      <p className="text-lg text-gray-600 leading-relaxed">{item.desc}</p>
                     </CardContent>
                   </Card>
                 </Reveal>
@@ -689,8 +694,8 @@ export function ContactPage() {
                             <MapPin className="w-5 h-5 text-green-600" />
                           </div>
                           <div>
-                            <h3 className="font-semibold text-gray-900 mb-1">Headquarters</h3>
-                            <p className="text-gray-600">
+                            <h3 className="text-lg font-semibold text-gray-900 mb-1">Headquarters</h3>
+                            <p className="text-lg text-gray-600">
                               Dotflick Ventures Private Limited<br />
                               D705, The Cliff Garden, Hinjewadi IT park phase 3<br />
                               Pune, Maharashtra - 411057<br />
@@ -707,10 +712,10 @@ export function ContactPage() {
                             <Clock className="w-5 h-5 text-blue-600" />
                           </div>
                           <div>
-                            <h3 className="font-semibold text-gray-900 mb-1">Business Hours</h3>
-                            <p className="text-gray-600">
-                              Monday–Friday: 9 AM – 5 PM<br />
-                              Saturday: 9 AM – 1 PM<br />
+                            <h3 className="text-lg font-semibold text-gray-900 mb-1">Business Hours</h3>
+                            <p className="text-lg text-gray-600">
+                              Monday-Friday: 9 AM - 5 PM<br />
+                              Saturday: 9 AM - 1 PM<br />
                               Sunday: Closed
                             </p>
                           </div>
@@ -724,9 +729,9 @@ export function ContactPage() {
                             <Headphones className="w-5 h-5 text-green-600" />
                           </div>
                           <div>
-                            <h3 className="font-semibold text-gray-900 mb-1">Support Hours</h3>
-                            <p className="text-gray-600">
-                              Technical Support: Mon–Sat, 9 AM – 6 PM<br />
+                            <h3 className="text-lg font-semibold text-gray-900 mb-1">Support Hours</h3>
+                            <p className="text-lg text-gray-600">
+                              Technical Support: Mon-Sat, 9 AM - 6 PM<br />
                               Emergency Support: 24/7<br />
                               Phone: +91 88050 43855
                             </p>
@@ -784,7 +789,7 @@ export function ContactPage() {
                       variant="outline"
                       size="lg"
                       onClick={() => navigate("/schedule-call")}
-                      className="border-green-200 text-green-100 hover:bg-green-50 hover:text-green-700"
+                      className="text-lg border-green-200 text-green-100 hover:bg-green-50 hover:text-green-700"
                     >
                       <MessageSquare className="mr-2 w-5 h-5" />
                       Schedule Demo Call

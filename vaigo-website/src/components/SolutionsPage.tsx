@@ -146,8 +146,8 @@ export function SolutionsPage() {
                           <capability.icon className="w-4 h-4 text-green-600" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-gray-900 text-sm">{capability.title}</h3>
-                          <p className="text-sm text-gray-600">{capability.description}</p>
+                          <h3 className="text-lg font-semibold text-gray-900">{capability.title}</h3>
+                          <p className="text-lg text-gray-600">{capability.description}</p>
                         </div>
                       </div>
                     </Reveal>
@@ -210,7 +210,7 @@ export function SolutionsPage() {
                         <Reveal key={featureIndex} type="slide" y={8} delay={0.08 + featureIndex * 0.02}>
                           <div className="flex items-start space-x-3">
                             <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-700">{feature}</span>
+                            <span className="text-lg text-gray-700">{feature}</span>
                           </div>
                         </Reveal>
                       ))}
@@ -221,7 +221,7 @@ export function SolutionsPage() {
                         onClick={() => navigate(`/solutions/${solution.title.toLowerCase().replace(/\s+/g, "-")}`)}
                         className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300"
                       >
-                        <span>Learn More</span>
+                        <span className="text-lg">Learn More</span>
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </Reveal>
@@ -283,7 +283,7 @@ export function SolutionsPage() {
                       <div className="absolute bottom-4 left-4 text-white">
                         <div className="flex items-center space-x-2 mb-2">
                           <MapPin className="w-4 h-4" />
-                          <span className="text-sm">{solution.location}</span>
+                          <span className="text-lg">{solution.location}</span>
                         </div>
                         <h3 className="text-2xl font-bold">
                           {solution.name}
@@ -297,7 +297,7 @@ export function SolutionsPage() {
                         <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 break-words leading-tight">
                           {solution.name}
                         </h4>
-                        <p className="text-gray-600 mb-6 leading-relaxed text-sm sm:text-base">
+                        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                           {solution.description}
                         </p>
 
@@ -313,7 +313,7 @@ export function SolutionsPage() {
                                   <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                                     <div className="w-2 h-2 bg-green-500 rounded-full" />
                                   </div>
-                                  <span className="text-gray-700 text-sm">{benefit}</span>
+                                  <span className="text-gray-700 text-lg">{benefit}</span>
                                 </li>
                               </Reveal>
                             ))}
@@ -323,10 +323,10 @@ export function SolutionsPage() {
 
                       {/* Badges */}
                       <div className="flex flex-wrap items-center gap-3 mt-4">
-                        <Badge className="bg-green-100 text-green-800 text-sm">
+                        <Badge className="bg-green-100 text-green-800 text-lg">
                           MahaAgri-AI Policy Aligned
                         </Badge>
-                        <Badge className="bg-blue-100 text-blue-800 text-sm">
+                        <Badge className="bg-blue-100 text-blue-800 text-lg">
                           Climate-Adaptive Design
                         </Badge>
                       </div>
@@ -363,7 +363,7 @@ export function SolutionsPage() {
                     <Globe className="w-7 h-7 text-green-600" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Climate-Adaptive Crop Design</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-lg leading-relaxed">
                     AI-powered simulation of crop growth under diverse climate conditions,
                     recommending optimal genetic traits for enhanced resilience.
                   </p>
@@ -378,7 +378,7 @@ export function SolutionsPage() {
                     <Activity className="w-7 h-7 text-blue-600" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Real-Time Quality Grading</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-lg leading-relaxed">
                     Monitor quality parameters like sugar content directly on growing plants,
                     transforming pricing, procurement, and contract management.
                   </p>
@@ -393,7 +393,7 @@ export function SolutionsPage() {
                     <Database className="w-7 h-7 text-purple-600" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Digital Twin Integration</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-lg leading-relaxed">
                     Complete virtual replica of your farmland with granular Pixel, Cube,
                     and Tile analysis secured by blockchain technology.
                   </p>
@@ -419,13 +419,13 @@ export function SolutionsPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={() => navigate('/contact')}
-                  className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-medium transition-colors"
+                  className="text-lg bg-white text-green-600 hover:bg-gray-50 px-8 py-3 rounded-lg font-medium transition-colors"
                 >
                   Schedule Consultation
                 </button>
                 <button
                   onClick={() => navigate('/products')}
-                  className="border border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-lg font-medium transition-colors"
+                  className="text-lg border border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-lg font-medium transition-colors"
                 >
                   Explore Products
                 </button>

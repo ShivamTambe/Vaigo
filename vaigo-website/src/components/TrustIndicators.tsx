@@ -122,8 +122,8 @@ export function TrustIndicators() {
                     <Badge className="bg-gray-100 text-gray-700 text-sm mb-3">
                       {item.category}
                     </Badge>
-                    <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
-                    <p className="text-sm text-gray-600">{item.description}</p>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h4>
+                    <p className="text-lg text-gray-600">{item.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -174,8 +174,8 @@ export function TrustIndicators() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white">
-                    <h4 className="font-semibold">{card.title}</h4>
-                    <p className="text-sm opacity-90">{card.subtitle}</p>
+                    <h4 className="text-xl font-semibold">{card.title}</h4>
+                    <p className="text-lg opacity-90">{card.subtitle}</p>
                   </div>
                 </div>
               </Card>
@@ -218,7 +218,7 @@ export function TrustIndicators() {
                       />
                     ))}
                   </div>
-                  <blockquote className="text-gray-700 mb-6 leading-relaxed italic">
+                  <blockquote className="text-lg text-gray-700 mb-6 leading-relaxed italic">
                     "{testimonial.quote}"
                   </blockquote>
                   <div className="border-t border-gray-100 pt-4">
@@ -228,12 +228,12 @@ export function TrustIndicators() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                        <p className="text-sm text-gray-600">{testimonial.role}</p>
+                        <p className="text-lg text-gray-600">{testimonial.role}</p>
                         {testimonial.company && (
-                          <p className="text-sm text-gray-500">{testimonial.company}</p>
+                          <p className="text-lg text-gray-500">{testimonial.company}</p>
                         )}
                         {testimonial.location && (
-                          <p className="text-sm text-gray-500">{testimonial.location}</p>
+                          <p className="text-lg text-gray-500">{testimonial.location}</p>
                         )}
                       </div>
                     </div>

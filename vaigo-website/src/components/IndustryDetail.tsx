@@ -101,7 +101,7 @@ export function IndustryDetail({ industrySpecific }: IndustryDetailProps) {
               <Reveal key={idx} type="fade" delay={0.04 + idx * 0.03}>
                 <li className="flex items-start gap-3 list-none text-gray-700 text-lg">
                   <span className="text-green-600 mt-1">✔</span>
-                  <p>{ch}</p>
+                  <p className="text-lg">{ch}</p>
                 </li>
               </Reveal>
             ))}
@@ -123,7 +123,7 @@ export function IndustryDetail({ industrySpecific }: IndustryDetailProps) {
                   <h4 className="text-lg font-semibold text-green-700 mb-2">
                     Solution {idx + 1}
                   </h4>
-                  <p className="text-gray-700">{s}</p>
+                  <p className="text-lg text-gray-700">{s}</p>
                 </div>
               </Reveal>
             ))}
@@ -145,7 +145,7 @@ export function IndustryDetail({ industrySpecific }: IndustryDetailProps) {
                   <h4 className="text-lg font-semibold text-green-700 mb-2">
                     Benefit {idx + 1}
                   </h4>
-                  <p className="text-gray-700">{b}</p>
+                  <p className="text-lg text-gray-700">{b}</p>
                 </div>
               </Reveal>
             ))}
@@ -170,7 +170,7 @@ export function IndustryDetail({ industrySpecific }: IndustryDetailProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => navigate("/products")}
-                className="border border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-lg font-medium transition-colors"
+                className="text-lg border border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-lg font-medium transition-colors"
               >
                 Contact Us
               </button>

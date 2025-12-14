@@ -118,33 +118,33 @@ export function Footer() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">Vaigo</h3>
-                  <p className="text-sm text-green-400">by Dotflick Ventures</p>
+                  <p className="text-lg text-green-400">by Dotflick Ventures</p>
                 </div>
               </div>
 
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-lg text-gray-300 leading-relaxed">
                 Revolutionizing agriculture with drone technology and AI-powered ecosystems.
               </p>
 
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Mail className="w-4 h-4 text-green-400" />
-                  <span className="text-gray-300">info@vaigo.in</span>
+                  <span className="text-lg text-gray-300">info@vaigo.in</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-4 h-4 text-green-400" />
-                  <span className="text-gray-300">+91 88050 43855</span>
+                  <span className="text-lg text-gray-300">+91 88050 43855</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-4 h-4 text-green-400" />
-                  <span className="text-gray-300">Maharashtra, India</span>
+                  <span className="text-lg text-gray-300">Maharashtra, India</span>
                 </div>
               </div>
 
               <div className="flex space-x-4">
                 {[Linkedin, Twitter, Facebook, Youtube].map((Icon, i) => (
                   <Button key={i} size="sm" variant="ghost"
-                    className="text-gray-400 hover:text-white hover:bg-gray-800">
+                    className="text-lg text-gray-400 hover:text-white hover:bg-gray-800">
                     <Icon className="w-4 h-4" />
                   </Button>
                 ))}
@@ -157,7 +157,7 @@ export function Footer() {
               <div className="space-y-2">
                 {companyLinks.map((link, index) => (
                   <Link key={index} to={link.path}
-                    className="block text-gray-300 hover:text-green-400 transition">
+                    className="text-lg block text-gray-300 hover:text-green-400 transition">
                     {link.label}
                   </Link>
                 ))}
@@ -170,7 +170,7 @@ export function Footer() {
               <div className="space-y-2">
                 {productLinks.map((link, index) => (
                   <Link key={index} to={link.path}
-                    className="block text-gray-300 hover:text-green-400 transition">
+                    className="text-lg block text-gray-300 hover:text-green-400 transition">
                     {link.label}
                   </Link>
                 ))}
@@ -183,7 +183,7 @@ export function Footer() {
               <div className="space-y-2">
                 {solutionLinks.map((link, index) => (
                   <Link key={index} to={link.path}
-                    className="block text-gray-300 hover:text-green-400 transition">
+                    className="text-lg block text-gray-300 hover:text-green-400 transition">
                     {link.label}
                   </Link>
                 ))}
@@ -198,7 +198,7 @@ export function Footer() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-xl font-semibold text-white mb-2">Stay Updated</h3>
-              <p className="text-gray-300">
+              <p className="text-lg text-gray-300">
                 Get the latest updates on agricultural innovation.
               </p>
             </div>
@@ -207,14 +207,14 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg
+                className="text-lg flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg
                 text-white placeholder-gray-400 focus:outline-none focus:border-green-500"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
 
               <Button 
-                className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
+                className="text-lg bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
                 onClick={handleSubscribe}
                 disabled={loading}
               >
@@ -234,7 +234,7 @@ export function Footer() {
               <div className="space-y-2">
                 {supportLinks.map((link, index) => (
                   <Link key={index} to={link.path}
-                    className="block text-gray-300 hover:text-green-400 transition">
+                    className="text-lg block text-gray-300 hover:text-green-400 transition">
                     {link.label}
                   </Link>
                 ))}
@@ -245,10 +245,10 @@ export function Footer() {
             <div className="space-y-4">
               <h4 className="font-semibold text-white">Markets</h4>
               <div className="space-y-2">
-                <Link to="/markets/target" className="block text-gray-300 hover:text-green-400">Target Markets</Link>
-                <Link to="/markets/crops" className="block text-gray-300 hover:text-green-400">Crop Applications</Link>
-                <Link to="/markets/global" className="block text-gray-300 hover:text-green-400">Global Reach</Link>
-                <Link to="/markets/success" className="block text-gray-300 hover:text-green-400">Success Stories</Link>
+                <Link to="/markets/target" className="text-lg block text-gray-300 hover:text-green-400">Target Markets</Link>
+                <Link to="/markets/crops" className="text-lg block text-gray-300 hover:text-green-400">Crop Applications</Link>
+                <Link to="/markets/global" className="text-lg block text-gray-300 hover:text-green-400">Global Reach</Link>
+                <Link to="/markets/success" className="text-lg block text-gray-300 hover:text-green-400">Success Stories</Link>
               </div>
             </div>
 
@@ -256,10 +256,10 @@ export function Footer() {
             <div className="space-y-4">
               <h4 className="font-semibold text-white">Legal</h4>
               <div className="space-y-2">
-                <Link to="/privacy" className="block text-gray-300 hover:text-green-400">Privacy Policy</Link>
-                <Link to="/terms" className="block text-gray-300 hover:text-green-400">Terms of Service</Link>
-                <Link to="/compliance" className="block text-gray-300 hover:text-green-400">Compliance</Link>
-                <Link to="/certifications" className="block text-gray-300 hover:text-green-400">Certifications</Link>
+                <Link to="/privacy" className="text-lg block text-gray-300 hover:text-green-400">Privacy Policy</Link>
+                <Link to="/terms" className="text-lg block text-gray-300 hover:text-green-400">Terms of Service</Link>
+                <Link to="/compliance" className="text-lg block text-gray-300 hover:text-green-400">Compliance</Link>
+                <Link to="/certifications" className="text-lg block text-gray-300 hover:text-green-400">Certifications</Link>
               </div>
             </div>
 
@@ -268,12 +268,12 @@ export function Footer() {
               <h4 className="font-semibold text-white">Quick Actions</h4>
               <div className="space-y-3">
                 <Button asChild size="sm"
-                  className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
+                  className="text-lg w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
                   <Link to="/contact">Request Demo</Link>
                 </Button>
 
                 <Button asChild size="sm" variant="outline"
-                  className="w-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
+                  className="text-lg w-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
                   <Link to="/contact">Contact Sales</Link>
                 </Button>
               </div>
@@ -288,10 +288,10 @@ export function Footer() {
       <div className="border-t border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
+            <div className="text-gray-400 text-lg">
               © 2025 Dotflick Ventures Private Limited. All rights reserved.
             </div>
-            <div className="flex items-center space-x-6 text-sm text-gray-400">
+            <div className="flex items-center space-x-6 text-lg text-gray-400">
               <span>Made in India 🇮🇳</span>
               <span>•</span>
               <span>Transforming Global Agriculture</span>

@@ -94,7 +94,7 @@ export function HomePage() {
               </Reveal>
 
               <Reveal delay={0.09}>
-                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-gray-600 leading-relaxed">
                   VAIGO Centers empower businesses, enthusiasts, and professionals with state-of-the-art drone
                   technology. From precision agriculture and industrial inspections to photography, logistics,
                   and surveillance — we provide comprehensive drone solutions under one roof. Partner with VAIGO to
@@ -107,7 +107,7 @@ export function HomePage() {
                 <Reveal delay={0.12}>
                   <Button
                     size="lg"
-                    className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-6 py-3 text-base sm:text-lg"
+                    className="text-lg bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-6 py-3"
                     onClick={() => navigate("/solutions")}
                   >
                     Explore Services
@@ -119,7 +119,7 @@ export function HomePage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-green-200 text-green-700 hover:bg-green-50 px-6 py-3 text-base sm:text-lg"
+                    className="text-lg border-green-200 text-green-700 hover:bg-green-50 px-6 py-3"
                     onClick={() => navigate("/franchisee")}
                   >
                     Become a Franchisee
@@ -132,7 +132,7 @@ export function HomePage() {
                 <Reveal delay={0.16}>
                   <div className="flex items-start space-x-2">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
-                    <span className="text-sm sm:text-base">
+                    <span className="text-lg">
                       Multi-service Drone Center: Sales, Rental, Repair & Training
                     </span>
                   </div>
@@ -141,7 +141,7 @@ export function HomePage() {
                 <Reveal delay={0.18}>
                   <div className="flex items-start space-x-2">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
-                    <span className="text-sm sm:text-base">
+                    <span className="text-lg">
                       Fully Compliant Infrastructure: DGCA approved flight areas and battery safety
                     </span>
                   </div>
@@ -150,14 +150,14 @@ export function HomePage() {
                 <Reveal delay={0.20}>
                   <div className="flex items-start space-x-2">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
-                    <span className="text-sm sm:text-base">Sustainable Operations: Solar + DG hybrid systems</span>
+                    <span className="text-lg">Sustainable Operations: Solar + DG hybrid systems</span>
                   </div>
                 </Reveal>
 
                 <Reveal delay={0.22}>
                   <div className="flex items-start space-x-2">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
-                    <span className="text-sm sm:text-base">Franchise Opportunities Available Nationwide</span>
+                    <span className="text-lg">Franchise Opportunities Available Nationwide</span>
                   </div>
                 </Reveal>
               </div>
@@ -210,7 +210,7 @@ export function HomePage() {
                           </div>
                           <h3 className="text-lg font-semibold text-gray-900">{feature.title}</h3>
                         </div>
-                        <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                        <p className="text-lg text-gray-600 leading-relaxed">{feature.description}</p>
                       </CardContent>
                     </Card>
                   </div>
@@ -258,7 +258,7 @@ export function HomePage() {
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
+                className="text-lg bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
                 onClick={() => navigate("/contact")}
               >
                 Request a Demo
@@ -269,7 +269,7 @@ export function HomePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
+                className="text-lg border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
                 onClick={() => navigate("/products")}
               >
                 Explore Products

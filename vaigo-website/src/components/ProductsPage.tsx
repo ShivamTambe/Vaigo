@@ -151,7 +151,7 @@ export const ProductsPage: React.FC = () => {
                   <h3 className="text-xl text-green-600 font-medium">
                     The Future of Agricultural Spraying
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed">
                     Vaigo is meticulously engineered to set new benchmarks in precision, efficiency, and reliability
                     for modern farming operations. Built on five core principles: Performance Excellence, Precision
                     and Accuracy, Reliability and Durability, User-Centric Design, and Scalability and Integration.
@@ -163,19 +163,19 @@ export const ProductsPage: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">10-10L payload capacity for maximum efficiency</span>
+                    <span className="text-lg text-gray-700">10-10L payload capacity for maximum efficiency</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">Centimeter-level precision with RTK/PPK positioning</span>
+                    <span className="text-lg text-gray-700">Centimeter-level precision with RTK/PPK positioning</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">IP67/IP68 rating for harsh environments</span>
+                    <span className="text-lg text-gray-700">IP67/IP68 rating for harsh environments</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-gray-700">Advanced obstacle avoidance system</span>
+                    <span className="text-lg text-gray-700">Advanced obstacle avoidance system</span>
                   </div>
                 </div>
               </Reveal>
@@ -183,7 +183,7 @@ export const ProductsPage: React.FC = () => {
               <Reveal type="zoom" delay={0.12}>
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
+                  className="text-lg bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
                   onClick={() => navigate('/contact')}
                 >
                   Request Vaigo Demo
@@ -221,9 +221,9 @@ export const ProductsPage: React.FC = () => {
                       <div className="w-10 h-10 bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <feature.icon className="w-5 h-5 text-green-600" />
                       </div>
-                      <h4 className="font-semibold text-gray-900">{feature.title}</h4>
+                      <h4 className="text-lg font-semibold text-gray-900">{feature.title}</h4>
                     </div>
-                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                    <p className="text-lg text-gray-600 leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               </Reveal>
@@ -243,10 +243,10 @@ export const ProductsPage: React.FC = () => {
                 {specifications.map((spec, index) => (
                   <Reveal key={index} type="slide" y={18} delay={0.05 + index * 0.03}>
                     <div className="flex py-3 border-b border-green-100 last:border-b-0">
-                      <span className="font-medium text-gray-900 w-40 flex-shrink-0 text-left">
+                      <span className="text-lg font-medium text-gray-900 w-40 flex-shrink-0 text-left">
                         {spec.label}
                       </span>
-                      <span className="text-gray-600 flex-1 text-right pl-4">
+                      <span className="text-lg text-gray-600 flex-1 text-right pl-4">
                         {spec.value}
                       </span>
                     </div>
@@ -280,7 +280,7 @@ export const ProductsPage: React.FC = () => {
 
               <Reveal type="slide" y={24} delay={0}>
                 <div className="space-y-4">
-                  <Badge className="bg-blue-100 text-blue-800 border-blue-200">
+                  <Badge className="text-lg bg-blue-100 text-blue-800 border-blue-200">
                     Intelligent Platform
                   </Badge>
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -289,7 +289,7 @@ export const ProductsPage: React.FC = () => {
                   <h3 className="text-xl text-blue-600 font-medium">
                     Intelligent Farming Unleashed
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed">
                     A comprehensive platform integrating cutting-edge AI, Deep Tech, IoT, and satellite monitoring
                     to create a truly intelligent and interconnected agricultural environment.
                   </p>
@@ -300,19 +300,19 @@ export const ProductsPage: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Digital Twin with Pixel, Cube, and Tile granularity</span>
+                    <span className="text-lg text-gray-700">Digital Twin with Pixel, Cube, and Tile granularity</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Blockchain-secured farm records and tokenization</span>
+                    <span className="text-lg text-gray-700">Blockchain-secured farm records and tokenization</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">AI-powered predictive analytics and recommendations</span>
+                    <span className="text-lg text-gray-700">AI-powered predictive analytics and recommendations</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-blue-500" />
-                    <span className="text-gray-700">Real-time multi-source data integration</span>
+                    <span className="text-lg text-gray-700">Real-time multi-source data integration</span>
                   </div>
                 </div>
               </Reveal>
@@ -320,7 +320,7 @@ export const ProductsPage: React.FC = () => {
               <Reveal type="zoom" delay={0.12}>
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-blue-500 to-green-600 hover:from-blue-600 hover:to-green-700"
+                  className="text-lg bg-gradient-to-r from-blue-500 to-green-600 hover:from-blue-600 hover:to-green-700"
                   onClick={() => navigate('/solutions')}
                 >
                   Explore AI Ecosystem
@@ -346,9 +346,9 @@ export const ProductsPage: React.FC = () => {
                       <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-green-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <feature.icon className="w-5 h-5 text-blue-600" />
                       </div>
-                      <h4 className="font-semibold text-gray-900">{feature.title}</h4>
+                      <h4 className="text-lg font-semibold text-gray-900">{feature.title}</h4>
                     </div>
-                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                    <p className="text-lg text-gray-600 leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               </Reveal>
@@ -381,8 +381,8 @@ export const ProductsPage: React.FC = () => {
                   <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <Target className="w-6 h-6 text-green-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Precision Crop Spraying</h3>
-                  <p className="text-sm text-gray-600">Targeted application of pesticides, herbicides, and fertilizers</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Precision Crop Spraying</h3>
+                  <p className="text-lg text-gray-600">Targeted application of pesticides, herbicides, and fertilizers</p>
                 </CardContent>
               </Card>
             </Reveal>
@@ -393,8 +393,8 @@ export const ProductsPage: React.FC = () => {
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <BarChart3 className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Nutrient Management</h3>
-                  <p className="text-sm text-gray-600">Precise doses based on soil analysis and crop health data</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Nutrient Management</h3>
+                  <p className="text-lg text-gray-600">Precise doses based on soil analysis and crop health data</p>
                 </CardContent>
               </Card>
             </Reveal>
@@ -405,8 +405,8 @@ export const ProductsPage: React.FC = () => {
                   <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <Shield className="w-6 h-6 text-green-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Pest & Disease Control</h3>
-                  <p className="text-sm text-gray-600">Rapid response to outbreaks with localized treatment</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Pest & Disease Control</h3>
+                  <p className="text-lg text-gray-600">Rapid response to outbreaks with localized treatment</p>
                 </CardContent>
               </Card>
             </Reveal>
@@ -417,8 +417,8 @@ export const ProductsPage: React.FC = () => {
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <Plane className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Difficult Terrain Access</h3>
-                  <p className="text-sm text-gray-600">Efficient operations in areas inaccessible to ground machinery</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Difficult Terrain Access</h3>
+                  <p className="text-lg text-gray-600">Efficient operations in areas inaccessible to ground machinery</p>
                 </CardContent>
               </Card>
             </Reveal>
@@ -449,7 +449,7 @@ export const ProductsPage: React.FC = () => {
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
+                className="text-lg bg-white text-green-600 hover:bg-gray-50 px-8 py-3"
                 onClick={() => navigate('/contact')}
               >
                 Request a Demo
@@ -457,7 +457,7 @@ export const ProductsPage: React.FC = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
+                className="text-lg border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
                 onClick={() => navigate('/solutions')}
               >
                 Learn More
